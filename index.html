@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- EDIT: tab title + Google description -->
+<title>rob fawley</title>
+<meta name="description" content="rob fawley — designer and writer based in london. an index of work and texts." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --bg:#FCFCFA;            /* the sheet */
+    --ink:#16150F;
+    --soft:#56554E;
+    --dim:#8E8D85;
+    --line:#E7E6E0;
+    --line-2:#D6D5CE;
+
+    --r-red:#FF2E2E;
+    --r-cyan:#10D8F0;
+    --r-mag:#FF1FA0;
+
+
+    --sans:"Archivo", system-ui, sans-serif;
+    --maxw:860px;
+
+    --dither:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='2' stitchTiles='stitch'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='discrete' tableValues='0 1'/%3E%3CfeFuncG type='discrete' tableValues='0 1'/%3E%3CfeFuncB type='discrete' tableValues='0 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23d)'/%3E%3C/svg%3E");
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    color:var(--ink); font-family:var(--sans); line-height:1.6; -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    background:var(--bg);
+  }
+
+  ::selection{ background:var(--r-mag); color:#fff; }
+  a{ color:inherit; text-decoration:none; }
+  a:focus-visible{ outline:2px solid var(--r-mag); outline-offset:3px; }
+
+  .cap{ font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:var(--dim); font-weight:500; }
+
+  /* the sheet floats on the leopard; its margins ARE the negative space */
+  .sheet{
+    max-width:var(--maxw);
+    margin:clamp(0px,6vw,84px) auto;
+    background:var(--bg);
+    padding:clamp(1.6rem,5vw,3rem) clamp(1.4rem,7vw,5.5rem) clamp(3.5rem,7vw,6rem);
+    position:relative;
+  }
+
+  /* nav at the top of the sheet (no sticky bar) */
+  .sheet header{ display:flex; justify-content:space-between; align-items:baseline; gap:1rem; }
+  .sheet header .name{ font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; font-weight:600; }
+  .sheet nav .links{ display:flex; gap:1.4rem; }
+  .sheet nav .links a{ font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--soft); font-weight:500; transition:color .2s; }
+  .sheet nav .links a:hover{ color:var(--ink); }
+
+  /* intro / bio — lots of room above it */
+  .intro{ padding-top:clamp(4.5rem,11vw,8rem); padding-bottom:clamp(3rem,7vw,5rem); }
+  .intro h1{ font-size:clamp(1.5rem,3.4vw,2.1rem); font-weight:500; letter-spacing:-.015em; transition:text-shadow .15s; }
+  .intro h1:hover{ text-shadow:-1.4px 0 rgba(255,46,46,.5), 1.4px 0 rgba(16,216,240,.5); }
+  .intro .bio{ margin-top:1.5rem; font-size:clamp(1rem,1.5vw,1.12rem); color:var(--soft); max-width:54ch; line-height:1.75; }
+  .intro .bio b{ color:var(--ink); font-weight:600; }
+  .intro .avail{ margin-top:1.5rem; }
+
+  /* sections, generously spaced */
+  .section{ padding-block:clamp(3.5rem,8vw,6rem); border-top:1px solid var(--line); }
+  .section > .cap{ display:block; margin-bottom:2.2rem; }
+
+  /* index lists */
+  .index a{ display:grid; grid-template-columns:1fr auto auto; gap:.5rem 1.6rem; align-items:baseline; padding:1.15rem 0; border-top:1px solid var(--line); transition:padding-left .25s ease; }
+  .index a:first-of-type{ border-top:none; }
+  .index .t{ font-size:clamp(1.02rem,1.8vw,1.2rem); transition:text-shadow .15s; }
+  .index a:hover{ padding-left:.55rem; }
+  .index a:hover .t{ text-shadow:-1.1px 0 rgba(255,46,46,.5), 1.1px 0 rgba(16,216,240,.5); }
+  .index .c{ font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--dim); justify-self:end; }
+  .index .y{ font-size:.7rem; letter-spacing:.06em; color:var(--dim); justify-self:end; min-width:3.2ch; text-align:right; }
+  @media(max-width:540px){ .index .c{ display:none } }
+
+  /* contact + colophon */
+  .contact{ padding-block:clamp(3.5rem,8vw,5.5rem); border-top:1px solid var(--line); }
+  .contact .mail{ font-size:clamp(1.1rem,3.4vw,1.55rem); font-weight:500; letter-spacing:-.01em; display:inline-block; transition:text-shadow .2s; }
+  .contact .mail:hover{ text-shadow:-1.6px 0 rgba(255,46,46,.55), 1.6px 0 rgba(16,216,240,.55); }
+  .contact .links{ margin-top:1.5rem; display:flex; gap:1.5rem; flex-wrap:wrap; font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; }
+  .contact .links a{ color:var(--soft); transition:color .2s; }
+  .contact .links a:hover{ color:var(--r-mag); }
+  .colophon{ margin-top:3.4rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:var(--dim); }
+  .colophon a:hover{ color:var(--r-mag); }
+
+  /* hover-reveal fried preview (kept) */
+  #preview{ position:fixed; top:0; left:0; width:210px; height:158px; pointer-events:none; z-index:60; opacity:0; transform:translate(-50%,-118%) scale(.95); transition:opacity .16s ease, transform .16s ease; }
+  #preview.show{ opacity:1; transform:translate(-50%,-118%) scale(1); }
+  #preview .pv{ position:relative; width:100%; height:100%; overflow:hidden; filter:contrast(1.6) saturate(2.5) brightness(1.04) drop-shadow(2px 0 rgba(255,46,46,.5)) drop-shadow(-2px 0 rgba(16,216,240,.5)); box-shadow:0 10px 30px rgba(0,0,0,.22); }
+  #preview .pv::after{ content:""; position:absolute; inset:0; background:var(--dither); background-size:120px; mix-blend-mode:multiply; opacity:.3; }
+  #preview .pv .fmt{ position:absolute; left:.5rem; bottom:.45rem; font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.92); text-shadow:0 1px 2px rgba(0,0,0,.5); }
+  .s1{ background:linear-gradient(150deg,#e0c071,#7c5d10) }
+  .s2{ background:linear-gradient(150deg,#ff5a2e,#b3160b) }
+  .s3{ background:linear-gradient(150deg,#eeede7,#c5c4bd) }
+  .s4{ background:linear-gradient(150deg,#8f97a0,#3d434b) }
+  .s5{ background:linear-gradient(150deg,#f0a6d6,#a23ca0) }
+  .s6{ background:repeating-linear-gradient(45deg,#222 0 10px,#0e0e10 10px 20px) }
+
+  /* datamosh (kept) */
+  #page{ will-change:filter; }
+  #page.moshing{ filter:url(#mosh); }
+
+  @media(prefers-reduced-motion:reduce){ *{ animation:none !important; transition:none !important } html{ scroll-behavior:auto } }
+</style>
+</head>
+<body>
+
+<!-- datamosh displacement filter -->
+<svg aria-hidden="true" width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden">
+  <filter id="mosh" x="-6%" y="-6%" width="112%" height="112%" color-interpolation-filters="sRGB">
+    <feTurbulence id="moshNoise" type="turbulence" baseFrequency="0.009 0.022" numOctaves="2" seed="11" stitchTiles="stitch" result="n"/>
+    <feDisplacementMap id="moshDisp" in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<!-- floating fried preview -->
+<div id="preview" aria-hidden="true"><div class="pv s1"><span class="fmt"></span></div></div>
+
+<div class="sheet">
+
+  <header>
+    <a href="#top" class="name">rob fawley</a>
+    <nav><div class="links">
+      <a href="#works">works</a>
+      <a href="#texts">texts</a>
+      <!-- EDIT: email -->
+      <a href="mailto:hello@robfawley.com">contact</a>
+    </div></nav>
+  </header>
+
+  <main id="page">
+
+    <!-- INTRO / BIO -->
+    <section class="intro" id="top">
+      <!-- EDIT: name -->
+      <h1>rob fawley</h1>
+      <!-- EDIT: bio -->
+      <p class="bio"><b>Rob Fawley</b> is a designer and writer based in London. He makes things for the internet — gifs, edits, microsites, and images that don't always load — and writes about design for <b>Disegno</b>. The serious work (healthcare systems, objects) is available on request.</p>
+      <!-- EDIT: availability -->
+      <p class="avail cap">London · available 2026</p>
+    </section>
+
+    <!-- WORKS -->
+    <!--
+      EDIT each row: title (.t), category (.c), year (.y), plus data-swatch /
+      data-fmt for the hover preview. Real image later: add data-img to the row.
+    -->
+    <section class="section" id="works">
+      <span class="cap">selected works</span>
+      <div class="index">
+        <a href="#" data-swatch="s1" data-fmt="gif"><span class="t">year of the horse</span><span class="c">gif</span><span class="y">2025</span></a>
+        <a href="#" data-swatch="s2" data-fmt="mp4"><span class="t">no thoughts</span><span class="c">video</span><span class="y">2025</span></a>
+        <a href="#" data-swatch="s3" data-fmt="png"><span class="t">white monster</span><span class="c">image</span><span class="y">2024</span></a>
+        <a href="#" data-swatch="s5" data-fmt="png"><span class="t">[meme series]</span><span class="c">image</span><span class="y">2024</span></a>
+        <a href="#" data-swatch="s4" data-fmt="obj"><span class="t">guy</span><span class="c">3d</span><span class="y">2023</span></a>
+        <a href="#" data-swatch="s6" data-fmt="html"><span class="t">[microsite]</span><span class="c">website</span><span class="y">2023</span></a>
+      </div>
+    </section>
+
+    <!-- TEXTS -->
+    <section class="section" id="texts">
+      <span class="cap">selected texts</span>
+      <div class="index">
+        <!-- EDIT: real pieces; link to the published article -->
+        <a href="#"><span class="t">[title of your essay or feature]</span><span class="c">Disegno</span><span class="y">2025</span></a>
+        <a href="#"><span class="t">[criticism / interview / report]</span><span class="c">Disegno</span><span class="y">2024</span></a>
+        <a href="#"><span class="t">[title goes here]</span><span class="c">[publication]</span><span class="y">2023</span></a>
+      </div>
+    </section>
+
+    <!-- CONTACT + COLOPHON -->
+    <section class="contact" id="contact">
+      <span class="cap">contact</span>
+      <div style="margin-top:1.5rem">
+        <!-- EDIT: email -->
+        <a class="mail" href="mailto:hello@robfawley.com">hello@robfawley.com</a>
+      </div>
+      <div class="links">
+        <!-- EDIT: links -->
+        <a href="#" target="_blank" rel="noopener">twitter/x ↗</a>
+        <a href="#" target="_blank" rel="noopener">instagram ↗</a>
+        <a href="#" target="_blank" rel="noopener">are.na ↗</a>
+        <a href="#" target="_blank" rel="noopener">read.cv ↗</a>
+      </div>
+      <div class="colophon">
+        <span>© <span id="year"></span> rob fawley</span>
+        <span>set in archivo · best viewed slightly degraded</span>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---- hover-reveal fried preview on work rows ---- */
+  (function(){
+    const pv = document.getElementById('preview');
+    if(!pv || (window.matchMedia && matchMedia('(hover: none)').matches)) return;
+    const inner = pv.querySelector('.pv'), fmt = pv.querySelector('.fmt');
+    document.querySelectorAll('#works .index a[data-swatch]').forEach(row=>{
+      row.addEventListener('mouseenter', ()=>{
+        inner.className = 'pv ' + (row.dataset.swatch || 's1');
+        fmt.textContent = row.dataset.fmt || '';
+        pv.classList.add('show');
+      });
+      row.addEventListener('mouseleave', ()=> pv.classList.remove('show'));
+    });
+    window.addEventListener('mousemove', e=>{
+      if(!pv.classList.contains('show')) return;
+      pv.style.left = e.clientX + 'px';
+      pv.style.top = Math.max(120, e.clientY) + 'px';
+    }, {passive:true});
+  })();
+
+  /* ---- datamosh transition ---- */
+  (function(){
+    const page = document.getElementById('page');
+    const disp = document.getElementById('moshDisp');
+    const reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let moshing = false;
+    function runMosh(mid){
+      if(reduceMotion || !page || !disp){ if(mid) mid(); return; }
+      if(moshing){ if(mid) mid(); return; }
+      moshing = true; page.classList.add('moshing');
+      const peak = 30, up = 230, hold = 70, down = 300, total = up+hold+down;
+      const t0 = performance.now(); let did = false;
+      function step(now){
+        const t = now - t0; let s;
+        if(t < up){ s = peak*(t/up); }
+        else if(t < up+hold){ s = peak; if(!did && mid){ mid(); did = true; } }
+        else if(t < total){ s = peak*(1-(t-up-hold)/down); }
+        else { s = 0; }
+        disp.setAttribute('scale', s.toFixed(2));
+        if(t < total){ requestAnimationFrame(step); }
+        else { disp.setAttribute('scale','0'); page.classList.remove('moshing'); moshing = false; if(mid && !did) mid(); }
+      }
+      requestAnimationFrame(step);
+    }
+    function jumpTo(tgt){ if(!tgt) return; const h=document.documentElement, p=h.style.scrollBehavior; h.style.scrollBehavior='auto'; tgt.scrollIntoView(); h.style.scrollBehavior=p; }
+    document.querySelectorAll('a[href]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href') || '';
+        if(href.startsWith('mailto:') || href.startsWith('http') || a.target === '_blank') return;
+        if(href.charAt(0) === '#'){
+          e.preventDefault();
+          if(href.length > 1){ const tgt = document.querySelector(href); runMosh(()=>jumpTo(tgt)); }
+          else { runMosh(null); }
+        }
+      });
+    });
+  })();
+</script>
+</body>
+</html>
