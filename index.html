@@ -504,9 +504,11 @@
     text-transform:uppercase; color:var(--dim); }
   /* diagrams keep their linework: no chromatic fry, and a scroll rail when the
      panel gets too narrow for the labels to survive */
-  .diagram-rail{ overflow-x:auto; scrollbar-width:none; }
-  .diagram-rail::-webkit-scrollbar{ display:none; }
-  .diagram-rail img{ min-width:640px; }
+  /* diagrams scale to fit their container at every width; the browser's own
+     pinch-to-zoom (not disabled by the viewport meta tag) handles reading
+     fine label detail on a phone, rather than forcing a fixed pixel width
+     that spilled off the edge into a scroll box. */
+  .diagram-rail img{ width:100%; height:auto; }
   .work-links{ margin-top:2rem; display:flex; gap:1.4rem; flex-wrap:wrap;
     font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; }
   .work-links a{ color:var(--soft); border-bottom:1px solid var(--soft); padding-bottom:.25rem; transition:color .2s, border-color .2s; }
