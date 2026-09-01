@@ -1321,6 +1321,11 @@
       natW=art.scrollWidth; natH=art.scrollHeight;
     }
     function fit(){
+      // #dancer is display:none whenever a work is open; a stray resize
+      // event landing in that window (mobile address-bar show/hide is the
+      // usual culprit) would otherwise measure a 0x0 box and floor the
+      // scale at its minimum, leaving the figure stuck tiny on return.
+      if(wrap.clientWidth === 0 && wrap.clientHeight === 0) return;
       if(!natW||!natH) measure();
       const capH=46;                       // room for the caption + a little gap
       const availW=wrap.clientWidth;
@@ -1333,6 +1338,14 @@
     }
     measure(); fit();
     window.addEventListener('resize', fit, {passive:true});
+    // re-measure whenever the panel empties and the dancer reappears,
+    // instead of only ever reacting to window resize events
+    const panelEl = document.getElementById('panel');
+    if(panelEl && window.MutationObserver){
+      new MutationObserver(()=>{
+        if(!panelEl.children.length) requestAnimationFrame(fit);
+      }).observe(panelEl, {childList:true});
+    }
     // re-fit once the monospace webfont has loaded (its metrics differ)
     if(document.fonts && document.fonts.ready){ document.fonts.ready.then(()=>{ measure(); fit(); }); }
 
