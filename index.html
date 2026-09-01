@@ -17,6 +17,135 @@
 <meta property="og:title" content="rob fawley" />
 <meta property="og:description" content="designer and writer based in london. an index of work and texts." />
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://robfawley.com/#person",
+      "name": "Rob Fawley",
+      "url": "https://robfawley.com/",
+      "email": "mailto:contact@robfawley.com",
+      "sameAs": [
+        "https://www.instagram.com/rob_fawley"
+      ],
+      "jobTitle": "Designer and writer",
+      "description": "Rob Fawley is a London based designer and writer. His professional practice spans design journalism and hospital technology. His personal practice ranges from exploring how we can preserve knowledge in the attention economy to how our economic models reshape architecture.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "London",
+        "addressCountry": "GB"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://robfawley.com/#website",
+      "url": "https://robfawley.com/",
+      "name": "rob fawley",
+      "description": "designer and writer based in london. an index of work and texts.",
+      "author": {
+        "@id": "https://robfawley.com/#person"
+      }
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Deep Fried Cinema",
+      "url": "https://robfawley.com/#film",
+      "dateCreated": "2026",
+      "creator": {
+        "@id": "https://robfawley.com/#person"
+      },
+      "description": "A vertical film, produced as an extension of Essays for the Gooniverse, made for large-scale display. Shown at Shoreditch Design Week and the Goldsmiths BA Design degree show.",
+      "isPartOf": {
+        "@id": "https://robfawley.com/#website"
+      }
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Essays for the Gooniverse",
+      "url": "https://robfawley.com/#gooniverse",
+      "dateCreated": "2026",
+      "creator": {
+        "@id": "https://robfawley.com/#person"
+      },
+      "description": "A process for translating an essay into a corpus of short-form video, built around a character (the Goon Guide), a two-object filming rig, and a TikTok data scraper trained on 50,000 videos.",
+      "isPartOf": {
+        "@id": "https://robfawley.com/#website"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "name": "Microsoft: 73% Beef Roast",
+      "url": "https://robfawley.com/#horse",
+      "dateCreated": "2025",
+      "creator": {
+        "@id": "https://robfawley.com/#person"
+      },
+      "description": "A film made as part of a research project for Microsoft on how shrinking training data shapes the quality of language model and image generator outputs, articulated through the metaphor of a roast dinner made from whatever is in the cupboard.",
+      "thumbnailUrl": "https://robfawley.com/beef-roast-poster.jpg",
+      "isPartOf": {
+        "@id": "https://robfawley.com/#website"
+      }
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Thankyou, Mrs Thatcher, for your Slopitecture?",
+      "url": "https://robfawley.com/#thatcher",
+      "dateCreated": "2025",
+      "creator": {
+        "@id": "https://robfawley.com/#person"
+      },
+      "description": "A speculative architectural proposal for Peckham's Aylesham Centre, exploring the end goal of development driven purely by profit under neoliberal deregulation and austerity.",
+      "isPartOf": {
+        "@id": "https://robfawley.com/#website"
+      }
+    },
+    {
+      "@type": "Article",
+      "name": "Sam and the Technologically Driven Epistemic Hyper-Fragmentation",
+      "url": "https://robfawley.com/#essay3",
+      "dateCreated": "2026",
+      "author": {
+        "@id": "https://robfawley.com/#person"
+      },
+      "description": "A self-published essay tracing the dissolving of shared cultural narratives, from postmodern theory through to AI. Around 8,000 words. Source text for Essays for the Gooniverse.",
+      "wordCount": 8000,
+      "isPartOf": {
+        "@id": "https://robfawley.com/#website"
+      }
+    },
+    {
+      "@type": "Article",
+      "name": "The Rhythm of the Meal",
+      "url": "https://disegnojournal.com/newsfeed/jun-rhee-jollof-rice-bowl",
+      "dateCreated": "2025",
+      "author": {
+        "@id": "https://robfawley.com/#person"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Disegno"
+      },
+      "description": "A profile written for Disegno on ceramicist Jun Rhee and the handmade Jollof rice bowl he created for London-based Michelin-starred restaurant Akoko."
+    },
+    {
+      "@type": "Article",
+      "name": "A Chair from the Steppe",
+      "url": "https://disegnojournal.com/newsfeed/daniyar-uderbekov-10-nodes-chair",
+      "dateCreated": "2025",
+      "author": {
+        "@id": "https://robfawley.com/#person"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Disegno"
+      },
+      "description": "A profile written for Disegno on designer Daniyar Uderbekov and the 10 Nodes Chair, made from Kazakh felt and a frame of reclaimed plastic waste gathered from the steppe."
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -93,7 +222,7 @@
   /* LEFT — the persistent index. sticks while the right side scrolls. */
   .index-col{ position:sticky; top:clamp(1.5rem,5vw,3rem); align-self:start; }
   .status{ margin-bottom:clamp(2.4rem,5vw,3.4rem); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); font-weight:400; }
-  .status .sep{ color:var(--r-mag); margin:0 .5em; }
+  .sep{ color:var(--r-mag); margin:0 .5em; display:inline-block; transform:translateY(.06em); }
   .index-group{ margin-bottom:clamp(2.4rem,5vw,3.4rem); }
   .index-group > .cap{ display:block; margin-bottom:1.1rem; }
 
@@ -242,7 +371,7 @@
     background:#16150F; cursor:pointer;
   }
   .trip-nav{ display:none; }
-  @media(max-width:720px){
+  @media(max-width:1180px){
     .trip-track{
       gap:0; overflow-x:auto; scroll-snap-type:x mandatory;
       -webkit-overflow-scrolling:touch; scrollbar-width:none;
@@ -261,6 +390,12 @@
       font-size:.72rem; letter-spacing:.15em; color:var(--dim);
       min-width:3.5em; text-align:center;
     }
+  }
+  /* between 721 and 1180 the panel is wide enough that a single 9:16 video would
+     run taller than the screen, so cap it. below 721 the layout is single-column
+     and the old behaviour is left exactly as it was. */
+  @media(min-width:721px) and (max-width:1180px){
+    .triptych:not(.gallery){ width:min(calc(74vh * 9 / 16), 100%); margin:0 auto; }
   }
   /* single-image click-through gallery (work heroes) — one image per view at all widths */
   .gallery .trip-track{
@@ -286,6 +421,8 @@
   }
   .view--work .work-body{ max-width:60ch; margin-top:2rem; }
   .view--work .work-body .go{ margin-top:1.6rem; }
+  .work-body p a:not(.go){ color:var(--ink); border-bottom:1px solid var(--line-2); transition:color .2s, border-color .2s; }
+  .work-body p a:not(.go):hover{ color:var(--r-mag); border-color:var(--r-mag); }
 
   /* prev · index · next */
   .proj-nav{ display:flex; align-items:flex-start; justify-content:space-between; gap:1.2rem; margin-top:clamp(2.6rem,6vw,4.2rem); }
@@ -324,11 +461,68 @@
   #preview .pv .fmt{ position:absolute; left:.5rem; bottom:.45rem; font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.92); text-shadow:0 1px 2px rgba(0,0,0,.5); }
   #preview .pv.has-img{ background-size:cover; background-position:center; }
 
+
+    /* film work — vertical, click-to-load youtube with our own controls */
+    .filmbox{ width:min(calc(78vh * 9 / 16), 100%); margin:0 auto; }
+    .film-stage{ position:relative; aspect-ratio:9/16; width:100%; background:#16150F; overflow:hidden; }
+    .film-poster{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+    .film-play{
+      position:absolute; inset:0; margin:auto; width:4.2rem; height:4.2rem;
+      display:flex; align-items:center; justify-content:center;
+      background:rgba(22,21,15,.55); border:1px solid rgba(252,252,250,.9);
+      color:#FCFCFA; font-family:inherit; font-size:1rem; padding-left:.18rem;
+      transition:background .2s, border-color .2s;
+    }
+    .film-play:hover{ background:var(--r-mag); border-color:var(--r-mag); }
+    .film-mount{ position:absolute; inset:0; display:none; }
+    .film-mount iframe{ width:100%; height:100%; border:0; display:block; }
+    .filmbox.is-live .film-mount{ display:block; }
+    .filmbox.is-live .film-poster, .filmbox.is-live .film-play{ display:none; }
+    .film-bar{ display:flex; align-items:center; gap:1rem; margin-top:1rem; }
+    .film-toggle{ background:none; border:0; font-family:inherit; font-size:.95rem; color:var(--ink); padding:.1rem .4rem; }
+    .film-track{ flex:1; position:relative; height:14px; display:flex; align-items:center; }
+    .film-track::before{ content:""; position:absolute; left:0; right:0; height:2px; background:var(--line-2); }
+    .film-fill{ position:relative; height:2px; width:0; background:var(--r-mag); }
+    .film-time{ font-size:.66rem; letter-spacing:.1em; color:var(--dim); min-width:9ch; text-align:right; }
+    @media(max-width:720px){ .filmbox{ width:100%; } }
+
+
+  /* long-form work pages: headings, numbered steps, inline figures, diagrams */
+  .view--work .standfirst{ max-width:60ch; font-size:1rem; color:var(--soft); line-height:1.7; margin:1.4rem 0 0; }
+  .work-body h2{ font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; color:var(--dim);
+    margin:3rem 0 1.2rem; padding-top:1.3rem; border-top:1px solid #E4E3DD; }
+  .work-body h2:first-child{ margin-top:0; }
+  .work-body .steps{ list-style:none; counter-reset:step; margin:1.6rem 0 0; padding:0; }
+  .work-body .steps li{ position:relative; padding-left:2.6rem; margin:0 0 1.1rem;
+    color:var(--soft); font-size:clamp(1rem,1.4vw,1.1rem); line-height:1.78; }
+  .work-body .steps li::before{ counter-increment:step; content:counter(step,decimal-leading-zero);
+    position:absolute; left:0; top:.15em; font-size:.66rem; letter-spacing:.12em; color:var(--r-mag); }
+  .work-figure{ margin:2.6rem 0 0; }
+  .work-figure img{ display:block; width:100%; height:auto; }
+  .work-figure--portrait img{ width:auto; max-width:100%; max-height:82vh; margin:0 auto; }
+  .work-figure figcaption{ margin-top:.9rem; font-size:.66rem; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--dim); }
+  /* diagrams keep their linework: no chromatic fry, and a scroll rail when the
+     panel gets too narrow for the labels to survive */
+  .diagram-rail{ overflow-x:auto; scrollbar-width:none; }
+  .diagram-rail::-webkit-scrollbar{ display:none; }
+  .diagram-rail img{ min-width:640px; }
+  .work-links{ margin-top:2rem; display:flex; gap:1.4rem; flex-wrap:wrap;
+    font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; }
+  .work-links a{ color:var(--soft); border-bottom:1px solid var(--soft); padding-bottom:.25rem; transition:color .2s, border-color .2s; }
+  .work-links a:hover{ color:var(--r-mag); border-color:var(--r-mag); }
+  .trip-caption{ margin-top:1rem; font-size:.66rem; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--dim); text-align:center; }
+
   /* ───────── responsive: stack to one column ───────── */
   @media(max-width:720px){
     .layout{ grid-template-columns:1fr; gap:clamp(2.5rem,9vw,3.5rem); }
     .panel-col{ order:1; }
-    .index-col{ order:2; position:static; }
+    .index-col{ order:2; position:static;
+      /* stop chrome's scroll anchoring pinning the tapped row in place while the
+         panel above it grows: without this, opening a long work lands you at the
+         bottom of the new page instead of the top */
+      overflow-anchor:none; }
     #panel{ min-height:0; }
     #panel:empty + #dancer{ height:62vh; padding:1rem 0 .5rem; }
     .dancer-cap .cap-wide{ display:none; }
@@ -378,7 +572,7 @@
     <aside class="index-col">
 
       <!-- EDIT: availability status -->
-      <p class="status">London<span class="sep" aria-hidden="true">·</span>Available 2026</p>
+      <p class="status">London<span class="sep" aria-hidden="true">*</span>Available 2026</p>
 
       <!--
         EDIT each row: title (.t), year (.y), and the data-* attributes.
@@ -389,7 +583,8 @@
       <div class="index-group" id="works">
         <span class="cap">selected works</span>
         <div class="index">
-          <a href="#gooniverse" data-target="gooniverse" data-swatch="s2" data-thumb="goon-thumb.jpg" data-fmt="system"><span class="t glitch">essays for the gooniverse</span><span class="y">2026</span></a>
+          <a href="#film" data-target="film" data-swatch="s6" data-thumb="film-thumb.jpg" data-fmt="film"><span class="t glitch">deep fried cinema</span><span class="y">2026</span></a>
+          <a href="#gooniverse" data-target="gooniverse" data-swatch="s2" data-thumb="goon-thumb-new.jpg" data-fmt="process"><span class="t glitch">essays for the gooniverse</span><span class="y">2026</span></a>
           <a href="#horse"   data-target="horse"   data-swatch="s1" data-thumb="beef-roast-thumb.jpg" data-fmt="film"><span class="t glitch">microsoft: 73% beef roast</span><span class="y">2025</span></a>
           <a href="#thatcher" data-target="thatcher" data-swatch="s3" data-thumb="thatcher-thumb.jpg" data-fmt="proposal"><span class="t glitch">thankyou, mrs thatcher, for your slopitecture?</span><span class="y">2025</span></a>
         </div>
@@ -437,46 +632,139 @@
   </article>
 
   <!-- WORKS -->
-  <article class="view view--work" data-view="gooniverse" data-kind="work">
-    <header class="work-head">
-      <p class="cap eyebrow">system · 2026</p>
-      <h1 class="glitch">essays for the gooniverse</h1>
-    </header>
-    <figure class="work-hero">
-      <div class="triptych" data-trip>
-        <div class="trip-track">
-          <div class="trip-item">
-            <video class="trip-video" controls preload="none" playsinline poster="goon-vid1-poster.jpg">
-              <source src="goon-vid1.mp4" type="video/mp4">
-            </video>
+  <!-- EDIT: title, eyebrow, copy, and the data-yt video id below -->
+      <article class="view view--work" data-view="film" data-kind="work">
+        <header class="work-head">
+          <p class="cap eyebrow">film <span class="sep" aria-hidden="true">*</span> 2026 <span class="sep" aria-hidden="true">*</span> Shoreditch Design Week</p>
+          <h1 class="glitch">deep fried cinema</h1>
+        </header>
+        <figure class="work-hero">
+          <div class="filmbox" data-yt="Zq-tiFJuyPw">
+            <div class="film-stage">
+              <img class="film-poster" src="film-poster.jpg" alt="A man in a polo shirt and chinos walks toward a terraced house, seen through an augmented-reality overlay: a target reticle, a rising damage counter, a badge icon, and a translucent horse rearing beside the doorway." />
+              <button class="film-play" type="button" aria-label="play film">▶</button>
+              <div class="film-mount"></div>
+            </div>
+            <div class="film-bar" hidden>
+              <button class="film-toggle" type="button" aria-label="play or pause">▶</button>
+              <div class="film-track"><span class="film-fill"></span></div>
+              <span class="film-time">0:00 / 0:00</span>
+            </div>
+            <noscript><a class="go" href="https://www.youtube.com/watch?v=Zq-tiFJuyPw" target="_blank" rel="noopener">watch on youtube ↗</a></noscript>
           </div>
-          <div class="trip-item">
-            <video class="trip-video" controls preload="none" playsinline poster="goon-vid2-poster.jpg">
-              <source src="goon-vid2.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="trip-item">
-            <video class="trip-video" controls preload="none" playsinline poster="goon-vid3-poster.jpg">
-              <source src="goon-vid3.mp4" type="video/mp4">
-            </video>
-          </div>
+        </figure>
+        <div class="work-body">
+          <p>Deep Fried Cinema is a film produced as an extension of <a data-target="gooniverse" href="#gooniverse">Essays for the Gooniverse</a>. It was made to be displayed vertically, at a large scale.</p>
+          <p>The film was shown at Shoreditch Design Week and at the Goldsmiths BA Design degree show.</p>
         </div>
-        <div class="trip-nav">
-          <button class="trip-prev" type="button" aria-label="previous video">‹</button>
-          <span class="trip-count">1 / 3</span>
-          <button class="trip-next" type="button" aria-label="next video">›</button>
+      </article>
+
+      <article class="view view--work" data-view="gooniverse" data-kind="work">
+        <header class="work-head">
+          <p class="cap eyebrow">process <span class="sep" aria-hidden="true">*</span> 2026</p>
+          <h1 class="glitch">essays for the gooniverse</h1>
+          <p class="standfirst">Media consumption habits have shifted. Short-form content is rapidly becoming the dominant form of media consumption across the globe. In these conditions the essay cannot survive.</p>
+        </header>
+
+        <figure class="work-hero">
+          <img class="work-photo" src="goon-hero.jpg" alt="The Goon Guide: a figure in a dark suit with a glowing image of the Earth in place of a head, holding an ice cream cone against a black background." />
+        </figure>
+
+        <div class="work-body">
+          <h2>the output</h2>
+          <p>Essays for the Gooniverse is a process for translating knowledge from one medium into another: the essay, translated into a series of short-form videos. The process produces a corpus of TikToks that aim to recreate the impact of the original text. The videos on this page are not the output. They are evidence of the output functioning.</p>
+
+          <h2>the gooniverse</h2>
+          <p>The Gooniverse is predominantly confined to cyberspace. It is shaped by the attention economy, where trancelike states induced by hedonistic consumption of media reign supreme.</p>
+          <p>The architecture of short-form video hosting applications, such as TikTok or Instagram Reels, does not facilitate sequential points and citations. It requires three-second hooks and frictionless scripts. Nothing is allowed to break the opioidic warm hug induced by the gushing flow of tailored content. The hostility of that environment to the essay as a medium is another hit to epistemic stability: how can we share the knowledge essays impart if we aren’t consuming them?</p>
+
+          <h2>embedding</h2>
+          <p>It would be easy to criticise the Gooniverse, to connect it to some moral failing in humanity and announce the impending doom of our species as we disconnect further from the physical world. That is not what I intend to do. This work is not about criticising something from a distance. It is about embedding myself within a space and evaluating it on its own terms: not as a moral failing, but as an anthropological phenomenon.</p>
+          <p>The person this is for consumes a lot of short-form video, is interested in complex topics, and cannot access those topics while maintaining their current consumption habits.</p>
+
+          <h2>project infrastructure</h2>
         </div>
-      </div>
-    </figure>
-    <div class="work-body">
-      <p>Essays for the Gooniverse is about the re-engineering of essays to allow them to thrive in a space in which they struggle to survive. The architecture of short-form video hosting applications, such as TikTok or Instagram Reels, does not facilitate sequential points and citations. It requires three-second hooks and 'frictionless' scripts. Nothing is allowed to break the opioidic warm hug induced by the gushing flow of tailored content, and so the essay, as a medium, must adapt; it must hide in plain sight, each point existing as a video in its own right while functioning as a cog in a larger machine of interconnected points.</p>
-      <p>Essays for the Gooniverse is a process, backed by a series of tools, a green screen orb, a ring light, and a TikTok data scraper. The videos on display above are a manifestation of this process, each one a cog forged by the process to operate in the larger machine of interconnected points.</p>
-    </div>
-  </article>
+
+        <figure class="work-figure work-figure--portrait">
+          <img src="goon-rig.jpg" alt="The Goon Guide standing beside the rig: a dark suit, a green inflatable ball worn as a head, a ring light on a tripod holding a phone, and a lapel mic held in one hand." loading="lazy" />
+        </figure>
+
+        <div class="work-body">
+          <p>If it is me on screen with my own face, viewers make assumptions about me that influence the text, assumptions I cannot control or design for. For this reason I developed a character, the Goon Guide: a digital transient with a screen for a head and a sharp suit. The head engages viewers with its novelty and works as a visual stimulant; the suit lends the character authority. He speaks into a lapel mic, left visible on purpose, revealing something professional productions traditionally obscure. It is a trick borrowed from the influencer trade.</p>
+          <p>A defining characteristic of short-form content is that the barrier to producing it is low: a phone and a degree of technical competence. So the rig stays notionally small, two objects, a ring light and a mic. Anything else would be overdesign.</p>
+        </div>
+
+        <figure class="work-figure">
+          <img src="goon-scraper.jpg" alt="A laptop displaying the Intelligence Vault: a dark interface showing a scraped TikTok transcript alongside its view, save, like and share counts, and metrics for duration, word count and pacing." loading="lazy" />
+        </figure>
+
+        <div class="work-body">
+          <p>Translating a standalone point into a short-form script is a science in itself, and every decision carries the potential to undermine the script and damage a video’s performance. The scraper was built with LLM-assisted coding to answer those questions with data: when to post, how long a description should run, how many words per minute to speak. At full speed it gathers 20,000 videos a day. 50,000 analysed to date.</p>
+
+          <h2>the process</h2>
+        </div>
+
+        <figure class="work-figure">
+          <div class="diagram-rail"><img src="method-diagram.png" alt="Diagram of the process: an original text fans out into six parallel rows of five stages each, which converge into a corpus. The stages are break up into points, write a short-form script, film and record audio, caption and describe, and post to TikTok. A marker above the second and fifth stages reads: research tool, 50,000 tiktoks analysed." loading="lazy" /></div>
+        </figure>
+
+        <div class="work-body">
+          <ol class="steps">
+            <li>Break the original text into individual points that can largely stand on their own. This is done manually, to ensure I have engaged with and understood the text before translating it.</li>
+            <li>Write each point as a short-form script, optimised against the scraper data.</li>
+            <li>Film and record: phone, ring light, lapel mic, outfit.</li>
+            <li>Edit in Premiere, with the final touches applied in TikTok. Caption and describe, referring back to the data for description and posting decisions.</li>
+            <li>Post.</li>
+          </ol>
+          <p>The finished videos are obviously different from the original text but still communicate its themes. The difference is the difference between a graphic novel and a series of comics: a graphic novel communicates its themes through linear narrative, while a comic series communicates the same themes through fragmented stories.</p>
+
+          <h2>the corpus</h2>
+          <p>Three videos, translated from <a data-target="essay3" href="#essay3">sam and the technologically driven epistemic hyper-fragmentation →</a></p>
+        </div>
+
+        <figure class="work-hero">
+          <div class="triptych" data-trip>
+            <div class="trip-track">
+              <div class="trip-item">
+                <video class="trip-video" controls preload="none" playsinline poster="goon-vid1-poster.jpg">
+                  <source src="goon-vid1.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="trip-item">
+                <video class="trip-video" controls preload="none" playsinline poster="goon-vid2-poster.jpg">
+                  <source src="goon-vid2.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="trip-item">
+                <video class="trip-video" controls preload="none" playsinline poster="goon-vid3-poster.jpg">
+                  <source src="goon-vid3.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <div class="trip-nav">
+              <button class="trip-prev" type="button" aria-label="previous video">‹</button>
+              <span class="trip-count">1 / 3</span>
+              <button class="trip-next" type="button" aria-label="next video">›</button>
+            </div>
+          </div>
+        </figure>
+
+        <div class="work-body">
+          <h2>three users</h2>
+        </div>
+
+        <figure class="work-figure">
+          <div class="diagram-rail"><img src="three-users-diagram.png" alt="Diagram of the three users: a small screen and a big screen on the left, the process on the right, with overlapping ellipses and lines showing that a person can move between all three roles." loading="lazy" /></div>
+        </figure>
+
+        <div class="work-body">
+          <p>The project exists in three forms. The small screen user meets it in its native medium, one standalone point at a time, building the essay across videos. The big screen user meets it as an exhibition object: the medium shifts from cool to hot, and the videos change too; for the small screen user, a video is equipment, transparent, used, ready-to-hand; for the big screen user, it becomes an object, broken from its function and held up for inspection. The process user runs the translation itself. Nobody is fixed to one role; the same person moves between them.</p>
+        </div>
+      </article>
 
   <article class="view view--work" data-view="horse" data-kind="work">
     <header class="work-head">
-      <p class="cap eyebrow">film · 2025 · Microsoft</p>
+      <p class="cap eyebrow">film <span class="sep" aria-hidden="true">*</span> 2025 <span class="sep" aria-hidden="true">*</span> Microsoft</p>
       <h1 class="glitch">microsoft: 73% beef roast</h1>
     </header>
     <figure class="work-hero">
@@ -491,7 +779,7 @@
   </article>
   <article class="view view--work" data-view="thatcher" data-kind="work">
     <header class="work-head">
-      <p class="cap eyebrow">architectural proposal · 2025</p>
+      <p class="cap eyebrow">architectural proposal <span class="sep" aria-hidden="true">*</span> 2025</p>
       <h1 class="glitch">thankyou, mrs thatcher, for your slopitecture?</h1>
     </header>
     <figure class="work-hero">
@@ -521,21 +809,21 @@
 
   <!-- TEXTS -->
   <article class="view" data-view="essay1">
-    <span class="cap eyebrow">Disegno · 2025</span>
+    <span class="cap eyebrow">Disegno <span class="sep" aria-hidden="true">*</span> 2025</span>
     <h1 class="glitch">the rhythm of the meal</h1>
     <p>A profile written for Disegno on ceramicist Jun Rhee and the handmade Jollof rice bowl he created for London-based Michelin-starred restaurant Akoko.</p>
     <a class="go" href="https://disegnojournal.com/newsfeed/jun-rhee-jollof-rice-bowl" target="_blank" rel="noopener">read on Disegno ↗</a>
   </article>
 
   <article class="view" data-view="essay2">
-    <span class="cap eyebrow">Disegno · 2025</span>
+    <span class="cap eyebrow">Disegno <span class="sep" aria-hidden="true">*</span> 2025</span>
     <h1 class="glitch">a chair from the steppe</h1>
     <p>A profile written for Disegno on designer Daniyar Uderbekov and the 10 Nodes Chair, made from Kazakh felt and a frame of reclaimed plastic waste gathered from the steppe.</p>
     <a class="go" href="https://disegnojournal.com/newsfeed/daniyar-uderbekov-10-nodes-chair" target="_blank" rel="noopener">read on Disegno ↗</a>
   </article>
 
   <article class="view view--read" data-view="essay3">
-    <span class="cap eyebrow">Self-published · 2026</span>
+    <span class="cap eyebrow">Self-published <span class="sep" aria-hidden="true">*</span> 2026</span>
     <h1 class="glitch">sam and the technologically driven epistemic hyper-fragmentation</h1>
     <p class="standfirst">A self-published essay tracing the dissolving of shared cultural narratives, from postmodern theory through to AI. Around 8,000 words.</p>
       <nav class="toc" aria-label="contents"><a href="#" data-scroll="sec-intro">intro</a><a href="#" data-scroll="sec-metanarratives">metanarratives</a><a href="#" data-scroll="sec-local-narratives">local narratives</a><a href="#" data-scroll="sec-the-medium-is-the-message">the medium is the message</a><a href="#" data-scroll="sec-the-narrative-mudcrack">the narrative mudcrack</a><a href="#" data-scroll="sec-the-internet">the internet</a><a href="#" data-scroll="sec-zombies">zombies</a><a href="#" data-scroll="sec-post-truth-algorithms">post-truth algorithms</a><a href="#" data-scroll="sec-sam-turns-to-ai">sam turns to ai</a><a href="#" data-scroll="sec-mr-bucket-becomes-a-horse">mr bucket becomes a horse</a><a href="#" data-scroll="sec-references">references</a></nav>
@@ -683,6 +971,8 @@
     <div class="sociallinks">
       <a href="https://www.instagram.com/rob_fawley" target="_blank" rel="noopener">instagram ↗</a>
     </div>
+    <!-- EDIT: cv file. keep the download attribute so it saves rather than opens a viewer tab -->
+    <a class="go" href="Fawley_Rob_CV.pdf" download="Fawley_Rob_CV.pdf">download cv ↓</a>
   </article>
 
 </div>
@@ -1053,6 +1343,74 @@
       else if(i<=0){ i=0; dir=1; }
       art.textContent=F[i];
     }, 83);                                 // ~12 fps
+  })();
+
+  /* ---- film: click-to-load youtube, custom controls ---- */
+  (function(){
+    const panel = document.getElementById('panel');
+    if(!panel) return;
+    let api = null;
+    function loadAPI(){
+      if(api) return api;
+      api = new Promise(res=>{
+        if(window.YT && window.YT.Player) return res();
+        const prev = window.onYouTubeIframeAPIReady;
+        window.onYouTubeIframeAPIReady = function(){ if(prev) prev(); res(); };
+        const s = document.createElement('script');
+        s.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(s);
+      });
+      return api;
+    }
+    const fmt = s => { s = Math.max(0, Math.floor(s||0)); return Math.floor(s/60) + ':' + String(s%60).padStart(2,'0'); };
+
+    function start(box){
+      if(box.__on) return; box.__on = true;
+      const bar = box.querySelector('.film-bar'),
+            toggle = box.querySelector('.film-toggle'),
+            track = box.querySelector('.film-track'),
+            fill = box.querySelector('.film-fill'),
+            time = box.querySelector('.film-time'),
+            host = document.createElement('div');
+      box.querySelector('.film-mount').appendChild(host);
+      box.classList.add('is-live');
+
+      loadAPI().then(()=>{
+        const p = new YT.Player(host, {
+          host: 'https://www.youtube-nocookie.com',
+          videoId: box.dataset.yt,
+          playerVars: { controls:0, rel:0, playsinline:1 },
+          events: {
+            onReady(){ bar.hidden = false; p.playVideo(); tick(); },
+            onStateChange(e){ toggle.textContent = (e.data === YT.PlayerState.PLAYING) ? '❚❚' : '▶'; }
+          }
+        });
+        function tick(){
+          if(!document.contains(box)){ try{ p.destroy(); }catch(err){} return; }
+          if(p.getDuration){
+            const d = p.getDuration() || 0, t = p.getCurrentTime() || 0;
+            fill.style.width = d ? (t/d*100) + '%' : '0%';
+            time.textContent = fmt(t) + ' / ' + fmt(d);
+          }
+          setTimeout(tick, 250);
+        }
+        toggle.addEventListener('click', ()=>{
+          if(p.getPlayerState() === YT.PlayerState.PLAYING) p.pauseVideo(); else p.playVideo();
+        });
+        track.addEventListener('click', e=>{
+          const r = track.getBoundingClientRect(), d = p.getDuration() || 0;
+          if(d) p.seekTo(d * ((e.clientX - r.left) / r.width), true);
+        });
+      });
+    }
+
+    panel.addEventListener('click', e=>{
+      const btn = e.target.closest('.film-play');
+      if(!btn) return;
+      e.preventDefault();
+      const box = btn.closest('.filmbox');
+      if(box && box.dataset.yt) start(box);
+    });
   })();
 </script>
 </body>

@@ -1,0 +1,33 @@
+# rob fawley
+
+> Rob Fawley is a London-based designer and writer. His professional
+> practice spans design journalism and hospital technology. His personal
+> practice ranges from exploring how the attention economy reshapes
+> knowledge to how economic models reshape architecture.
+
+This is a single-page site. Every work and text listed below is a
+section within https://robfawley.com/ , not a separate document — the
+`#anchor` links below only change which section is visible and do not
+change what a server returns. All of this page's content, including
+the full text of the essays, is present in the initial HTML response
+(it is hidden with CSS, not with JavaScript), so a single fetch of
+https://robfawley.com/ is sufficient to read everything referenced here.
+
+## Works
+
+- [Deep Fried Cinema](https://robfawley.com/#film): A vertical film, extending Essays for the Gooniverse, made for large-scale display. Shown at Shoreditch Design Week and the Goldsmiths BA Design degree show. 2026.
+- [Essays for the Gooniverse](https://robfawley.com/#gooniverse): A process for translating a written essay into a corpus of short-form video, built around a character (the Goon Guide), a two-object filming rig, and a TikTok data scraper. 2026.
+- [Microsoft: 73% Beef Roast](https://robfawley.com/#horse): A short film made as part of a Microsoft research project on how training-data scarcity shapes the output of language models and image generators. 2025.
+- [Thankyou, Mrs Thatcher, for your Slopitecture?](https://robfawley.com/#thatcher): A speculative architectural proposal for Peckham's Aylesham Centre, examining how deregulation and austerity shape contemporary development. 2025.
+
+## Texts
+
+- [Sam and the Technologically Driven Epistemic Hyper-Fragmentation](https://robfawley.com/#essay3): A self-published ~8,000-word essay on the fragmentation of shared cultural narratives, from postmodern theory through to AI. 2026. This is the source text translated into Essays for the Gooniverse.
+- [The Rhythm of the Meal](https://robfawley.com/#essay1): A profile written for Disegno on ceramicist Jun Rhee. 2025. (External: disegnojournal.com)
+- [A Chair from the Steppe](https://robfawley.com/#essay2): A profile written for Disegno on designer Daniyar Uderbekov. 2025. (External: disegnojournal.com)
+
+## Contact
+
+- Email: contact@robfawley.com
+- Instagram: https://www.instagram.com/rob_fawley
+- CV: https://robfawley.com/Fawley_Rob_CV.pdf
