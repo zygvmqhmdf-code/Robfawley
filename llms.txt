@@ -1,9 +1,11 @@
 # rob fawley
 
-> Rob Fawley is a London-based designer and writer. His professional
-> practice spans design journalism and hospital technology. His personal
-> practice ranges from exploring how the attention economy reshapes
-> knowledge to how economic models reshape architecture.
+> Rob Fawley is a London-based designer, artist, and writer. His practice
+> applies a critical design sensibility across UX design, graphics,
+> journalism, film, and design strategy, in environments spanning
+> hospitals, offices, public spaces, and cyberspace. He has written for
+> Disegno, presented research to Microsoft, designed for SafeSteps Tech,
+> and shown work at Shoreditch Design Week.
 
 This is a single-page site. Every work and text listed below is a
 section within https://robfawley.com/ , not a separate document — the
