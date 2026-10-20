@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="light" />
+<title>rob fawley — reel</title>
+<meta name="description" content="Video reel of rob fawley, designer based in london." />
+<meta name="author" content="rob fawley" />
+<meta name="theme-color" content="#FCFCFA" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="canonical" href="https://robfawley.com/reel" />
+<meta property="og:type" content="video.other" />
+<meta property="og:title" content="rob fawley — reel" />
+<meta property="og:description" content="designer based in london." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: same paper, ink and pink as the cv page; identity on the left, the video given the most room on the right, stacking on phones. */
+:root {
+  --paper: #fcfcfa;
+  --ink: #111111;
+  --muted: #767676;
+  --pink: #e6007e;
+  --mono: "Space Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-inline: clamp(16px, 5vw, 72px);
+  padding-block: clamp(40px, 7vw, 88px);
+}
+.tab {
+  position: absolute;
+  top: clamp(40px, 7vw, 88px);
+  left: 0;
+  width: 18px;
+  height: 30px;
+  background: var(--pink);
+}
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2.1fr);
+  gap: clamp(28px, 4vw, 64px);
+  align-items: start;
+}
+.col { min-width: 0; }
+.name { font-size: 26px; font-weight: 700; margin: 0 0 14px; line-height: 1.2; }
+.meta { color: var(--muted); display: flex; gap: 10px; align-items: center; margin: 0; }
+.star { color: var(--pink); }
+.rule {
+  border: 0;
+  height: 1px;
+  margin: 18px 0 20px;
+  background: repeating-linear-gradient(90deg, var(--pink) 0 6px, transparent 6px 9px);
+  max-width: 310px;
+}
+h2 { font-size: 26px; line-height: 1.2; font-weight: 700; margin: 0 0 10px; }
+p { margin: 0; }
+.muted { color: var(--muted); }
+.links { list-style: none; padding: 0; margin: 0; display: grid; gap: 2px; }
+a { color: inherit; text-decoration-color: var(--pink); text-underline-offset: 3px; }
+a:hover { color: var(--pink); }
+a:focus-visible, video:focus-visible { outline: 2px solid var(--pink); outline-offset: 3px; }
+
+.stage { display: flex; justify-content: center; }
+.stage video {
+  display: block;
+  width: min(100%, calc(82vh * 9 / 16));
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+  background: var(--ink);
+}
+.caption { margin-top: 12px; color: var(--muted); text-align: center; }
+
+@media (max-width: 760px) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  .stage video { width: min(100%, calc(78vh * 9 / 16)); }
+  .tab { width: 10px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="tab" aria-hidden="true"></div>
+  <main class="grid">
+
+    <section class="col" aria-label="Rob Fawley">
+      <h1 class="name">rob fawley</h1>
+      <p class="meta"><span>london</span><span class="star">*</span><span>designer</span></p>
+      <hr class="rule">
+      <h2>reel</h2>
+      <p class="muted">a selection of video i've written, filmed and edited.</p>
+      <hr class="rule">
+      <ul class="links">
+        <li><a href="https://robfawley.com">portfolio</a></li>
+        <li><a href="https://robfawley.com/cv">cv</a></li>
+        <li><a href="mailto:contact@robfawley.com">contact@robfawley.com</a></li>
+      </ul>
+    </section>
+
+    <section class="col" aria-label="Video reel">
+      <div class="stage">
+        <video controls playsinline preload="metadata" src="reel.mp4">
+          Your browser can't play this video. <a href="reel.mp4">Download the reel</a>.
+        </video>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>
