@@ -74,11 +74,10 @@ p, ul { margin: 0; }
   border: 0;
   height: 1px;
   margin: 18px 0 20px;
-  background: repeating-linear-gradient(90deg, var(--rule) 0 6px, transparent 6px 9px);
+  background: none;
   max-width: 310px;
 }
 a { color: inherit; text-decoration-color: var(--pink); text-underline-offset: 3px; }
-a:hover { color: var(--pink); }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--pink); outline-offset: 3px; }
 
 /* identity column */
@@ -101,7 +100,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--pink); outline-
   line-height: 1.7;
   cursor: pointer;
 }
-.copy:hover { color: var(--pink); border-color: var(--pink); }
+.copy:hover { border-color: currentColor; }
 
 /* about column */
 .quote { margin-bottom: 4px; }
@@ -231,5 +230,6 @@ document.querySelectorAll('.copy').forEach(function (btn) {
   });
 });
 </script>
+<script src="cursor.js" defer></script>
 </body>
 </html>

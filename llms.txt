@@ -17,14 +17,22 @@ https://robfawley.com/ is sufficient to read everything referenced here.
 
 ## Works
 
-- [Deep Fried Cinema](https://robfawley.com/#film): A vertical film, extending Essays for the Gooniverse, made for large-scale display. Shown at Shoreditch Design Week and the Goldsmiths BA Design degree show. 2026.
+- [Learning software](https://robfawley.com/#learning): Work in progress. A study app built on the research behind Make It Stick (retrieval, spacing, interleaving), for AQA A-level Philosophy and English Language and Literature. 2026.
+- [Deep Fried Cinema](https://robfawley.com/#film): A vertical film, extending Essays for the Gooniverse, made for large-scale display. Shown at Shoreditch Design Week, House of Icon. 2026.
 - [Essays for the Gooniverse](https://robfawley.com/#gooniverse): A process for translating a written essay into a corpus of short-form video, built around a character (the Goon Guide), a two-object filming rig, and a TikTok data scraper. 2026.
-- [Microsoft: 73% Beef Roast](https://robfawley.com/#horse): A short film made as part of a Microsoft research project on how training-data scarcity shapes the output of language models and image generators. 2025.
+- [Intelligence Vault](https://robfawley.com/#vault): A TikTok scraper and dashboard built for Essays for the Gooniverse; 19,607 videos logged. Findings: faster speech and shorter descriptions correlate with higher median views. Not available to try, as automated collection breaches TikTok's Terms of Service. 2026.
+- [Conway's Multiverse](https://robfawley.com/#conway): Digital colonies stacked upon each other, obeying Conway's Game of Life, imaged with custom software made with FOMA. 2026.
+- [FOMA: identity](https://robfawley.com/#foma-identity): The brand for FOMA, the design studio and research lab Rob Fawley founded with Toby Pollard in 2026: logo, Poppins and Instrument Serif type, a grey, ink and pink palette and a 3D bird. 2026.
+- [FOMA: website](https://robfawley.com/#foma-website): The hand-built FOMA website. Work in progress. 2026.
+- [73% Beef Roast](https://robfawley.com/#horse): A short film made for Microsoft, as part of The Value of Artificial Ignorance, on how training-data scarcity shapes the output of language models and image generators. 2025.
+- [The Value of Artificial Ignorance](https://robfawley.com/#ignorance): A research project with Microsoft on giving nonhuman knowledge a voice in AI, through limited datasets, a booklet of provocations and a proposal for Epping Forest. 2025.
+- [Material Trials](https://robfawley.com/#trials): Household objects taken apart, photographed without context, and rebuilt to an AI's instructions. Part of The Value of Artificial Ignorance. 2025.
 - [Thank you, Mrs Thatcher, for your Slopitecture?](https://robfawley.com/#thatcher): A speculative architectural proposal for Peckham's Aylesham Centre, examining how deregulation and austerity shape contemporary development. 2025.
 
 ## Texts
 
 - [Sam and the Technologically Driven Epistemic Hyper-Fragmentation](https://robfawley.com/#essay3): A self-published ~8,000-word essay on the fragmentation of shared cultural narratives, from postmodern theory through to AI. 2026. This is the source text translated into Essays for the Gooniverse.
+- [Digital Terraforming](https://robfawley.com/#essay4): An essay, first published by Fawley & Fawley, on removing Reels with vibe-coded software and what that means for who gets to shape the digital world. Includes an installation guide. 2026.
 - [The Rhythm of the Meal](https://robfawley.com/#essay1): A profile written for Disegno on ceramicist Jun Rhee. 2025. (External: disegnojournal.com)
 - [A Chair from the Steppe](https://robfawley.com/#essay2): A profile written for Disegno on designer Daniyar Uderbekov. 2025. (External: disegnojournal.com)
 

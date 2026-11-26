@@ -56,7 +56,7 @@
       "creator": {
         "@id": "https://robfawley.com/#person"
       },
-      "description": "A vertical film, produced as an extension of Essays for the Gooniverse, made for large-scale display. Shown at Shoreditch Design Week and the Goldsmiths BA Design degree show.",
+      "description": "A vertical film, produced as an extension of Essays for the Gooniverse, made for large-scale display. Shown at Shoreditch Design Week, House of Icon.",
       "isPartOf": {
         "@id": "https://robfawley.com/#website"
       }
@@ -69,14 +69,14 @@
       "creator": {
         "@id": "https://robfawley.com/#person"
       },
-      "description": "A process for translating an essay into a corpus of short-form video, built around a character (the Goon Guide), a two-object filming rig, and a TikTok data scraper trained on 50,000 videos.",
+      "description": "A process for translating an essay into a corpus of short-form video, built around a character (the Goon Guide), a two-object filming rig, and a TikTok data scraper that analysed 19,607 videos.",
       "isPartOf": {
         "@id": "https://robfawley.com/#website"
       }
     },
     {
       "@type": "VideoObject",
-      "name": "Microsoft: 73% Beef Roast",
+      "name": "73% Beef Roast",
       "url": "https://robfawley.com/#horse",
       "dateCreated": "2025",
       "creator": {
@@ -148,11 +148,11 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
 <style>
   :root{
-    --bg:#FCFCFA;            /* the sheet */
+    --bg:#FFFFFF;            /* the sheet: pure white, after Magpie */
     --ink:#16150F;
     --soft:#56554E;
     --dim:#6C6B62;
@@ -163,7 +163,8 @@
     --r-cyan:#10D8F0;
     --r-mag:#FF1FA0;
 
-    --mono:"Space Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    --mono:"Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    --sans:"Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --maxw:1500px;
     --gutter:clamp(2.5rem, 8vw, 7rem);   /* the air between the two columns */
 
@@ -174,7 +175,7 @@
   html{ scroll-behavior:smooth; }
 
   body{
-    color:var(--ink); font-family:var(--mono); line-height:1.6; -webkit-font-smoothing:antialiased;
+    color:var(--ink); font-family:var(--sans); line-height:1.6; -webkit-font-smoothing:antialiased;
     min-height:100vh;
     background:var(--bg);
   }
@@ -182,10 +183,17 @@
   /* clean custom cursors: ink arrow default, ink hand on clickables */
   html, body{ cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2227%22%20height%3D%2227%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20d%3D%22M5%202%20L5%2023%20L11%2017%20L14.5%2025%20L17.5%2023.7%20L14%2016%20L21%2016%20Z%22%20fill%3D%22%2316150F%22%20stroke%3D%22%23FCFCFA%22%20stroke-width%3D%221.4%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") 4 2, auto; }
   a, button, summary, label, [role="button"], [data-target], .index a, .go, .mail, .name, .proj-nav a{ cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2227%22%20height%3D%2227%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20d%3D%22M11.5%203.2%20a2%202%200%200%201%204%200%20v8.8%20a1.5%201.5%200%200%201%203%200%20a1.5%201.5%200%200%201%203%200%20a1.4%201.4%200%200%201%202.8%200%20c1.1%200%202%20.9%202%202%20v4.5%20a6%206%200%200%201%20-6%206%20h-6%20c-1.3%200-2.5-.5-3.4-1.4%20l-3.4-3.4%20a2%202%200%200%201%202.8-2.8%20l1.2%201.2%20Z%22%20fill%3D%22%2316150F%22%20stroke%3D%22%23FCFCFA%22%20stroke-width%3D%221.4%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") 11 1, pointer; }
-  ::selection{ background:var(--r-mag); color:#fff; }
+  /* selected text: a neutral ink highlight, not the brand magenta */
+  ::selection{ background:var(--ink); color:#fff; }
   a{ color:inherit; text-decoration:none; }
   a:focus-visible, button:focus-visible{ outline:2px solid var(--r-mag); outline-offset:3px; }
 
+  /* type, after Magpie: Geist for titles and reading, its companion Geist Mono only for small labels */
+  .cap, .status, .colophon-mini, .sheet > header nav a, .sheet > header nav button, .dancer-cap,
+  .index .y, .view--read .toc a, .reading h2.part, .reading h3, .reading blockquote cite, .reading .refs,
+  .view .meta, .view .go, .trip-count, .proj-nav .dir, .pos, .to-index, .view .sociallinks,
+  #preview .pv .fmt, .film-time, .work-body h2, .work-body .steps li::before, .view figcaption,
+  .work-links, .trip-caption, .project-tags, .project-next-label, .project-foot, .head-arrow{ font-family:var(--mono); }
   .cap{ font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--dim); font-weight:400; }
 
   /* hover/active cues are handled by colour, weight and the index marker — no chromatic split */
@@ -242,10 +250,11 @@
     width:.34rem; height:1.05em; background:var(--r-mag);
   }
 
-  .colophon-mini{ margin-top:clamp(2.5rem,6vw,4rem); font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; color:var(--dim); line-height:1.9; }
-  .colophon-mini span{ display:block; }
+  /* the colophon runs along the bottom of the sheet, under both columns */
+  .colophon-mini{ display:flex; justify-content:center; gap:1rem; margin-top:clamp(3.5rem,7vw,6rem);
+    font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; color:var(--dim); }
 
-  /* RIGHT — the content panel. swaps with a datamosh. */
+  /* RIGHT — the content panel. views swap with a short fade. */
   .panel-col{ min-width:0; }
   /* dancing guy: only while the panel is empty (home) */
   #dancer{ display:none; }
@@ -266,7 +275,7 @@
     text-transform:uppercase; color:var(--dim);
   }
   .dancer-cap .cap-narrow{ display:none; }
-  #panel{ min-height:62vh; will-change:filter; position:relative; }
+  #panel{ min-height:62vh; position:relative; }
   #panel:empty{ min-height:0; }
 
   /* long-form reading view (essays hosted on the site) */
@@ -274,7 +283,7 @@
   .view--read .standfirst{ font-size:1rem; color:var(--soft); line-height:1.7; margin:1.4rem 0 0; }
   .view--read .toc{
     display:flex; flex-direction:column; gap:.5rem; margin:2.4rem 0 3rem;
-    padding:1.4rem 0; border-top:1px solid #E4E3DD; border-bottom:1px solid #E4E3DD;
+    padding:1.4rem 0;
   }
   .view--read .toc a{
     font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--dim);
@@ -282,11 +291,14 @@
   }
   .view--read .toc a:hover{ color:var(--ink); padding-left:.4rem; }
   .reading{ font-size:.95rem; line-height:1.8; }
+  .view--read.project{ max-width:none; }
+  .view--read.project > .toc, .view--read.project > .reading{ max-width:64ch; margin-left:auto; margin-right:auto; }
+  .view--read.project > .toc{ margin-top:0; }
   .reading p{ margin:0 0 1.3rem; }
   .reading h2{ font-size:1.05rem; text-transform:lowercase; letter-spacing:.01em;
     margin:3rem 0 1.2rem; scroll-margin-top:2rem; }
   .reading h2.part{ font-size:.7rem; letter-spacing:.18em; text-transform:uppercase;
-    color:var(--dim); margin:4rem 0 1.4rem; padding-top:1.4rem; border-top:1px solid #E4E3DD; }
+    color:var(--dim); margin:4rem 0 1.4rem; padding-top:1.4rem; }
   .reading h3{ font-size:.82rem; letter-spacing:.1em; text-transform:uppercase;
     color:var(--soft); margin:2.4rem 0 1rem; scroll-margin-top:2rem; }
   .reading blockquote{
@@ -298,6 +310,11 @@
     display:block; margin-top:.7rem; font-style:normal;
     font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:var(--dim);
   }
+  .reading ol{ margin:1.2rem 0 1.6rem; padding-left:1.4rem; }
+  .reading li{ margin:0 0 .9rem; padding-left:.3rem; }
+  .reading a:not(.go){ text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px; overflow-wrap:anywhere; }
+  .reading pre{ margin:1.2rem 0 2rem; padding:1.2rem 1.3rem; background:#F4F4F2; overflow-x:auto; font:400 .74rem/1.6 var(--mono); }
+  .reading pre code{ font:inherit; white-space:pre; }
   .reading .refs{
     list-style:none; counter-reset:ref; margin:1.4rem 0 0; padding:0;
     font-size:.78rem; line-height:1.65; color:var(--soft);
@@ -311,32 +328,20 @@
     position:absolute; left:0; top:0; color:var(--dim); font-size:.7rem;
   }
   .reading .refs a{ color:var(--soft); text-decoration:underline; text-decoration-color:#D9D8D2; }
-  .reading .refs a:hover{ color:var(--r-mag); text-decoration-color:var(--r-mag); }
-  #panel.moshing{ filter:url(#mosh); }
-
-  /* carry-over "ghost" of the outgoing image — drags into the next like datamosh macroblocks */
-  .mosh-ghost{ position:absolute; z-index:5; pointer-events:none; overflow:hidden;
-    will-change:transform,opacity; animation:mosh-bleed 560ms cubic-bezier(.25,.55,.2,1) forwards; }
-  .mosh-ghost > *{ width:100%; height:100%; margin:0; filter:contrast(1.2) saturate(1.35) brightness(1.02); }
-  @keyframes mosh-bleed{
-    0%   { opacity:.95; transform:translate(0,0); }
-    45%  { opacity:.8;  transform:translate(calc(var(--gx,5.5%) * .4), calc(var(--gy,0%) * .4)); }
-    100% { opacity:0;   transform:translate(var(--gx,5.5%), var(--gy,0%)) scale(1.015); }
-  }
-
+  .reading .refs a:hover{ text-decoration-color:currentColor; }
   /* views inside the panel */
   .view{ max-width:60ch; animation:fade .4s ease both; }
   .view:focus{ outline:none; }
   @keyframes fade{ from{ opacity:0 } to{ opacity:1 } }
 
   .view .eyebrow{ margin-bottom:1.1rem; }
-  .view h1{ font-size:clamp(1.55rem,3.4vw,2.25rem); font-weight:400; letter-spacing:-.015em; line-height:1.13; }
-  .view p{ color:var(--soft); font-size:clamp(1rem,1.4vw,1.1rem); line-height:1.78; margin-top:1.4rem; }
+  .view h1{ font-size:clamp(1.55rem,3.4vw,2.25rem); font-weight:300; letter-spacing:-.015em; line-height:1.13; }
+  .view p{ color:var(--ink); font-size:clamp(1rem,1.4vw,1.1rem); line-height:1.78; margin-top:1.4rem; }
   .view p b{ color:var(--ink); font-weight:700; }
   .view p + p{ margin-top:1.1rem; }
   .view .meta{ margin-top:1.6rem; font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--dim); display:flex; gap:1.2rem; flex-wrap:wrap; }
   .view .go{ display:inline-block; margin-top:2rem; font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); border-bottom:1px solid var(--soft); padding-bottom:.25rem; transition:color .2s, border-color .2s; }
-  .view .go:hover{ color:var(--r-mag); border-color:var(--r-mag); }
+  .view .go:hover{ border-color:currentColor; }
   /* placeholder links read as inactive until a real URL replaces the "#" */
   .go[href="#"], .view .sociallinks a[href="#"]{ opacity:.4; pointer-events:none; }
 
@@ -421,8 +426,9 @@
   }
   .view--work .work-body{ max-width:60ch; margin-top:2rem; }
   .view--work .work-body .go{ margin-top:1.6rem; }
-  .work-body p a:not(.go){ color:var(--ink); border-bottom:1px solid var(--line-2); transition:color .2s, border-color .2s; }
-  .work-body p a:not(.go):hover{ color:var(--r-mag); border-color:var(--r-mag); }
+  /* links inside paragraphs: no colour change on hover (the cursor shows they're clickable), just an underline */
+  .work-body p a:not(.go){ color:var(--ink); text-underline-offset:3px; }
+  .work-body p a:not(.go):hover{ text-decoration:underline; text-decoration-thickness:1px; }
 
   /* prev · index · next */
   .proj-nav{ display:flex; align-items:flex-start; justify-content:space-between; gap:1.2rem; margin-top:clamp(2.6rem,6vw,4.2rem); }
@@ -435,15 +441,15 @@
   .proj-mid{ display:flex; flex-direction:column; align-items:center; gap:.35rem; text-align:center; flex:none; }
   .pos{ font-size:.6rem; letter-spacing:.14em; color:var(--dim); }
   .to-index{ background:none; border:0; padding:0; font-family:inherit; font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--soft); transition:color .2s; }
-  .to-index:hover{ color:var(--r-mag); }
+
 
 
   /* contact view */
   .view .mail{ font-size:clamp(1.1rem,3.2vw,1.55rem); font-weight:400; letter-spacing:-.01em; display:inline-block; margin-top:1rem; transition:color .2s; }
-  .view .mail:hover{ color:var(--r-mag); }
+
   .view .sociallinks{ margin-top:1.6rem; display:flex; gap:1.4rem; flex-wrap:wrap; font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; }
   .view .sociallinks a{ color:var(--soft); transition:color .2s; }
-  .view .sociallinks a:hover{ color:var(--r-mag); }
+
 
   /* swatches */
   .s1{ background:linear-gradient(150deg,#e0c071,#7c5d10) }
@@ -490,7 +496,7 @@
   /* long-form work pages: headings, numbered steps, inline figures, diagrams */
   .view--work .standfirst{ max-width:60ch; font-size:1rem; color:var(--soft); line-height:1.7; margin:1.4rem 0 0; }
   .work-body h2{ font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; color:var(--dim);
-    margin:3rem 0 1.2rem; padding-top:1.3rem; border-top:1px solid #E4E3DD; }
+    margin:3rem 0 1.2rem; padding-top:1.3rem; }
   .work-body h2:first-child{ margin-top:0; }
   .work-body .steps{ list-style:none; counter-reset:step; margin:1.6rem 0 0; padding:0; }
   .work-body .steps li{ position:relative; padding-left:2.6rem; margin:0 0 1.1rem;
@@ -512,9 +518,93 @@
   .work-links{ margin-top:2rem; display:flex; gap:1.4rem; flex-wrap:wrap;
     font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; }
   .work-links a{ color:var(--soft); border-bottom:1px solid var(--soft); padding-bottom:.25rem; transition:color .2s, border-color .2s; }
-  .work-links a:hover{ color:var(--r-mag); border-color:var(--r-mag); }
+  .work-links a:hover{ border-color:currentColor; }
   .trip-caption{ margin-top:1rem; font-size:.66rem; letter-spacing:.12em;
     text-transform:uppercase; color:var(--dim); text-align:center; }
+
+  /* ───────── project pages, after Magpie Studio's ─────────
+     a centred head (thin title between prev/next arrows, the summary as a large intro,
+     one mono tag line), the hero across the panel, the words in a centred reading column,
+     then pictures in a full-width / pair rhythm with plenty of white between. */
+  .view--work.project{ max-width:none; }
+  .project-head{ display:grid; grid-template-columns:2.5rem minmax(0,1fr) 2.5rem; column-gap:1rem;
+    align-items:start; text-align:center; margin:clamp(.5rem,2vw,1.5rem) 0 clamp(2.8rem,5.5vw,4.5rem); }
+  .project-head > *{ grid-column:2; }
+  .view.project h1{ grid-row:1; font-weight:200; font-size:clamp(2rem,3.8vw,2.9rem); line-height:1.1;
+    letter-spacing:-.015em; text-wrap:balance; }
+  .head-arrow{ grid-row:1; align-self:center; font-size:1.3rem; line-height:1; color:var(--ink); padding:.4rem 0; transition:color .2s, transform .2s; }
+  .head-arrow.prev{ grid-column:1; justify-self:start; }
+  .head-arrow.next{ grid-column:3; justify-self:end; }
+  .head-arrow.prev:hover{ transform:translateX(-3px); }
+  .head-arrow.next:hover{ transform:translateX(3px); }
+  .view p.project-summary{ margin:1.6rem auto 0; max-width:34rem; font-size:clamp(1.15rem,1.65vw,1.45rem);
+    line-height:1.45; font-weight:400; color:var(--ink); text-wrap:pretty; }
+  .view p.project-tags{ margin:1.6rem auto 0; max-width:34rem; font-size:.72rem; line-height:1.7; letter-spacing:.04em; color:var(--ink); }
+
+  /* the hero runs the panel's width, centred, never taller than the screen */
+  .view--work .project-hero{ margin:0; text-align:center; }
+  .view--work .project-hero .work-photo{ display:inline-block; aspect-ratio:auto; width:auto; height:auto;
+    max-width:100%; max-height:80vh; object-fit:contain; background:none; vertical-align:top; }
+  .view--work .project-hero .work-video{ aspect-ratio:16/9; }
+
+  /* the words: one centred reading column; diagrams may run the panel's full width */
+  .project-text{ margin-top:clamp(2.6rem,5vw,4rem); }
+  .project-text > .work-body{ max-width:38rem; margin:0 auto; }
+  .project-text > .work-body + .work-body{ margin-top:0; }
+  .project .work-body p{ font-size:clamp(1rem,1.15vw,1.08rem); line-height:1.65; color:var(--ink); }
+  .project .work-diagram{ margin:clamp(2.6rem,5vw,4rem) 0; }
+  .project .work-diagram img, .project .work-diagram svg{ display:block; width:100%; height:auto; }
+  /* the diagrams are drawn inline so their labels use the site's own type and stay sharp */
+  .diagram .dg-ink{ stroke:var(--ink); fill:none; }
+  .diagram .dg-grey{ stroke:#8A8981; fill:none; }
+  .diagram .dg-mag{ stroke:var(--r-mag); fill:none; }
+  .diagram .dg-fill{ fill:var(--bg); }
+  .diagram .dg-label{ fill:var(--ink); stroke:none; font-family:var(--sans); font-size:24px; letter-spacing:.01em; }
+  .diagram .dg-maglabel{ fill:var(--r-mag); }
+  .chart .dg-bar{ fill:var(--ink); }
+  .chart .dg-bar-hi{ fill:var(--r-mag); }
+  .chart .dg-note{ fill:var(--dim); stroke:none; font-family:var(--mono); font-size:18px; }
+
+  .project figcaption, .project .work-figure figcaption{ margin-top:.75rem; font-size:.64rem; line-height:1.55;
+    letter-spacing:.02em; text-transform:none; color:var(--dim); text-align:left; }
+  .project .project-hero figcaption{ text-align:center; }
+
+  /* pictures: full width, then a pair of unequal sizes, repeating; a lone pair-slot goes full width */
+  .project-videos{ margin:clamp(4rem,8vw,6.5rem) 0 0; }
+  .project-gallery{ display:grid; grid-template-columns:repeat(12,1fr); column-gap:clamp(1rem,2.5vw,2.5rem);
+    row-gap:clamp(3.5rem,7vw,6rem); align-items:start; margin-top:clamp(4rem,8vw,6.5rem); }
+  .project-videos + .project-gallery{ margin-top:clamp(3.5rem,7vw,6rem); }
+  .project-gallery figure{ margin:0; min-width:0; }
+  .project-gallery figure:nth-child(3n + 1),
+  .project-gallery figure:nth-child(3n + 2):last-child{ grid-column:1 / -1; justify-self:center; }
+  .project-gallery figure:nth-child(3n + 2){ grid-column:1 / span 7; }
+  .project-gallery figure:nth-child(3n){ grid-column:9 / span 4; margin-top:clamp(4rem,10vw,9rem); }
+  /* website screens read best large: a stacked gallery shows every picture at full width */
+  .project-gallery--stack figure, .project-gallery--stack figure:nth-child(n){ grid-column:1 / -1; margin-top:0; justify-self:stretch; }
+  .project-gallery--stack img, .project-gallery--stack figure:nth-child(n) img{ width:100%; max-height:none; }
+  .project-gallery img{ display:block; width:auto; height:auto; max-width:100%; max-height:80vh; }
+  .project-gallery figure:nth-child(3n + 2) img, .project-gallery figure:nth-child(3n) img{ width:100%; max-height:none; }
+  .project-gallery figure:nth-child(3n + 2):last-child img{ width:auto; max-height:80vh; }
+
+  /* at the foot: the next project, its mono label behind a magenta rule, then prev / index / next */
+  .project-next{ display:block; width:fit-content; margin:clamp(5rem,10vw,8rem) auto 0; text-align:center;
+    font-weight:200; font-size:clamp(1.5rem,2.8vw,2.2rem); line-height:1.15; letter-spacing:-.01em; transition:color .2s; }
+  .project-next-label{ display:flex; align-items:center; justify-content:center; gap:1rem; margin-bottom:.9rem;
+    font-size:.64rem; letter-spacing:.12em; text-transform:uppercase; color:var(--dim); font-weight:400; }
+  .project-next .rule{ width:clamp(40px,6vw,90px); height:1.5px; background:var(--r-mag); transition:width .4s cubic-bezier(.2,.7,.2,1); }
+  .project-next:hover .rule, .project-next:focus-visible .rule{ width:clamp(56px,9vw,130px); }
+  .project-foot{ display:flex; justify-content:space-between; align-items:center; gap:1rem;
+    margin-top:clamp(2.5rem,5vw,4rem); padding-top:1.1rem;
+    font-size:.64rem; letter-spacing:.12em; text-transform:uppercase; }
+  .project-foot a{ color:var(--soft); padding:.3rem 0; transition:color .2s; }
+
+
+  @media(max-width:720px){
+    .project-head{ grid-template-columns:1.6rem minmax(0,1fr) 1.6rem; column-gap:.5rem; }
+    .project-gallery{ display:block; }
+    .project-gallery figure{ margin:0 0 3rem; }
+    .project-gallery img{ width:100%; }
+  }
 
   /* ───────── responsive: stack to one column ───────── */
   @media(max-width:720px){
@@ -536,23 +626,16 @@
     .proj-mid{ align-items:flex-start; text-align:left; flex-direction:row; gap:.8rem; }
   }
 
+  /* small uppercase labels all match the about / contact nav: Geist, .72rem, .14em, soft grey */
+  .cap, .dancer-cap, .view--read .toc a, .reading h2.part, .reading h3, .reading blockquote cite,
+  .view .meta, .view .go, .proj-nav .dir, .to-index, .view .sociallinks, .work-body h2, .work-links,
+  .trip-caption, .project-next-label, .project-foot, .colophon-mini{
+    font-family:var(--sans); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; font-weight:400; color:var(--soft); }
+
   @media(prefers-reduced-motion:reduce){ *{ animation:none !important; transition:none !important } html{ scroll-behavior:auto } }
 </style>
 </head>
 <body>
-
-<!-- datamosh displacement filter -->
-<svg aria-hidden="true" width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden">
-  <filter id="mosh" x="-12%" y="-8%" width="124%" height="116%" color-interpolation-filters="sRGB">
-    <feTurbulence id="moshNoise" type="turbulence" baseFrequency="0.006 0.018" numOctaves="1" seed="11" stitchTiles="stitch" result="n0"/>
-    <feComponentTransfer in="n0" result="n">
-      <feFuncR type="discrete" tableValues="0 0.33 0.66 1"/>
-      <feFuncG type="discrete" tableValues="0 0.33 0.66 1"/>
-    </feComponentTransfer>
-    <feDisplacementMap id="moshDisp" in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G" result="d"/>
-    <feGaussianBlur id="moshBlur" in="d" stdDeviation="0 0"/>
-  </filter>
-</svg>
 
 <!-- floating fried preview -->
 <div id="preview" aria-hidden="true"><div class="pv s1"><span class="fmt"></span></div></div>
@@ -573,9 +656,6 @@
     <!-- ───────── LEFT: persistent index ───────── -->
     <aside class="index-col">
 
-      <!-- EDIT: availability status -->
-      <p class="status">London<span class="sep" aria-hidden="true">*</span>Available 2026</p>
-
       <!--
         EDIT each row: title (.t), year (.y), and the data-* attributes.
         data-target  = id of the matching view in #store below
@@ -585,27 +665,22 @@
       <div class="index-group" id="works">
         <span class="cap">selected works</span>
         <div class="index">
+          <a href="#learning" data-target="learning"><span class="t glitch">learning software</span><span class="y">wip</span></a>
+          <a href="#foma-website" data-target="foma-website" data-swatch="s3" data-thumb="foma-web-thumb.jpg" data-fmt="website"><span class="t glitch">foma: website</span><span class="y">wip</span></a>
+          <a href="#foma-identity" data-target="foma-identity" data-swatch="s3" data-thumb="foma-id-thumb.jpg" data-fmt="identity"><span class="t glitch">foma: identity</span><span class="y">2026</span></a>
+          <a href="#essay4" data-target="essay4"><span class="t glitch">digital terraforming</span><span class="y">2026</span></a>
           <a href="#film" data-target="film" data-swatch="s6" data-thumb="film-thumb.jpg" data-fmt="film"><span class="t glitch">deep fried cinema</span><span class="y">2026</span></a>
           <a href="#gooniverse" data-target="gooniverse" data-swatch="s2" data-thumb="goon-thumb-new.jpg" data-fmt="process"><span class="t glitch">essays for the gooniverse</span><span class="y">2026</span></a>
-          <a href="#horse"   data-target="horse"   data-swatch="s1" data-thumb="beef-roast-thumb.jpg" data-fmt="film"><span class="t glitch">microsoft: 73% beef roast</span><span class="y">2025</span></a>
-          <a href="#ignorance" data-target="ignorance" data-swatch="s5" data-thumb="ignorance-thumb.jpg" data-fmt="research"><span class="t glitch">microsoft: the value of artificial ignorance</span><span class="y">2025</span></a>
-          
-          <a href="#thatcher" data-target="thatcher" data-swatch="s3" data-thumb="thatcher-thumb.jpg" data-fmt="proposal"><span class="t glitch">thank you, mrs thatcher, for your slopitecture?</span><span class="y">2025</span></a>
-        </div>
-      </div>
-
-      <div class="index-group" id="texts">
-        <span class="cap">selected texts</span>
-        <div class="index">
+          <a href="#vault" data-target="vault" data-swatch="s4" data-thumb="vault-thumb.jpg" data-fmt="software"><span class="t glitch">intelligence vault</span><span class="y">2026</span></a>
+          <a href="#conway" data-target="conway" data-swatch="s5" data-thumb="conway-thumb.jpg" data-fmt="software"><span class="t glitch">conway&rsquo;s multiverse</span><span class="y">2026</span></a>
           <a href="#essay3" data-target="essay3"><span class="t glitch">sam and the technologically driven epistemic hyper-fragmentation</span><span class="y">2026</span></a>
+          <a href="#horse"   data-target="horse"   data-swatch="s1" data-thumb="beef-roast-thumb.jpg" data-fmt="film"><span class="t glitch">73% beef roast</span><span class="y">2025</span></a>
+          <a href="#ignorance" data-target="ignorance" data-swatch="s5" data-thumb="ignorance-thumb.jpg" data-fmt="research"><span class="t glitch">the value of artificial ignorance</span><span class="y">2025</span></a>
+          <a href="#trials" data-target="trials" data-swatch="s4" data-thumb="ignorance-trials-1.jpg" data-fmt="objects"><span class="t glitch">material trials</span><span class="y">2025</span></a>
+          <a href="#thatcher" data-target="thatcher" data-swatch="s3" data-thumb="thatcher-thumb.jpg" data-fmt="proposal"><span class="t glitch">thank you, mrs thatcher, for your slopitecture?</span><span class="y">2025</span></a>
           <a href="#essay1" data-target="essay1"><span class="t glitch">the rhythm of the meal</span><span class="y">2025</span></a>
           <a href="#essay2" data-target="essay2"><span class="t glitch">a chair from the steppe</span><span class="y">2025</span></a>
         </div>
-      </div>
-
-      <div class="colophon-mini">
-        <span>© <span id="year"></span> rob fawley</span>
-        <span>set in space mono</span>
       </div>
 
     </aside>
@@ -618,6 +693,9 @@
     </main>
 
   </div>
+
+  <!-- along the bottom of the sheet -->
+  <footer class="colophon-mini"><span>© <span id="year"></span> rob fawley</span></footer>
 </div>
 
 <!--
@@ -638,12 +716,13 @@
 
   <!-- WORKS -->
   <!-- EDIT: title, eyebrow, copy, and the data-yt video id below -->
-      <article class="view view--work" data-view="film" data-kind="work">
-        <header class="work-head">
-          <p class="cap eyebrow">film <span class="sep" aria-hidden="true">*</span> 2026 <span class="sep" aria-hidden="true">*</span> Shoreditch Design Week</p>
-          <h1 class="glitch">deep fried cinema</h1>
-        </header>
-        <figure class="work-hero">
+      <article class="view view--work project" data-view="film" data-kind="work">
+    <header class="project-head">
+      <h1>deep fried cinema</h1>
+      <p class="project-summary">A vertical film made for large-scale display, extending Essays for the Gooniverse.</p>
+      <p class="project-tags">Film, 2026. Shown at Shoreditch Design Week, House of Icon.</p>
+    </header>
+    <figure class="work-hero project-hero">
           <div class="filmbox" data-yt="Zq-tiFJuyPw">
             <div class="film-stage">
               <img class="film-poster" loading="lazy" src="film-poster.jpg" alt="A man in a polo shirt and chinos walks toward a terraced house, seen through an augmented-reality overlay: a target reticle, a rising damage counter, a badge icon, and a translucent horse rearing beside the doorway." />
@@ -657,77 +736,45 @@
             </div>
             <noscript><a class="go" href="https://www.youtube.com/watch?v=Zq-tiFJuyPw" target="_blank" rel="noopener">watch on youtube ↗</a></noscript>
           </div>
+          <figcaption>A still from the film, made to be shown vertically at large scale.</figcaption>
         </figure>
+    <div class="project-text">
         <div class="work-body">
           <p>Deep Fried Cinema is a film produced as an extension of <a data-target="gooniverse" href="#gooniverse">Essays for the Gooniverse</a>. It was made to be displayed vertically, at a large scale.</p>
-          <p>The film was shown at Shoreditch Design Week and at the Goldsmiths BA Design degree show.</p>
+          <p>The film was shown at Shoreditch Design Week, House of Icon.</p>
         </div>
-      </article>
+    </div>
+  </article>
 
-      <article class="view view--work" data-view="gooniverse" data-kind="work">
-        <header class="work-head">
-          <p class="cap eyebrow">process <span class="sep" aria-hidden="true">*</span> 2026</p>
-          <h1 class="glitch">essays for the gooniverse</h1>
-          <p class="standfirst">Media consumption habits have shifted. Short-form content is rapidly becoming the dominant form of media consumption across the globe. In these conditions the essay cannot survive.</p>
-        </header>
-
-        <figure class="work-hero">
-          <img class="work-photo" loading="lazy" src="goon-hero.jpg" alt="The Goon Guide: a figure in a dark suit with a glowing image of the Earth in place of a head, holding an ice cream cone against a black background." />
+      <article class="view view--work project" data-view="gooniverse" data-kind="work">
+    <header class="project-head">
+      <h1>essays for the gooniverse</h1>
+      <p class="project-summary">A process for translating an essay into a series of short-form videos.</p>
+      <p class="project-tags">Process, short-form video, data scraper, 2026.</p>
+    </header>
+    <figure class="work-hero project-hero">
+          <img class="work-photo" src="goon-hero.jpg" alt="The Goon Guide: a figure in a dark suit with a glowing image of the Earth in place of a head, holding an ice cream cone against a black background." />
+          <figcaption>The Goon Guide, the series&rsquo; presenter.</figcaption>
         </figure>
-
+    <div class="project-text">
         <div class="work-body">
-          <h2>the output</h2>
-          <p>Essays for the Gooniverse is a process for translating knowledge from one medium into another: the essay, translated into a series of short-form videos. The process produces a corpus of TikToks that aim to recreate the impact of the original text. The videos on this page are not the output. They are evidence of the output functioning.</p>
-
-          <h2>the gooniverse</h2>
-          <p>The Gooniverse is predominantly confined to cyberspace. It is shaped by the attention economy, where trancelike states induced by hedonistic consumption of media reign supreme.</p>
-          <p>The architecture of short-form video hosting applications, such as TikTok or Instagram Reels, does not facilitate sequential points and citations. It requires three-second hooks and frictionless scripts. Nothing is allowed to break the opioidic warm hug induced by the gushing flow of tailored content. The hostility of that environment to the essay as a medium is another hit to epistemic stability: how can we share the knowledge essays impart if we aren’t consuming them?</p>
-
-          <h2>embedding</h2>
-          <p>It would be easy to criticise the Gooniverse, to connect it to some moral failing in humanity and announce the impending doom of our species as we disconnect further from the physical world. That is not what I intend to do. This work is not about criticising something from a distance. It is about embedding myself within a space and evaluating it on its own terms: not as a moral failing, but as an anthropological phenomenon.</p>
-          <p>The person this is for consumes a lot of short-form video, is interested in complex topics, and cannot access those topics while maintaining their current consumption habits.</p>
-
-          <h2>project infrastructure</h2>
+          <p>Short-form video is fast becoming the dominant way people consume media, and its three-second hooks and frictionless scripts leave no room for the essay. Essays for the Gooniverse is a process for translating an essay into a corpus of TikToks that aims to recreate the impact of the original text.</p>
+          <p>The videos are fronted by the Goon Guide, a character with a screen for a head and a sharp suit, so that viewers judge the text rather than the person reading it. The rig stays as small as the medium: a phone, a ring light and a lapel mic.</p>
+          <p>Scripts are written against data from a scraper, built with LLM-assisted coding, that has analysed 19,607 TikToks to answer how long a description should run and how fast to speak. The source text is <a data-target="essay3" href="#essay3">Sam and the Technologically Driven Epistemic Hyper-Fragmentation</a>.</p>
         </div>
-
-        <figure class="work-figure work-figure--portrait">
-          <img src="goon-rig.jpg" alt="The Goon Guide standing beside the rig: a dark suit, a green inflatable ball worn as a head, a ring light on a tripod holding a phone, and a lapel mic held in one hand." loading="lazy" />
+        <figure class="work-figure work-diagram">
+          <svg class="diagram" viewBox="290 0 1410 875" role="img" aria-label="Diagram of the process: an original text fans out into six parallel rows of five stages each, which converge into a corpus. The stages are break up into points, write a short-form script, film and record audio, caption and describe, and post to TikTok. A marker above the second and fifth stages reads: research tool, 19,607 TikToks analysed." xmlns="http://www.w3.org/2000/svg"><rect class="dg-mag" stroke-width="4" x="575" y="14" width="640" height="66" rx="10"/><text class="dg-label dg-maglabel" x="895" y="58" text-anchor="middle"><tspan x="895" dy="0">research tool: 19,607 tiktoks analysed</tspan></text><line class="dg-mag" stroke-width="4" x1="702" y1="80" x2="702" y2="136"/><path class="dg-mag" stroke-width="4" fill="none" d="M691 124 L702 138 L713 124"/><line class="dg-mag" stroke-width="4" x1="1167" y1="80" x2="1167" y2="136"/><path class="dg-mag" stroke-width="4" fill="none" d="M1156 124 L1167 138 L1178 124"/><line class="dg-grey" stroke-width="2.5" x1="415" y1="417" x2="499.5" y2="180"/><line class="dg-grey" stroke-width="2.5" x1="1214.5" y1="180" x2="1265" y2="417"/><line class="dg-grey" stroke-width="2.5" x1="547" y1="180" x2="1167" y2="180"/><line class="dg-grey" stroke-width="2.5" x1="415" y1="417" x2="499.5" y2="275"/><line class="dg-grey" stroke-width="2.5" x1="1214.5" y1="275" x2="1265" y2="417"/><line class="dg-grey" stroke-width="2.5" x1="547" y1="275" x2="1167" y2="275"/><line class="dg-grey" stroke-width="2.5" x1="415" y1="417" x2="499.5" y2="370"/><line class="dg-grey" stroke-width="2.5" x1="1214.5" y1="370" x2="1265" y2="417"/><line class="dg-grey" stroke-width="2.5" x1="547" y1="370" x2="1167" y2="370"/><line class="dg-grey" stroke-width="2.5" x1="415" y1="417" x2="499.5" y2="465"/><line class="dg-grey" stroke-width="2.5" x1="1214.5" y1="465" x2="1265" y2="417"/><line class="dg-grey" stroke-width="2.5" x1="547" y1="465" x2="1167" y2="465"/><line class="dg-grey" stroke-width="2.5" x1="415" y1="417" x2="499.5" y2="560"/><line class="dg-grey" stroke-width="2.5" x1="1214.5" y1="560" x2="1265" y2="417"/><line class="dg-grey" stroke-width="2.5" x1="547" y1="560" x2="1167" y2="560"/><line class="dg-grey" stroke-width="2.5" x1="415" y1="417" x2="499.5" y2="655"/><line class="dg-grey" stroke-width="2.5" x1="1214.5" y1="655" x2="1265" y2="417"/><line class="dg-grey" stroke-width="2.5" x1="547" y1="655" x2="1167" y2="655"/><rect class="dg-ink dg-fill" stroke-width="4" x="499.5" y="150.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="654.5" y="150.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="809.5" y="150.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="964.5" y="150.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="1119.5" y="150.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="499.5" y="245.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="654.5" y="245.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="809.5" y="245.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="964.5" y="245.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="1119.5" y="245.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="499.5" y="340.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="654.5" y="340.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="809.5" y="340.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="964.5" y="340.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="1119.5" y="340.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="499.5" y="435.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="654.5" y="435.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="809.5" y="435.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="964.5" y="435.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="1119.5" y="435.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="499.5" y="530.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="654.5" y="530.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="809.5" y="530.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="964.5" y="530.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="1119.5" y="530.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="499.5" y="625.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="654.5" y="625.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="809.5" y="625.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="964.5" y="625.0" width="95" height="60" rx="15"/><rect class="dg-ink dg-fill" stroke-width="4" x="1119.5" y="625.0" width="95" height="60" rx="15"/><line class="dg-grey" stroke-width="2.5" x1="1265" y1="417" x2="1282" y2="417"/><rect class="dg-ink dg-fill" stroke-width="4" x="325" y="150" width="90" height="535" rx="9"/><ellipse class="dg-ink" stroke-width="4" fill="none" cx="1475" cy="417" rx="193" ry="270"/><line class="dg-grey" stroke-width="2.5" x1="1478.0" y1="250.0" x2="1581.4" y2="390.5"/><line class="dg-grey" stroke-width="2.5" x1="1478.0" y1="250.0" x2="1513.9" y2="579.7"/><line class="dg-grey" stroke-width="2.5" x1="1545.5" y1="289.8" x2="1568.9" y2="505.0"/><line class="dg-grey" stroke-width="2.5" x1="1545.5" y1="289.8" x2="1442.1" y2="579.7"/><line class="dg-grey" stroke-width="2.5" x1="1581.4" y1="390.5" x2="1513.9" y2="579.7"/><line class="dg-grey" stroke-width="2.5" x1="1581.4" y1="390.5" x2="1387.1" y2="505.0"/><line class="dg-grey" stroke-width="2.5" x1="1568.9" y1="505.0" x2="1442.1" y2="579.7"/><line class="dg-grey" stroke-width="2.5" x1="1568.9" y1="505.0" x2="1374.6" y2="390.5"/><line class="dg-grey" stroke-width="2.5" x1="1513.9" y1="579.7" x2="1387.1" y2="505.0"/><line class="dg-grey" stroke-width="2.5" x1="1513.9" y1="579.7" x2="1410.5" y2="289.8"/><line class="dg-grey" stroke-width="2.5" x1="1442.1" y1="579.7" x2="1374.6" y2="390.5"/><line class="dg-grey" stroke-width="2.5" x1="1442.1" y1="579.7" x2="1478.0" y2="250.0"/><line class="dg-grey" stroke-width="2.5" x1="1387.1" y1="505.0" x2="1410.5" y2="289.8"/><line class="dg-grey" stroke-width="2.5" x1="1387.1" y1="505.0" x2="1545.5" y2="289.8"/><line class="dg-grey" stroke-width="2.5" x1="1374.6" y1="390.5" x2="1478.0" y2="250.0"/><line class="dg-grey" stroke-width="2.5" x1="1374.6" y1="390.5" x2="1581.4" y2="390.5"/><line class="dg-grey" stroke-width="2.5" x1="1410.5" y1="289.8" x2="1545.5" y2="289.8"/><line class="dg-grey" stroke-width="2.5" x1="1410.5" y1="289.8" x2="1568.9" y2="505.0"/><circle class="dg-ink dg-fill" stroke-width="2.5" cx="1478.0" cy="250.0" r="10"/><circle class="dg-ink dg-fill" stroke-width="2.5" cx="1545.5" cy="289.8" r="10"/><circle class="dg-ink dg-fill" stroke-width="2.5" cx="1581.4" cy="390.5" r="10"/><circle class="dg-ink dg-fill" stroke-width="2.5" cx="1568.9" cy="505.0" r="10"/><circle class="dg-ink dg-fill" stroke-width="2.5" cx="1513.9" cy="579.7" r="10"/><circle class="dg-ink dg-fill" stroke-width="2.5" cx="1442.1" cy="579.7" r="10"/><circle class="dg-ink dg-fill" stroke-width="2.5" cx="1387.1" cy="505.0" r="10"/><circle class="dg-ink dg-fill" stroke-width="2.5" cx="1374.6" cy="390.5" r="10"/><circle class="dg-ink dg-fill" stroke-width="2.5" cx="1410.5" cy="289.8" r="10"/><line class="dg-grey" stroke-width="2.5" x1="547" y1="735" x2="547" y2="700"/><path class="dg-grey" stroke-width="2.5" fill="none" d="M537 711 L547 699 L557 711"/><line class="dg-grey" stroke-width="2.5" x1="702" y1="735" x2="702" y2="700"/><path class="dg-grey" stroke-width="2.5" fill="none" d="M692 711 L702 699 L712 711"/><line class="dg-grey" stroke-width="2.5" x1="857" y1="735" x2="857" y2="700"/><path class="dg-grey" stroke-width="2.5" fill="none" d="M847 711 L857 699 L867 711"/><line class="dg-grey" stroke-width="2.5" x1="1012" y1="735" x2="1012" y2="700"/><path class="dg-grey" stroke-width="2.5" fill="none" d="M1002 711 L1012 699 L1022 711"/><line class="dg-grey" stroke-width="2.5" x1="1167" y1="735" x2="1167" y2="700"/><path class="dg-grey" stroke-width="2.5" fill="none" d="M1157 711 L1167 699 L1177 711"/><text class="dg-label" x="370" y="745" text-anchor="middle"><tspan x="370" dy="0">original</tspan><tspan x="370" dy="30">text</tspan></text><text class="dg-label" x="547" y="770" text-anchor="middle"><tspan x="547" dy="0">break up</tspan><tspan x="547" dy="30">into</tspan><tspan x="547" dy="30">points</tspan></text><text class="dg-label" x="702" y="770" text-anchor="middle"><tspan x="702" dy="0">write a</tspan><tspan x="702" dy="30">short-form</tspan><tspan x="702" dy="30">script</tspan></text><text class="dg-label" x="857" y="770" text-anchor="middle"><tspan x="857" dy="0">film and</tspan><tspan x="857" dy="30">record</tspan><tspan x="857" dy="30">audio</tspan></text><text class="dg-label" x="1012" y="770" text-anchor="middle"><tspan x="1012" dy="0">caption</tspan><tspan x="1012" dy="30">and</tspan><tspan x="1012" dy="30">describe</tspan></text><text class="dg-label" x="1167" y="770" text-anchor="middle"><tspan x="1167" dy="0">post to</tspan><tspan x="1167" dy="30">tiktok</tspan></text><text class="dg-label" x="1475" y="745" text-anchor="middle"><tspan x="1475" dy="0">corpus</tspan></text></svg>
+          <figcaption>The process, from one essay to a corpus of videos.</figcaption>
         </figure>
-
         <div class="work-body">
-          <p>If it is me on screen with my own face, viewers make assumptions about me that influence the text, assumptions I cannot control or design for. For this reason I developed a character, the Goon Guide: a digital transient with a screen for a head and a sharp suit. The head engages viewers with its novelty and works as a visual stimulant; the suit lends the character authority. He speaks into a lapel mic, left visible on purpose, revealing something professional productions traditionally obscure. It is a trick borrowed from the influencer trade.</p>
-          <p>A defining characteristic of short-form content is that the barrier to producing it is low: a phone and a degree of technical competence. So the rig stays notionally small: two objects, a ring light and a mic. Anything else would be overdesign.</p>
+          <p>The project exists in three forms. The small-screen user meets it in its native medium, one standalone point at a time. The big-screen user meets it as an exhibition object, broken from its function and held up for inspection. The process user runs the translation itself. Nobody is fixed to one role; the same person moves between them.</p>
         </div>
-
-        <figure class="work-figure">
-          <img src="goon-scraper.jpg" alt="A laptop displaying the Intelligence Vault: a dark interface showing a scraped TikTok transcript alongside its view, save, like and share counts, and metrics for duration, word count and pacing." loading="lazy" />
+        <figure class="work-figure work-diagram">
+          <svg class="diagram" viewBox="180 30 1500 950" role="img" aria-label="Diagram of the three users: a small screen and a big screen on the left, the process on the right, with overlapping ellipses and lines showing that a person can move between all three roles." xmlns="http://www.w3.org/2000/svg"><ellipse class="dg-grey" stroke-width="3" fill="none" cx="930" cy="505" rx="735" ry="457"/><ellipse class="dg-grey" stroke-width="3" fill="none" cx="660" cy="495" rx="465" ry="355"/><line class="dg-grey" stroke-width="3" x1="323" y1="494" x2="1305" y2="490"/><line class="dg-grey" stroke-width="3" x1="298" y1="536" x2="893" y2="714"/><line class="dg-grey" stroke-width="3" x1="895" y1="282" x2="1400" y2="410"/><circle class="dg-ink dg-fill" stroke-width="4" cx="298" cy="494" r="100"/><rect class="dg-ink dg-fill" stroke-width="4" x="273" y="452" width="50" height="84" rx="6"/><rect class="dg-ink dg-fill" stroke-width="4" x="786" y="281" width="216" height="434" rx="22"/><line class="dg-grey" stroke-width="1.5" x1="1328" y1="490" x2="1349.0" y2="416"/><line class="dg-grey" stroke-width="1.5" x1="1529.0" y1="416" x2="1546" y2="490"/><line class="dg-grey" stroke-width="1.5" x1="1361" y1="416" x2="1517" y2="416"/><line class="dg-grey" stroke-width="1.5" x1="1328" y1="490" x2="1349.0" y2="444"/><line class="dg-grey" stroke-width="1.5" x1="1529.0" y1="444" x2="1546" y2="490"/><line class="dg-grey" stroke-width="1.5" x1="1361" y1="444" x2="1517" y2="444"/><line class="dg-grey" stroke-width="1.5" x1="1328" y1="490" x2="1349.0" y2="472"/><line class="dg-grey" stroke-width="1.5" x1="1529.0" y1="472" x2="1546" y2="490"/><line class="dg-grey" stroke-width="1.5" x1="1361" y1="472" x2="1517" y2="472"/><line class="dg-grey" stroke-width="1.5" x1="1328" y1="490" x2="1349.0" y2="500"/><line class="dg-grey" stroke-width="1.5" x1="1529.0" y1="500" x2="1546" y2="490"/><line class="dg-grey" stroke-width="1.5" x1="1361" y1="500" x2="1517" y2="500"/><line class="dg-grey" stroke-width="1.5" x1="1328" y1="490" x2="1349.0" y2="528"/><line class="dg-grey" stroke-width="1.5" x1="1529.0" y1="528" x2="1546" y2="490"/><line class="dg-grey" stroke-width="1.5" x1="1361" y1="528" x2="1517" y2="528"/><line class="dg-grey" stroke-width="1.5" x1="1328" y1="490" x2="1349.0" y2="556"/><line class="dg-grey" stroke-width="1.5" x1="1529.0" y1="556" x2="1546" y2="490"/><line class="dg-grey" stroke-width="1.5" x1="1361" y1="556" x2="1517" y2="556"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1349.0" y="407.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1388.0" y="407.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1427.0" y="407.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1466.0" y="407.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1505.0" y="407.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1349.0" y="435.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1388.0" y="435.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1427.0" y="435.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1466.0" y="435.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1505.0" y="435.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1349.0" y="463.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1388.0" y="463.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1427.0" y="463.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1466.0" y="463.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1505.0" y="463.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1349.0" y="491.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1388.0" y="491.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1427.0" y="491.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1466.0" y="491.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1505.0" y="491.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1349.0" y="519.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1388.0" y="519.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1427.0" y="519.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1466.0" y="519.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1505.0" y="519.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1349.0" y="547.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1388.0" y="547.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1427.0" y="547.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1466.0" y="547.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1505.0" y="547.5" width="24" height="17" rx="4"/><rect class="dg-ink dg-fill" stroke-width="2.5" x="1305" y="407" width="23" height="165" rx="3"/><ellipse class="dg-ink dg-fill" stroke-width="2.5" cx="1596" cy="490" rx="49" ry="82"/><line class="dg-grey" stroke-width="1.5" x1="1597.0" y1="439.0" x2="1623.6" y2="482.0"/><line class="dg-grey" stroke-width="1.5" x1="1597.0" y1="439.0" x2="1606.2" y2="539.9"/><line class="dg-grey" stroke-width="1.5" x1="1614.4" y1="451.2" x2="1620.4" y2="517.0"/><line class="dg-grey" stroke-width="1.5" x1="1614.4" y1="451.2" x2="1587.8" y2="539.9"/><line class="dg-grey" stroke-width="1.5" x1="1623.6" y1="482.0" x2="1606.2" y2="539.9"/><line class="dg-grey" stroke-width="1.5" x1="1623.6" y1="482.0" x2="1573.6" y2="517.0"/><line class="dg-grey" stroke-width="1.5" x1="1620.4" y1="517.0" x2="1587.8" y2="539.9"/><line class="dg-grey" stroke-width="1.5" x1="1620.4" y1="517.0" x2="1570.4" y2="482.0"/><line class="dg-grey" stroke-width="1.5" x1="1606.2" y1="539.9" x2="1573.6" y2="517.0"/><line class="dg-grey" stroke-width="1.5" x1="1606.2" y1="539.9" x2="1579.6" y2="451.2"/><line class="dg-grey" stroke-width="1.5" x1="1587.8" y1="539.9" x2="1570.4" y2="482.0"/><line class="dg-grey" stroke-width="1.5" x1="1587.8" y1="539.9" x2="1597.0" y2="439.0"/><line class="dg-grey" stroke-width="1.5" x1="1573.6" y1="517.0" x2="1579.6" y2="451.2"/><line class="dg-grey" stroke-width="1.5" x1="1573.6" y1="517.0" x2="1614.4" y2="451.2"/><line class="dg-grey" stroke-width="1.5" x1="1570.4" y1="482.0" x2="1597.0" y2="439.0"/><line class="dg-grey" stroke-width="1.5" x1="1570.4" y1="482.0" x2="1623.6" y2="482.0"/><line class="dg-grey" stroke-width="1.5" x1="1579.6" y1="451.2" x2="1614.4" y2="451.2"/><line class="dg-grey" stroke-width="1.5" x1="1579.6" y1="451.2" x2="1620.4" y2="517.0"/><circle class="dg-ink dg-fill" stroke-width="1.5" cx="1597.0" cy="439.0" r="3.5"/><circle class="dg-ink dg-fill" stroke-width="1.5" cx="1614.4" cy="451.2" r="3.5"/><circle class="dg-ink dg-fill" stroke-width="1.5" cx="1623.6" cy="482.0" r="3.5"/><circle class="dg-ink dg-fill" stroke-width="1.5" cx="1620.4" cy="517.0" r="3.5"/><circle class="dg-ink dg-fill" stroke-width="1.5" cx="1606.2" cy="539.9" r="3.5"/><circle class="dg-ink dg-fill" stroke-width="1.5" cx="1587.8" cy="539.9" r="3.5"/><circle class="dg-ink dg-fill" stroke-width="1.5" cx="1573.6" cy="517.0" r="3.5"/><circle class="dg-ink dg-fill" stroke-width="1.5" cx="1570.4" cy="482.0" r="3.5"/><circle class="dg-ink dg-fill" stroke-width="1.5" cx="1579.6" cy="451.2" r="3.5"/><text class="dg-label" x="335" y="645" text-anchor="middle"><tspan x="335" dy="0">small screen</tspan></text><text class="dg-label" x="894" y="755" text-anchor="middle"><tspan x="894" dy="0">big screen</tspan></text><text class="dg-label" x="1470" y="330" text-anchor="middle"><tspan x="1470" dy="0">process</tspan></text></svg>
+          <figcaption>The project&rsquo;s three users, and how one person moves between them.</figcaption>
         </figure>
-
-        <div class="work-body">
-          <p>Translating a standalone point into a short-form script is a science in itself, and every decision carries the potential to undermine the script and damage a video’s performance. The scraper was built with LLM-assisted coding to answer those questions with data: when to post, how long a description should run, how many words per minute to speak. At full speed it gathers 20,000 videos a day. 50,000 analysed to date.</p>
-
-          <h2>the process</h2>
-        </div>
-
-        <figure class="work-figure">
-          <div class="diagram-rail"><img src="method-diagram.png" alt="Diagram of the process: an original text fans out into six parallel rows of five stages each, which converge into a corpus. The stages are break up into points, write a short-form script, film and record audio, caption and describe, and post to TikTok. A marker above the second and fifth stages reads: research tool, 50,000 tiktoks analysed." loading="lazy" /></div>
-        </figure>
-
-        <div class="work-body">
-          <ol class="steps">
-            <li>Break the original text into individual points that can largely stand on their own. This is done manually, to ensure I have engaged with and understood the text before translating it.</li>
-            <li>Write each point as a short-form script, optimised against the scraper data.</li>
-            <li>Film and record: phone, ring light, lapel mic, outfit.</li>
-            <li>Edit in Premiere, with the final touches applied in TikTok. Caption and describe, referring back to the data for description and posting decisions.</li>
-            <li>Post.</li>
-          </ol>
-          <p>The finished videos are obviously different from the original text but still communicate its themes. The difference is the difference between a graphic novel and a series of comics: a graphic novel communicates its themes through linear narrative, while a comic series communicates the same themes through fragmented stories.</p>
-
-          <h2>the corpus</h2>
-          <p>Three videos, translated from <a data-target="essay3" href="#essay3">sam and the technologically driven epistemic hyper-fragmentation →</a></p>
-        </div>
-
-        <figure class="work-hero">
+    </div>
+    <figure class="project-videos">
           <div class="triptych" data-trip>
             <div class="trip-track">
               <div class="trip-item">
@@ -752,149 +799,339 @@
               <button class="trip-next" type="button" aria-label="next video">›</button>
             </div>
           </div>
+          <figcaption>Three of the videos.</figcaption>
+          <figcaption>Three of the videos.</figcaption>
         </figure>
-
-        <div class="work-body">
-          <h2>three users</h2>
-        </div>
-
-        <figure class="work-figure">
-          <div class="diagram-rail"><img src="three-users-diagram.png" alt="Diagram of the three users: a small screen and a big screen on the left, the process on the right, with overlapping ellipses and lines showing that a person can move between all three roles." loading="lazy" /></div>
+    <div class="project-gallery">
+      <figure>
+          <img src="goon-rig.jpg" alt="The Goon Guide standing beside the rig: a dark suit, a green inflatable ball worn as a head, a ring light on a tripod holding a phone, and a lapel mic held in one hand." loading="lazy" />
+          <figcaption>The Goon Guide and the rig: a phone on a ring light, and a lapel mic.</figcaption>
         </figure>
+      <figure>
+          <img src="goon-scraper.jpg" alt="A laptop displaying the Intelligence Vault: a dark interface showing a scraped TikTok transcript alongside its view, save, like and share counts, and metrics for duration, word count and pacing." loading="lazy" />
+          <figcaption>The scraper, which reads TikTok transcripts alongside how each video performed.</figcaption>
+        </figure>
+    </div>
+  </article>
 
-        <div class="work-body">
-          <p>The project exists in three forms. The small screen user meets it in its native medium, one standalone point at a time, building the essay across videos. The big screen user meets it as an exhibition object: the medium shifts from cool to hot, and the videos change too; for the small screen user, a video is equipment, transparent, used, ready-to-hand; for the big screen user, it becomes an object, broken from its function and held up for inspection. The process user runs the translation itself. Nobody is fixed to one role; the same person moves between them.</p>
-        </div>
-      </article>
-
-  <article class="view view--work" data-view="horse" data-kind="work">
-    <header class="work-head">
-      <p class="cap eyebrow">film <span class="sep" aria-hidden="true">*</span> 2025 <span class="sep" aria-hidden="true">*</span> Microsoft</p>
-      <h1 class="glitch">microsoft: 73% beef roast</h1>
+  <article class="view view--work project" data-view="vault" data-kind="work">
+    <header class="project-head">
+      <h1>intelligence vault</h1>
+      <p class="project-summary">A scraper I built to find out what makes short-form video work.</p>
+      <p class="project-tags">Custom software, data analysis, 2026.</p>
     </header>
-    <figure class="work-hero">
+    <figure class="work-hero project-hero">
+          <img class="work-photo" src="goon-scraper.jpg" alt="A laptop displaying the Intelligence Vault: a dark interface showing a scraped TikTok transcript alongside its view, save, like and share counts, and metrics for duration, word count and pacing." />
+          <figcaption>The Vault on my laptop.</figcaption>
+        </figure>
+    <div class="project-text">
+        <div class="work-body">
+          <p>The Intelligence Vault watches TikTok, harvests the videos it finds, transcribes them and measures what performs. I built it with LLM-assisted coding to write the scripts for <a data-target="gooniverse" href="#gooniverse">Essays for the Gooniverse</a>: how long a video should run, how long its description should be, how fast to speak.</p>
+          <p>It logged 19,607 videos from more than 1,800 creators. Every chart below compares median views, so a handful of viral hits can&rsquo;t skew the picture.</p>
+          <p>The clearest finding: fast talkers win. Videos spoken at 260 words a minute or more had a median of 216k views, against 48k at 160 to 190.</p>
+        </div>
+        <figure class="work-figure work-diagram">
+          <svg class="diagram chart" viewBox="0 0 1000 414" role="img" aria-label="Bar chart of median views by speaking speed in words per minute: under 130, 171k; 130 to 160, 48k; 160 to 190, 48k; 190 to 220, 84k; 220 to 260, 127k; 260 and over, 216k." xmlns="http://www.w3.org/2000/svg"><text class="dg-label" x="146" y="54" text-anchor="end"><130</text><rect class="dg-bar" x="170" y="32" width="499.3" height="34"/><text class="dg-label" x="685.3" y="54">171k</text><text class="dg-note" x="759.3" y="54">n=663</text><text class="dg-label" x="146" y="118" text-anchor="end">130–160</text><rect class="dg-bar" x="170" y="96" width="139.3" height="34"/><text class="dg-label" x="325.3" y="118">48k</text><text class="dg-note" x="384.3" y="118">n=602</text><text class="dg-label" x="146" y="182" text-anchor="end">160–190</text><rect class="dg-bar" x="170" y="160" width="138.9" height="34"/><text class="dg-label" x="324.9" y="182">48k</text><text class="dg-note" x="383.9" y="182">n=1,561</text><text class="dg-label" x="146" y="246" text-anchor="end">190–220</text><rect class="dg-bar" x="170" y="224" width="244.8" height="34"/><text class="dg-label" x="430.8" y="246">84k</text><text class="dg-note" x="489.8" y="246">n=3,216</text><text class="dg-label" x="146" y="310" text-anchor="end">220–260</text><rect class="dg-bar" x="170" y="288" width="370.0" height="34"/><text class="dg-label" x="556.0" y="310">127k</text><text class="dg-note" x="630.0" y="310">n=5,831</text><text class="dg-label" x="146" y="374" text-anchor="end">260+</text><rect class="dg-bar-hi" x="170" y="352" width="630.0" height="34"/><text class="dg-label" x="816.0" y="374">216k</text><text class="dg-note" x="890.0" y="374">n=7,587</text></svg>
+          <figcaption>Median views by speaking speed, in words per minute.</figcaption>
+        </figure>
+        <div class="work-body">
+          <p>Short descriptions did best: under five words, a median of 289k views, against 125k for the most common length of 10 to 19 words.</p>
+        </div>
+        <figure class="work-figure work-diagram">
+          <svg class="diagram chart" viewBox="0 0 1000 414" role="img" aria-label="Bar chart of median views by description length in words: 0 to 4, 289k; 5 to 9, 165k; 10 to 19, 125k; 20 to 39, 149k; 40 to 79, 198k; 80 and over, 107k." xmlns="http://www.w3.org/2000/svg"><text class="dg-label" x="146" y="54" text-anchor="end">0–4</text><rect class="dg-bar-hi" x="170" y="32" width="630.0" height="34"/><text class="dg-label" x="816.0" y="54">289k</text><text class="dg-note" x="890.0" y="54">n=1,146</text><text class="dg-label" x="146" y="118" text-anchor="end">5–9</text><rect class="dg-bar" x="170" y="96" width="360.9" height="34"/><text class="dg-label" x="546.9" y="118">165k</text><text class="dg-note" x="620.9" y="118">n=3,874</text><text class="dg-label" x="146" y="182" text-anchor="end">10–19</text><rect class="dg-bar" x="170" y="160" width="273.5" height="34"/><text class="dg-label" x="459.5" y="182">125k</text><text class="dg-note" x="533.5" y="182">n=8,610</text><text class="dg-label" x="146" y="246" text-anchor="end">20–39</text><rect class="dg-bar" x="170" y="224" width="324.8" height="34"/><text class="dg-label" x="510.8" y="246">149k</text><text class="dg-note" x="584.8" y="246">n=3,378</text><text class="dg-label" x="146" y="310" text-anchor="end">40–79</text><rect class="dg-bar" x="170" y="288" width="431.7" height="34"/><text class="dg-label" x="617.7" y="310">198k</text><text class="dg-note" x="691.7" y="310">n=1,886</text><text class="dg-label" x="146" y="374" text-anchor="end">80+</text><rect class="dg-bar" x="170" y="352" width="232.7" height="34"/><text class="dg-label" x="418.7" y="374">107k</text><text class="dg-note" x="492.7" y="374">n=713</text></svg>
+          <figcaption>Median views by description length, in words.</figcaption>
+        </figure>
+        <div class="work-body">
+          <p>Length mattered less than expected. The very short videos did best, but there are few of them; most sat at 60 to 90 seconds. The Vault&rsquo;s own headline finding was that contrarian hooks, 60 to 90 second runtimes and original audio earn 2.5 times the saves.</p>
+        </div>
+        <figure class="work-figure work-diagram">
+          <svg class="diagram chart" viewBox="0 0 1000 414" role="img" aria-label="Bar chart of median views by video length: under 30 seconds, 858k; 30 to 45 seconds, 133k; 45 to 60 seconds, 166k; 60 to 90 seconds, 135k; 90 seconds to 3 minutes, 145k; over 3 minutes, 200k." xmlns="http://www.w3.org/2000/svg"><text class="dg-label" x="146" y="54" text-anchor="end"><30s</text><rect class="dg-bar-hi" x="170" y="32" width="630.0" height="34"/><text class="dg-label" x="816.0" y="54">858k</text><text class="dg-note" x="890.0" y="54">n=354</text><text class="dg-label" x="146" y="118" text-anchor="end">30–45s</text><rect class="dg-bar" x="170" y="96" width="97.9" height="34"/><text class="dg-label" x="283.9" y="118">133k</text><text class="dg-note" x="357.9" y="118">n=1,366</text><text class="dg-label" x="146" y="182" text-anchor="end">45–60s</text><rect class="dg-bar" x="170" y="160" width="121.6" height="34"/><text class="dg-label" x="307.6" y="182">166k</text><text class="dg-note" x="381.6" y="182">n=2,540</text><text class="dg-label" x="146" y="246" text-anchor="end">60–90s</text><rect class="dg-bar" x="170" y="224" width="99.2" height="34"/><text class="dg-label" x="285.2" y="246">135k</text><text class="dg-note" x="359.2" y="246">n=9,361</text><text class="dg-label" x="146" y="310" text-anchor="end">90s–3m</text><rect class="dg-bar" x="170" y="288" width="106.2" height="34"/><text class="dg-label" x="292.2" y="310">145k</text><text class="dg-note" x="366.2" y="310">n=5,219</text><text class="dg-label" x="146" y="374" text-anchor="end">3m+</text><rect class="dg-bar" x="170" y="352" width="146.5" height="34"/><text class="dg-label" x="332.5" y="374">200k</text><text class="dg-note" x="406.5" y="374">n=767</text></svg>
+          <figcaption>Median views by video length. n is the number of videos in each group.</figcaption>
+        </figure>
+        <div class="work-body">
+          <p>It can&rsquo;t be trialled here: collecting TikTok data automatically breaches TikTok&rsquo;s Terms of Service, so the Vault only ever ran on my own machine, for research.</p>
+        </div>
+    </div>
+    <div class="project-gallery project-gallery--stack">
+      <figure>
+          <img src="vault-dashboard.jpg" alt="The Intelligence Vault dashboard in a browser window: the Collect panel and the Breaking out list of creators by save rate, with creator names blurred." loading="lazy" />
+          <figcaption>Patterns: who is breaking out against their own baseline.</figcaption>
+        </figure>
+      <figure>
+          <img src="vault-reliable.jpg" alt="The Reliable performers panel: creators ranked by save rate with dot ratings and blue bars, creator names blurred." loading="lazy" />
+          <figcaption>Reliable performers: high saves, low variance.</figcaption>
+        </figure>
+      <figure>
+          <img src="vault-creators.jpg" alt="The Creators page: a grid of creator cards with follower counts, tier badges, median save rates and radar shapes, with names and avatars blurred." loading="lazy" />
+          <figcaption>Creators worth studying, ranked by relevance to the work.</figcaption>
+        </figure>
+    </div>
+  </article>
+
+  <article class="view view--work project" data-view="conway" data-kind="work">
+    <header class="project-head">
+      <h1>conway&rsquo;s multiverse</h1>
+      <p class="project-summary">Imaging of amoebas adrift in the primordial soup of cyberspace.</p>
+      <p class="project-tags">Graphic design, custom software, 2026, with FOMA.</p>
+    </header>
+    <figure class="work-hero project-hero">
+          <img class="work-photo" src="conway-cover.jpg" alt="Digital colonies stacked upon each other, obeying Conway&rsquo;s Game of Life." width="1268" height="1878" />
+          <figcaption>Digital colonies stacked upon each other, obeying Conway&rsquo;s Game of Life.</figcaption>
+        </figure>
+    <div class="project-text">
+        <div class="work-body">
+          <p>These images are taken from early non-biological life: the sort of cellular automata that floated so that contemporary Turing machines could swim. What you are seeing are digital colonies stacked upon each other in a multiversal existence, obeying Conway&rsquo;s Game of Life.</p>
+          <p>The Game is run on software of my own making, which grants each colony its own visual register. This ability to manipulate the aesthetics of the game enables us to express the beauty of the infancy of non-biological life.</p>
+          <p>My software permits a wide variety of ways to capture the Game of Life, from format (GIFs, PNGs, PDFs) to aesthetics (colour, shape, scale and more).</p>
+          <a class="go" href="conways-multiverse/" target="_blank" rel="noopener">use conway&rsquo;s multiverse ↗</a>
+        </div>
+    </div>
+    <div class="project-gallery">
+      <figure>
+          <img src="conway-colonies.jpg" alt="An example of the images which can be produced using the software we have built." width="1600" height="1097" loading="lazy" />
+          <figcaption>An example of the images which can be produced using the software we have built.</figcaption>
+        </figure>
+      <figure>
+          <img src="conway-software.jpg" alt="The Conway&rsquo;s Multiverse software. The panel on the right holds the variables users adjust to create their organism." width="1600" height="964" loading="lazy" />
+          <figcaption>The Conway&rsquo;s Multiverse software. The panel on the right holds the variables users adjust to create their organism.</figcaption>
+        </figure>
+    </div>
+  </article>
+
+  <article class="view view--work project" data-view="foma-identity" data-kind="work">
+    <header class="project-head">
+      <h1>foma: identity</h1>
+      <p class="project-summary">A brand for a design studio and research lab: one grey, one ink and one pink.</p>
+      <p class="project-tags">Brand identity, 2026, FOMA.</p>
+    </header>
+    <figure class="work-hero project-hero">
+          <img class="work-photo" src="foma-id-hero.jpg" alt="The FOMA logo in pink on light grey: the wordmark beside a mark built from triangles." />
+          <figcaption>The FOMA logo.</figcaption>
+        </figure>
+    <div class="project-text">
+        <div class="work-body">
+          <p>FOMA is the design studio and research lab I founded with Toby Pollard in 2026. We are focused on offering design and research consultancy for a wide variety of projects.</p>
+          <p>To appeal to our clients, we needed branding that communicated our clean and efficient design approach, with a focus on technology. The logo is an abstraction of the cat&rsquo;s cradle quilting pattern, a nod to Kurt Vonnegut&rsquo;s <em>Cat&rsquo;s Cradle</em>, the book from which we took the studio&rsquo;s name. We adopted a colour scheme of grey, ink and pink: the two shades of grey give strong contrast for typography, and the pink acts as a visually distinctive highlight.</p>
+          <p>To make the studio more visually distinctive still, we designed a low-poly bird as a mascot.</p>
+        </div>
+    </div>
+    <div class="project-gallery">
+      <figure>
+          <img src="foma-id-lockups.jpg" alt="The FOMA logo and mark in their colourways: black and grey lockups, the pink wordmark, and the triangle mark on ink, on pink and in black." loading="lazy" />
+          <figcaption>The logo and mark, in their colourways.</figcaption>
+        </figure>
+      <figure>
+          <img src="foma-id-type.jpg" alt="A type specimen: Poppins regular beside Instrument Serif italic, and a FOMA headline mixing the two." loading="lazy" />
+          <figcaption>Poppins, with Instrument Serif italic for emphasis.</figcaption>
+        </figure>
+      <figure>
+          <img src="foma-id-bird.jpg" alt="A low-poly pink 3D bird in round glasses, with a lit light bulb above its head." loading="lazy" />
+          <figcaption>The bird.</figcaption>
+        </figure>
+      <figure>
+          <img src="foma-id-colour.jpg" alt="Three colour swatches: grey #EAEAEA, ink #1C1C1C and pink #FF2FE9." loading="lazy" />
+          <figcaption>Grey, ink and pink.</figcaption>
+        </figure>
+    </div>
+  </article>
+
+  <article class="view view--work project" data-view="foma-website" data-kind="work">
+    <header class="project-head">
+      <h1>foma: website</h1>
+      <p class="project-summary">The website for FOMA, the design studio and research lab I founded with Toby Pollard.</p>
+      <p class="project-tags">Website design and build, work in progress, 2026, FOMA.</p>
+    </header>
+    <figure class="work-hero project-hero">
+          <img class="work-photo" src="foma-web-home.jpg" alt="The FOMA homepage in a browser window: a pink bar, a pixel pattern, and the headline a design studio and research lab that digs into the data to find the idea worth making, then makes it properly." />
+          <figcaption>The homepage, with the cursor swelling pink over a link.</figcaption>
+        </figure>
+    <div class="project-text">
+        <div class="work-body">
+          <p>The FOMA site is designed and built by hand, with no template or page builder.</p>
+          <p>Headlines rise into place word by word, project pages keep their facts beside the work, and the 3D bird walks visitors through how the studio works. A pause switch at the foot of every page stops anything that moves, for visitors who need it still.</p>
+        </div>
+    </div>
+    <div class="project-gallery project-gallery--stack">
+      <figure>
+          <img src="foma-web-work.jpg" alt="The Our work page in a browser window: a dark header with Our work in large type." loading="lazy" />
+          <figcaption>Our work.</figcaption>
+        </figure>
+      <figure>
+          <img src="foma-web-picks.jpg" alt="The FOMA homepage&rsquo;s selected work: Our work in large type over a grid of project tiles." loading="lazy" />
+          <figcaption>Selected work on the homepage.</figcaption>
+        </figure>
+      <figure>
+          <img src="foma-web-project.jpg" alt="A FOMA project page in a browser window: The Storm Which Never Existed, its facts beside a photograph of 3D-printed storm models." loading="lazy" />
+          <figcaption>A project page.</figcaption>
+        </figure>
+      <figure>
+          <img src="foma-web-bird.jpg" alt="The How we work section: Discover, design, do, demonstrate, set beside the low-poly pink bird holding a light bulb." loading="lazy" />
+          <figcaption>How we work, acted out by the bird.</figcaption>
+        </figure>
+      <figure>
+          <img src="foma-web-services.jpg" alt="The What we offer page in a browser window: photographs of the four services and the expertise below." loading="lazy" />
+          <figcaption>What we offer.</figcaption>
+        </figure>
+      <figure>
+          <img src="foma-web-about.jpg" alt="The About FOMA page in a browser window, with two birds beside the studio&rsquo;s introduction." loading="lazy" />
+          <figcaption>About FOMA.</figcaption>
+        </figure>
+      <figure>
+          <img src="foma-web-phones.jpg" alt="Four FOMA pages on phones, on a pink background: the homepage, a project page, What we offer and About." loading="lazy" />
+          <figcaption>On a phone.</figcaption>
+        </figure>
+      <figure>
+          <img src="foma-web-contact.jpg" alt="The FOMA contact page in a browser window: Ready to work with us? beside a bird carrying a letter." loading="lazy" />
+          <figcaption>Contact.</figcaption>
+        </figure>
+    </div>
+  </article>
+
+  <article class="view view--work project" data-view="learning" data-kind="work">
+    <header class="project-head">
+      <h1>learning software</h1>
+      <p class="project-summary">A study app built on the science of how memory works: retrieval, spacing and mixing things up.</p>
+      <p class="project-tags">Learning software, work in progress, 2026.</p>
+    </header>
+    <div class="project-text">
+        <div class="work-body">
+          <p>Learning is a science and should be treated as such. Learning software is too often approached with a feel-good, vibes-based approach that keeps the user on the app &ndash; Duolingo, I&rsquo;m looking at you. This user-retention-based approach directly contradicts the scientific consensus on how people learn.</p>
+          <p>The software I am developing currently is designed with the science of learning at its core; every decision and activity is backed by cited, peer-reviewed research. The first iteration of the software is being shaped around A-level courses, with an eye to widen its application in the future.</p>
+        </div>
+    </div>
+  </article>
+
+  <article class="view view--work project" data-view="horse" data-kind="work">
+    <header class="project-head">
+      <h1>73% beef roast</h1>
+      <p class="project-summary">A short film for Microsoft on what happens when a model&rsquo;s training data shrinks.</p>
+      <p class="project-tags">Film, 2025, for Microsoft.</p>
+    </header>
+    <figure class="work-hero project-hero">
       <video class="work-video" controls preload="none" playsinline poster="beef-roast-poster.jpg">
         <source src="beef-roast.mp4" type="video/mp4">
         your browser doesn't support embedded video. <a href="beef-roast.mp4">download the film ↗</a>
       </video>
-    </figure>
-    <div class="work-body">
-      <p>73% Beef Roast is a film created as part of a research project for Microsoft, looking into the implications and applications of large language models and image generators. The film articulates how shifting and shrinking the data that models are trained on shapes the quality of their outputs. It does this through the metaphor of trying to make a roast dinner with nothing but what you happen to have in your cupboard.</p>
+          <figcaption>The film, made for Microsoft.</figcaption>
+        </figure>
+    <div class="project-text">
+        <div class="work-body">
+          <p>73% Beef Roast was made as part of <a data-target="ignorance" href="#ignorance">The Value of Artificial Ignorance</a>, a research project for Microsoft. It shows how shifting and shrinking the data that models are trained on shapes the quality of their outputs, through the metaphor of trying to make a roast dinner with nothing but what you happen to have in your cupboard.</p>
+          <p>Limiting the dataset to whatever was in the cupboards, we asked an LLM what should stand in for what. A taco shell for Yorkshire pudding. Banana for parsnip. Raisins in Marmite for cranberry sauce. The roast came out 73% accurate.</p>
+          <p>It has charm, of course. But who, realistically, wants to cook a meal accounting for the knowledge of a cupboard? It&rsquo;s a meal for you, after all. You&rsquo;re the one eating 71% cranberry sauce made from Marmite, raisins and dark purple squash.</p>
+        </div>
+    </div>
+    <div class="project-gallery">
+      <figure>
+          <img src="roast-still-brief.jpg" alt="A title card reading make me a beef roast, over a sketch of a kitchen." loading="lazy" />
+          <figcaption>The brief.</figcaption>
+        </figure>
+      <figure>
+          <img src="roast-still-fridge.jpg" alt="Gloved hands in an open fridge, every item boxed in red and labelled with a low confidence score." loading="lazy" />
+          <figcaption>Reading the fridge as a dataset.</figcaption>
+        </figure>
+      <figure>
+          <img src="roast-still-yorkshire.jpg" alt="Gloved hands holding a taco shell in front of a fridge, boxed in green and labelled 21% confidence." loading="lazy" />
+          <figcaption>A taco shell: 21% Yorkshire pudding.</figcaption>
+        </figure>
+      <figure>
+          <img src="roast-still-cranberry.jpg" alt="Gloved hands spooning a dark mixture into a glass bowl, labelled 53% cranberry sauce." loading="lazy" />
+          <figcaption>Cranberry sauce, 53% and rising.</figcaption>
+        </figure>
+      <figure>
+          <img src="ignorance-hero.jpg" alt="A roast dinner viewed from directly above: a taco shell standing in for Yorkshire pudding, sliced banana for parsnip, raisins in Marmite for cranberry sauce, and a rolled slice of ham and fennel for the joint." loading="lazy" />
+          <figcaption>The finished roast, 73% accurate.</figcaption>
+        </figure>
     </div>
   </article>
 
       <!-- EDIT: every image slot below is a placeholder. text is final pending your review. -->
-      <article class="view view--work" data-view="ignorance" data-kind="work">
-        <header class="work-head">
-          <p class="cap eyebrow">research <span class="sep" aria-hidden="true">*</span> 2025 <span class="sep" aria-hidden="true">*</span> Microsoft</p>
-          <h1 class="glitch">microsoft: the value of artificial ignorance</h1>
-          <p class="standfirst">A research project with Microsoft asking why we devalue nonhuman relations in knowledge production, and how they might be included without extraction or exploitation, working through an open brief on the implications of AI.</p>
-        </header>
-
-        <figure class="work-hero">
-          <img class="work-photo" loading="lazy" src="ignorance-hero.jpg" alt="A roast dinner viewed from directly above: a taco shell standing in for Yorkshire pudding, sliced banana for parsnip, raisins in gravy for cranberry sauce, and a rolled slice of ham and fennel for the joint." />
-        </figure>
-
-        <div class="work-body">
-          <p>All knowledge is relational. Even though we believe ourselves to be independent, everything we do is in collaboration with our environments. This Bridlean observation was the conclusion of our research, one we came to through a series of thought experiments, interviews, and material trials.</p>
-
-          <h2>our start</h2>
-          <p>We began with bias in AI systems, and with the idea that most of what goes wrong in AI interactions comes from its aesthetic of resemblance. Discriminatory algorithms, rendering glitch, mutation, the trivial and absurd space of internet memes. We were interested in error as creative provocation, and in whether a system might be pointed away from mimicry and toward a voice of its own.</p>
-
-          <h2>material trials</h2>
-          <p>We disassembled a set of household objects (a hole punch, a mortice lock, a radio and a fishing reel), photographed every component stripped of its context, and asked AI to tell us what they were for. It proposed a coin sorting machine. It proposed an insect. It proposed how to build these things. We obliged.</p>
-        </div>
-
-        <figure class="work-figure">
-          <img src="ignorance-trials-1.jpg" alt="Three household objects fully disassembled and laid out in grids: a radio, a hole punch, and a fishing reel, every component separated and arranged by size." loading="lazy" />
-        </figure>
-        <figure class="work-figure">
-          <img src="ignorance-gloves.jpg" alt="Six photographs in a staggered grid: hands in yellow rubber gloves taking apart a fishing reel, a mortice lock, a hole punch and a radio." loading="lazy" />
-        </figure>
-        <figure class="work-figure">
-          <img src="ignorance-trials-3.jpg" alt="Two small sculptures built from the disassembled components: one standing on a blue base with a brass fitting, one a low arrangement of white and brass connectors." loading="lazy" />
-        </figure>
-
-        <div class="work-body">
-          <p>Humans cannot remove context from objects, which makes us inseparable from our present biases. A system that has never seen a hole punch has no such difficulty.</p>
-
-          <h2>the interface, and why we left it</h2>
-        </div>
-
-        <figure class="work-figure">
-          <img src="ignorance-interface.jpg" alt="A mockup of a Copilot interface with a Context Options panel: a time range slider set to 1999 to 2008, a field size slider at 67 percent, and an option to import a custom dataset." loading="lazy" />
-        </figure>
-
-        <div class="work-body">
-          <p>Our first proposal gave users control over the datasets their models draw on: limit it to a decade, drop everything after a given year, import your own. The intention was to produce creative provocation through glitch, amplify relevant perspectives in decision making, and give users more transparency.</p>
-          <p>By chasing an application, we are assuming that AI applies to existing use cases. It is still constricted by preconception. In order to get the most fruitful outcomes, we are not asking what AI can do, but instead rethinking how we do AI. This line of thought is best expressed by the Superflux assertion, which came closer to where we landed than we expected: rethink how we do AI before thinking about what AI can do.</p>
-
-          <h2>intelligence</h2>
-          <p>Artificial intelligence is inherently misleading. So we wrote a formula to articulate what we meant: intelligence = knowledge + decision making. The dataset is the knowledge. The model is the decision making.</p>
-        </div>
-
-        <figure class="work-figure">
-          <img src="ignorance-book.jpg" alt="Overlapping scans from a booklet of provocations: a spread titled The Cloud Factory over cooling towers, a page asking whether baby carrots are too young to be eaten, and a spread about an apple pip growing in a belly." loading="lazy" />
-        </figure>
-
-        <div class="work-body">
-          <p>AI does not have to be polished, confident and correct to be compelling. In fact, what is compelling about it is its naivety. We made a booklet of provocations to explore this, credited both to real children and to ChatGPT. By limiting common sense, by which we mean its access to knowledge about the world, AI and children produce provocations that are technically incorrect but highlight a poetic viewpoint that adults find hard to access within themselves.</p>
-          <p>We can get AI to embody the perspective of a child. But why not just speak to children? We don't need tools to be conduits to children. Parents have that down, pretty much. A more meaningful application lies beyond anthropocentric paradigms of knowledge.</p>
-
-          <h2>epping forest</h2>
-        </div>
-
-        <figure class="work-figure">
-          <img src="ignorance-forest.jpg" alt="An aerial satellite view of Epping Forest, dense tree canopy crossed by a path and several ponds." loading="lazy" />
-          <figcaption>Map data: Google<!-- EDIT: add third-party imagery provider if shown, e.g. ", Maxar Technologies" --></figcaption>
-        </figure>
-
-        <div class="work-body">
-          <p>At the time the project was being conducted, a new car park was being proposed in Epping Forest. We account for the human stakeholders that invest in the land, the company supplying concrete. But what about the earth that will be dug into and paved over and replaced with a texture more suited to car tyres?</p>
-          <p>Epping Forest is predominantly populated by Pedunculate Oak trees, which contain a historical bank of information about delicate ecosystem operations which humans, even specialist ecologists, cannot conceive of.</p>
-          <p>This proposal does not fulfil the role of an environmental impact assessment. It will not simply account for the environment in terms of statistics. It will allow human stakeholders to empathise with the oaks through its poetic, glitched and nonhuman characteristics.</p>
-          <p>Not only in London but in cityscapes across the globe, rates of allergenic pollen have been rising steadily for the past twenty years, exacerbating air pollution and contributing to increased risk of hay fever and asthma. The increase is owing to urban planners, who, to avoid the nuisance of seeds and fruit, favour male trees. They did not anticipate, however, that female trees maintain a careful equilibrium by capturing pollen in their flowers.</p>
-          <p>By designing for an environment without consulting it, conventional urban planning methodologies reinforce a separation between nature and culture. As if the natural world were something to keep out, a nuisance to be maintained. Instead of reinforcing the dualism, we believe that artificial decision making used in tandem with localised and specific data sets could act as a conduit for knowledge between humans and the nonhuman.</p>
-          <p>Limiting data sets disentangles AI interactions from an anthropocentric understanding of decision making. This allows users to recognise the value of nonhuman perspectives.</p>
-
-          <h2>the kitchen</h2>
-        </div>
-
-        <figure class="work-figure">
-          <img src="ignorance-kitchen-diagram.jpg" alt="A three-stage diagram: hands in yellow gloves reaching into a fridge, labelled limited dataset; a figure in a jumper and yellow gloves, labelled AI model; a finished plate of substituted food, labelled outcome." loading="lazy" />
-        </figure>
-
-        <div class="work-body">
-          <p>We constructed a roast dinner in collaboration with a kitchen: a thought experiment built to demonstrate how a data set can be limited and manipulated, and what happens to a decision when it is. Limiting the dataset to whatever was in the cupboards, we asked an LLM what should stand in for what. A taco shell for Yorkshire pudding. Banana for parsnip. Raisins in gravy for cranberry sauce. The roast came out 73% accurate. This became the film <a data-target="horse" href="#horse">73% Beef Roast</a>.</p>
-          <p>Our kitchen example has charm and humour to it, of course. But who, realistically, wants to cook a meal accounting for the knowledge of a cupboard? It's a meal for you, after all. You're the one eating 71% cranberry sauce made from Marmite, raisins and dark purple squash.</p>
-
-          <h2>credits</h2>
-          <p>Cat Spooner, Scarlett Wilkins, Toby Pollard, Rob Fawley. With thanks to the academics and practitioners interviewed during the project.</p>
-          <p>Film: <a data-target="horse" href="#horse">microsoft: 73% beef roast →</a></p>
-        </div>
-      </article>
-  <article class="view view--work" data-view="thatcher" data-kind="work">
-    <header class="work-head">
-      <p class="cap eyebrow">architectural proposal <span class="sep" aria-hidden="true">*</span> 2025</p>
-      <h1 class="glitch">thank you, mrs thatcher, for your slopitecture?</h1>
+      <article class="view view--work project" data-view="ignorance" data-kind="work">
+    <header class="project-head">
+      <h1>the value of artificial ignorance</h1>
+      <p class="project-summary">Research with Microsoft into giving nonhuman knowledge a voice in AI.</p>
+      <p class="project-tags">Research, 2025, with Microsoft.</p>
     </header>
-    <figure class="work-hero">
-      <div class="triptych gallery" data-trip>
-        <div class="trip-track">
-          <div class="trip-item"><img class="trip-img" src="aylesham.jpg" alt="Aerial render of the speculative Aylesham Centre proposal, its facade tiled edge to edge with betting and advertising billboards, set against Peckham." loading="lazy"></div>
-          <div class="trip-item"><img class="trip-img" src="spoons.jpg" alt="Street-level render: a Wetherspoon and Ladbrokes beneath corrugated walls plastered with McDonald's and gym ads, a refuse heap rising behind." loading="lazy"></div>
-          <div class="trip-item"><img class="trip-img" src="peckham-side.jpg" alt="Side view of the proposed development looming over Peckham High Street." loading="lazy"></div>
+    <figure class="work-hero project-hero">
+          <img class="work-photo" src="ignorance-book.jpg" alt="Overlapping scans from a booklet of provocations: a spread titled The Cloud Factory over cooling towers, a page asking whether baby carrots are too young to be eaten, and a spread about an apple pip growing in a belly." />
+          <figcaption>The booklet of provocations, credited to children and to ChatGPT.</figcaption>
+        </figure>
+    <div class="project-text">
+        <div class="work-body">
+          <p>An open brief from Microsoft on the implications of AI. We began with bias, and with the idea that most of what goes wrong in AI comes from its aesthetic of resemblance. We ended somewhere else: all knowledge is relational, and AI could carry knowledge between humans and the nonhuman.</p>
+          <p>Our first proposal gave Copilot users control over the datasets their models draw on. We left it, because chasing an application assumes AI applies to existing use cases. Instead we wrote a formula, intelligence = knowledge + decision making, and a booklet of provocations whose naivety is the point.</p>
+          <p>We tested the idea on Epping Forest, where a new car park was being proposed. A model limited to the forest&rsquo;s own data would not be an environmental impact assessment; it would let the people deciding empathise with the oaks.</p>
+          <p>With Cat Spooner, Scarlett Wilkins and Toby Pollard. Also from this project: <a data-target="horse" href="#horse">73% Beef Roast</a> and <a data-target="trials" href="#trials">Material Trials</a>.</p>
         </div>
-        <div class="trip-nav">
-          <button class="trip-prev" type="button" aria-label="previous image">‹</button>
-          <span class="trip-count">1 / 3</span>
-          <button class="trip-next" type="button" aria-label="next image">›</button>
+    </div>
+    <div class="project-gallery">
+      <figure>
+          <img src="ignorance-interface.jpg" alt="A mockup of a Copilot interface with a Context Options panel: a time range slider set to 1999 to 2008, a field size slider at 67 percent, and an option to import a custom dataset." loading="lazy" />
+          <figcaption>Our first proposal: dataset controls inside Copilot.</figcaption>
+        </figure>
+      <figure>
+          <img src="ignorance-forest.jpg" alt="An aerial satellite view of Epping Forest, dense tree canopy crossed by a path and several ponds." loading="lazy" />
+          <figcaption>Epping Forest. Map data: Google</figcaption>
+        </figure>
+    </div>
+  </article>
+
+  <article class="view view--work project" data-view="trials" data-kind="work">
+    <header class="project-head">
+      <h1>material trials</h1>
+      <p class="project-summary">Household objects taken apart, photographed without context, and rebuilt to an AI&rsquo;s instructions.</p>
+      <p class="project-tags">Object studies, photography, 2025.</p>
+    </header>
+    <figure class="work-hero project-hero">
+          <img class="work-photo" src="ignorance-trials-1.jpg" alt="Three household objects fully disassembled and laid out in grids: a radio, a hole punch, and a fishing reel, every component separated and arranged by size." />
+          <figcaption>A radio, a hole punch and a fishing reel, taken apart.</figcaption>
+        </figure>
+    <div class="project-text">
+        <div class="work-body">
+          <p>We disassembled a hole punch, a mortice lock, a radio and a fishing reel, photographed every component stripped of its context, and asked AI to tell us what they were for. It proposed a coin sorting machine. It proposed an insect. It proposed how to build these things. We obliged.</p>
+          <p>Humans cannot remove context from objects, which makes us inseparable from our present biases. A system that has never seen a hole punch has no such difficulty. Part of <a data-target="ignorance" href="#ignorance">The Value of Artificial Ignorance</a>.</p>
         </div>
-      </div>
-    </figure>
-    <div class="work-body">
+    </div>
+    <div class="project-gallery">
+      <figure>
+          <img src="ignorance-trials-2.jpg" alt="Four photographs in a row: gloved hands taking apart a radio, a fishing reel and a mortice lock, then holding the radio." loading="lazy" />
+          <figcaption>Taking the radio, the fishing reel and the lock apart.</figcaption>
+        </figure>
+      <figure>
+          <img src="ignorance-gloves.jpg" alt="Six photographs in a staggered grid: hands in yellow rubber gloves taking apart a fishing reel, a mortice lock, a hole punch and a radio." loading="lazy" />
+          <figcaption>The four objects, mid-disassembly.</figcaption>
+        </figure>
+      <figure>
+          <img src="ignorance-trials-3.jpg" alt="Two small sculptures built from the disassembled components: one standing on a blue base with a brass fitting, one a low arrangement of white and brass connectors." loading="lazy" />
+          <figcaption>Two objects built from the parts, following the AI&rsquo;s suggestions.</figcaption>
+        </figure>
+    </div>
+  </article>
+  <article class="view view--work project" data-view="thatcher" data-kind="work">
+    <header class="project-head">
+      <h1>thank you, mrs thatcher, for your slopitecture?</h1>
+      <p class="project-summary">A speculative proposal for Peckham&rsquo;s Aylesham Centre, built to the logic of the market.</p>
+      <p class="project-tags">Architectural proposal, 2025. Aylesham Centre, Peckham.</p>
+    </header>
+    <figure class="work-hero project-hero">
+          <img class="work-photo" src="aylesham.jpg" alt="Aerial render of the speculative Aylesham Centre proposal, its facade tiled edge to edge with betting and advertising billboards, set against Peckham." />
+          <figcaption>The proposal, from above.</figcaption>
+        </figure>
+    <div class="project-text">
+        <div class="work-body">
       <p>Architecture wears the economic and social conditions that it is built within on its artifice and within its foundations, and the new proposal for Peckham's Aylesham Centre is the visual manifestation of deregulation, austerity, and inequality.</p>
       <p><em>Thank you, Mrs Thatcher, for your Slopitecture?</em> is a speculative proposal for the Aylesham Centre site that explores the ultimate end goal of a company structured around the market incentives of neoliberalism. High rent, cheap materials, residents crammed in like sardines, advertising space on every inch of exterior that planning permits, and all with room for a GAIL&rsquo;s.</p>
+    </div>
+    </div>
+    <div class="project-gallery">
+      <figure>
+        <img src="spoons.jpg" alt="Street-level render: a Wetherspoon and Ladbrokes beneath corrugated walls plastered with McDonald's and gym ads, a refuse heap rising behind." loading="lazy" />
+          <figcaption>At street level.</figcaption>
+        </figure>
+      <figure>
+        <img src="peckham-side.jpg" alt="Side view of the proposed development looming over Peckham High Street." loading="lazy" />
+          <figcaption>The development over Peckham High Street.</figcaption>
+        </figure>
     </div>
   </article>
 
@@ -904,24 +1141,257 @@
 
 
   <!-- TEXTS -->
-  <article class="view" data-view="essay1">
-    <span class="cap eyebrow">Disegno <span class="sep" aria-hidden="true">*</span> 2025</span>
-    <h1 class="glitch">the rhythm of the meal</h1>
-    <p>A profile written for Disegno on ceramicist Jun Rhee and the handmade Jollof rice bowl he created for London-based Michelin-starred restaurant Akoko.</p>
-    <a class="go" href="https://disegnojournal.com/newsfeed/jun-rhee-jollof-rice-bowl" target="_blank" rel="noopener">read on Disegno ↗</a>
+  <article class="view view--read project" data-view="essay4">
+    <header class="project-head">
+      <h1>digital terraforming</h1>
+      <p class="project-summary">Uncomfortably numb. Boredom, loneliness, anxiety: the 4K aching of being human can be rendered at 480p by short-form video.</p>
+      <p class="project-tags">Essay, 2026, for Fawley &amp; Fawley. 2,364 words.</p>
+    </header>
+    <div class="reading">
+      <p>Uncomfortably numb. Boredom, loneliness, anxiety: the 4K aching of being human can be rendered at 480p by short-form video. My relationship with short-form content functioned along these lines: whenever life became overwhelming or underwhelming, it was there, beckoning me. Bored -&gt; Reels — Anxious -&gt; Reels — Quiet moment -&gt; Reels — Lull in conversation -&gt; Reels — Bored of Reels -&gt; YouTube Shorts. I was addicted. Hours of my day were lost to scrolling: hours I could have spent reading, writing, socialising, cancelling my Wi-Fi bill! Like a regretful junkie, I pined for the days before I found my vice: before Reels, before YouTube Shorts, before the infinite scroll. I needed to quit any way I could, but I just…</p>
+      <p>One lonely evening, while my partner was out of town and my flatmate was at work, I lay staring into my light-up rectangle, attempting to numb the time away when, as if it had read my mind, the algorithm offered me a way to get clean.</p>
+      <p><i>SCENE: White guy, white smile, white shorts, blue polo. Our figure stands on a roof overlooking a shopping centre with a hill in the background.</i></p>
+      <p>DELETE REELS FROM INSTAGRAM! ALL OF THE BS SCREEN TIME BLOCKERS DON’T WORK! YOU KNOW THAT!! YOU PROBABLY TRIED THEM!…</p>
+      <p>I was intrigued. I had tried to quash my hankering for the junk before, but none of my tinpot solutions had worked. I did, in fact, KNOW THAT. Screen time blockers were easy to ignore, and deleting the apps wasn’t an option: I needed Instagram to post and keep up with friends, and YouTube still had things I wanted to watch.</p>
+      <p>But this one seemed special. You can’t shoot up junk if you ain’t got no smack, and you can’t binge short-form content if you ain’t got no Reels. Hopeful, I let my scroll-hungry fingers guide me to the app store to check out Blue Polo’s offering. Would it be everything I’d dreamt of, or was Blue Polo just another snake oil salesman?</p>
+      <p>The dream was real, but… it came with a price tag. This sprang my tight arse into action. If Blue Polo could remove Reels, why couldn’t I?</p>
+      <p>I knew my task would be simple. I had recently become familiar with vibe coding, and I was confident something as elementary as removing Reels would take me no longer than three cups of tea. I was correct: within a handful of prompts, I was staring once again into my light-up rectangle, but this time Reels didn’t stare back, thanks to a free app and a Post-it note’s worth of CSS.</p>
+      <p>While my circumventing of Blue Polo’s paywalled app is undoubtedly a tale for the ages, it is not what I am attempting to demonstrate. What is truly significant about my anecdote is this: I wasn’t happy with how the internet was working for me, so I changed it.</p>
+      <p>Changing my digital world took very little skill and three cups of tea, and that represents a huge shift in how much control people have over the digital spaces they inhabit. Before consumer-facing large language models (LLMs), this would have sat outside most people’s skill set; coding was expensive, skilled labour. Now it is available to anyone with internet access.</p>
+      <p>Because code was expensive, the products it birthed have been made in the image of the people who could afford it. You, I and your nan couldn’t decide what our digital environment looked or functioned like; it was imposed on us by people with the resources to do so.</p>
+      <p>This is significant because technology shapes us, individually and collectively. As John Culkin put it (in a line commonly misattributed to Marshall McLuhan), “We shape our tools, and thereafter our tools shape us.” With this in mind, an obvious power imbalance comes to light: they shape our tools, and thereafter our tools shape us. But this has changed.</p>
+      <p>In conversations about AI, with friends, relatives or an unlucky soul at a house party, I often describe what LLMs have done to coding for the layperson like this: “It’s like all of a sudden, in the physical world, you could just make a car for free in 15 minutes.” Before my parasocial battle with Blue Polo, I had not yet fully comprehended the consequences of my statement.</p>
+      <p>I had been vibe coding in a way that the designer and anthropologist Maggie Appleton had predicted people would act back in 2024; she foretold the rise of what she called “barefoot developers”: people who aren’t professional programmers, but who can use AI to build small, home-cooked software for themselves and the people around them. I had built a management app for my design studio and asked Claude to make me a virtual recipe book. Appleton borrowed her term from barefoot doctors, a programme launched in sixties communist China, in which people from rural villages, where most of the population lived without healthcare, were given basic medical training which they could then use to serve their communities, usually while continuing agricultural labour. In Appleton’s system, barefoot developers would act like these doctors, using vibe coding to address problems that big tech lacked the incentive or local knowledge to address.</p>
+      <p>My removal of Reels showed me a possibility of the free car beyond that of a home-cooked developer. I had taken software that was developed top-down, software that was specifically designed to addict people, and changed how it worked for me. I was digital terraforming: reshaping a hostile environment until it became habitable.</p>
+      <p>The social model of disability holds that people are disabled not by their bodies but by environments built without them in mind: a wheelchair user is disabled by the stairs, not the chair. Extending that logic to the internet, almost everyone who can’t code is disabled in digital spaces.</p>
+      <p>Until recently, digital inhabitants who couldn’t code had similarly feeble options to those offered to wheelchair users by the law when facing hostile architecture: petition decision-makers, or live with it. Disability activists have long refused to accept such a binding dichotomy; they enacted change through their ability to physically change or disrupt their surroundings. According to the London Museum, the Disabled People’s Direct Action Network (DAN) staged over 100 protests across Britain between 1993 and 1998, chaining themselves to buses and trains and blocking roads, including Westminster Bridge, by lying under vehicles to stop them moving. That disruption helped force the government’s hand: in 1995 it passed the Disability Discrimination Act, a weaker law than the civil rights bill campaigners had fought for, but the first in the UK to make disability discrimination unlawful. By 1998, new fleets of accessible buses and trains were being commissioned. Before vibe coding, digital inhabitants who couldn’t code had no such power; people weren’t meaningfully able to interact with their material conditions in a way where they could conduct effective direct action.</p>
+      <p>Vibe coding has changed that: for the first time, people who can’t code can get their hands on the material their digital world is made of. Digital terraforming is a form of direct action: changing your conditions without consulting the authority that set them. Unlike DAN’s protesters, terraformers don’t have to force anyone’s hand, nor do they need anything like the same bravery: vibe coding cannot be compared to putting your body under a bus. Everyone can reshape their digital environment in their own image, for free, so there is nothing to negotiate. If I want to remove Reels, I CAN! If my neighbour wants to remove AI Overviews from her Google search, SHE CAN! If your grandad wants to make his Facebook feed scroll like Tinder, HE CAN!</p>
+      <p>However, digital terraforming is not perfect, and we must be aware of its drawbacks. The first problem is that I am using one set of overlord software to amend another.</p>
+      <p>The tools used for digital terraforming are still shaped in the same Silicon mould: the AI that helped me remove Reels is built in the same top-down way as Instagram, Google or Amazon. While the code is mine and I can use it and apply it to my heart’s content, the means of producing that code is shaped and owned in the same top-down manner. My power to produce the code is borrowed. The company behind the AI decides what it will and won’t help me change, and how much these tools cost. LLMs’ function as a means of digital direct action makes it essential that we rethink their ownership structures; these are important tools of access and should be treated as such. For this reason, I think these tools need hefty regulation and a serious conversation about bringing them into public hands. Open-weight models, which anyone can download and run, go some way towards this, but running them still takes hardware and knowledge most people don’t have, and the most capable tools remain privately owned; market incentives have pulled OpenAI away from its non-profit origins, while companies such as Google, Meta and Anthropic never held any pretence of people-led ownership.</p>
+      <p>The second problem is that digital terraforming could be seen as a plaster on a broken leg: a way of temporarily covering over a much larger, systemic issue. Reels is still built to hook billions of people, and my CSS helps exactly one of them. It also only helps people who know it’s possible; your grandad CAN make Facebook scroll like Tinder, but he probably has no idea that he can. Individual fixes are no substitute for collective action; this is why communicating that digital terraforming is a thing is paramount! The largest barrier to change is a lack of awareness of the benefits or existence of digital terraforming. If people are aware that they are two to three cups of tea away from tangible digital change, then they can actually do it. This approach also requires Appleton’s barefoot developers. While I used the example of a grandad turning Facebook into Tinder earlier, I know for a fact that my elderly relatives wouldn’t be able to do that even with ten teapots. Barefoot doctors worked because one person with basic training could look after a whole village, and digital terraforming can work the same way. The grandkid who spends ten minutes removing Reels from their nan’s phone, or Simon from five-a-side who writes a fix for a pitch booking app and passes it round the group chat, is a barefoot developer terraforming on someone else’s behalf. This is why I have attached an installation guide for removing Reels below.</p>
+      <p>Deleting Reels and YouTube Shorts from my phone has had a notable, material impact on my life, and I don’t just mean as an extra way to bore people at parties: “Did you know I deleted Reels from my phone?!” My screen time has dropped significantly, and I’ve been filling that time with things that feel less like they’re blurring my life and more like they’re turning the saturation up: reading more, forcing small talk, and not finding myself in a scroll hole when I’m supposed to be working. (I’ve still not cancelled that Wi-Fi bill, though!)</p>
+      <p>When Blue Polo removed Reels, he tried to sell it. Fucking bell-end! I propose we set a different standard for the age of vibe coding, one inspired by disability activists. This standard should be defined by digital terraformers, barefoot developers, and an internet that works for the people who use it, not just the ones who make it.</p>
+      <p>As I mentioned earlier, below is an installation guide for removing Reels. I also removed the infinite scroll from YouTube and Instagram, because that’s what works for me, but I highly encourage you to tailor the code to your own needs.</p>
+      <h3>Installation guide: removing Reels on iPhone</h3>
+      <p>This runs a small script called Feed Diet inside Safari. On Instagram, it opens your chronological Following feed, hides the Reels tab and any reels in your feed, and bounces you back to the feed if you open a reel link. On YouTube, it opens your Subscriptions feed, hides Shorts, and plays any Short you’re sent as a normal video. It only works on instagram.com and youtube.com, makes no network requests and doesn’t touch your login. You’ll need an iPhone on iOS 15.4 or newer and about two cups of tea. (This only works on browser)</p>
+      <ol><li><b>Install Userscripts onto your phone.</b> It’s free on the App Store. Check that it’s the one by Justin Wasack, subtitled “User Script and Style Manager,” as there are a few similar names. Open it once so it can create its folder, then close it; the near-empty screen is normal.</li><li><b>Give it permission.</b> Go to Phone Settings -&gt; Safari -&gt; Extensions -&gt; Userscripts and switch it on. Under Websites, set it to Allow rather than Ask. If you skip this, the script silently does nothing, which is the most common reason people think it’s broken.</li><li><b>Install the script.</b> In Safari, open this link: <a href="https://gist.githubusercontent.com/zygvmqhmdf-code/eea7de3d2dc3cf25a50f0d5aa427531b/raw/feed-diet.user.js">gist.githubusercontent.com/zygvmqhmdf-code/eea7de3d2dc3cf25a50f0d5aa427531b/raw/feed-diet.user.js</a>. Copy it and paste it into Safari. Then tap the Extensions button in the address bar (the puzzle piece, or the AA menu on older iPhones), click the Userscripts button under the Extensions icon, and accept the installation prompt.</li><li><b>Check it works.</b> Go to instagram.com: it should open on your Following feed with no Reels tab. Open a reel link from a DM, and it should throw you back to the feed. On YouTube, any Shorts link should open in the normal player.</li><li><b>Put the apps away.</b> The script only works in Safari, so delete the Instagram and YouTube apps, or lock them behind Settings -&gt; Screen Time -&gt; App Limits. Then open instagram.com/?variant=following in Safari, tap Share -&gt; Add to Home Screen, and use that icon instead of the app.</li><li><b>Tailoring it.</b> At the top of the script is a CONFIG section with a list of switches set to true. Change any of them to false to turn that feature off: for example, set forceSubsFeed to false if you still want YouTube’s homepage. If you’d like to change something bigger, paste the script into Claude (or your LLM of choice) and describe what you want.</li></ol>
+      <p>The code:</p>
+      <pre><code>// ==UserScript==
+// @name         Feed Diet
+// @namespace    local.feeddiet
+// @version      1.2.0
+// @description  Instagram: chronological following-only feed, no Reels. YouTube: subscriptions feed, no Shorts.
+// @match        *://*.instagram.com/*
+// @match        *://*.youtube.com/*
+// @run-at       document-start
+// @grant        none
+// ==/UserScript==
+
+(function () {
+  'use strict';
+
+  // ---------------------------------------------------------------------
+  // CONFIG — flip these off if something misbehaves.
+  // ---------------------------------------------------------------------
+  const CONFIG = {
+    forceFollowingFeed: true,   // instagram.com/ -&gt; /?variant=following
+    blockReelRoutes:    true,   // /reels/ and /reel/&lt;id&gt; bounce back to the feed
+    hideReelChrome:     true,   // hide the Reels nav item and reel tiles
+    hideSuggested:      true,   // strip posts labelled "Suggested for you"
+    redirectShorts:     true,   // /shorts/&lt;id&gt; -&gt; /watch?v=&lt;id&gt;
+    hideShortsChrome:   true,   // hide Shorts shelves, nav entries, grid items
+    forceSubsFeed:      true,   // youtube.com/ -&gt; /feed/subscriptions
+    variant:            'following', // or 'favorites'
+  };
+
+  const host = location.hostname;
+  const onInstagram = /(^|\.)instagram\.com$/.test(host);
+  const onYouTube = /(^|\.)youtube\.com$/.test(host);
+
+  // ---------------------------------------------------------------------
+  // Redirect loop guard.
+  // If Instagram ever stops honouring ?variant=, this stops the script
+  // from bouncing the page forever. Worst case it gives up quietly.
+  // ---------------------------------------------------------------------
+  const GUARD_KEY = 'feeddiet:lastRedirect';
+  const GUARD_MS = 3000;
+
+  function mayRedirect() {
+    try {
+      const last = Number(sessionStorage.getItem(GUARD_KEY) || 0);
+      if (Date.now() - last &lt; GUARD_MS) return false;
+      sessionStorage.setItem(GUARD_KEY, String(Date.now()));
+      return true;
+    } catch (e) {
+      return true; // private browsing etc.
+    }
+  }
+
+  function injectCSS(css) {
+    const style = document.createElement('style');
+    style.setAttribute('data-feed-diet', '');
+    style.textContent = css;
+    (document.head || document.documentElement).appendChild(style);
+  }
+
+  // Instagram and YouTube are both single-page apps: the URL changes without
+  // a page load, so a one-shot check at startup is not enough.
+  function onRouteChange(fn) {
+    const wrap = (orig) =&gt; function () {
+      const result = orig.apply(this, arguments);
+      fn();
+      return result;
+    };
+    history.pushState = wrap(history.pushState);
+    history.replaceState = wrap(history.replaceState);
+    window.addEventListener('popstate', fn);
+    window.addEventListener('yt-navigate-finish', fn); // YouTube's own event
+    fn();
+  }
+
+  // ---------------------------------------------------------------------
+  // INSTAGRAM
+  // ---------------------------------------------------------------------
+  const IG_CSS = `
+    /* Reels entry in the sidebar / bottom tab bar */
+    a[href="/reels/"],
+    a[href^="/reels/?"],
+    svg[aria-label="Reels"],
+    li:has(&gt; a[href="/reels/"]),
+    div[role="tablist"] a[href^="/reels"] { display: none !important; }
+
+    /* Reel tiles that leak into the feed or a profile grid */
+    article:has(a[href*="/reel/"]) { display: none !important; }
+  `;
+
+  function igRoute() {
+    const path = location.pathname;
+
+    if (CONFIG.blockReelRoutes &amp;&amp; /^\/reels?\//.test(path)) {
+      if (mayRedirect()) location.replace('/?variant=' + CONFIG.variant);
+      return;
+    }
+
+    if (CONFIG.forceFollowingFeed &amp;&amp; (path === '/' || path === '')) {
+      const params = new URLSearchParams(location.search);
+      if (params.get('variant') !== CONFIG.variant &amp;&amp; mayRedirect()) {
+        params.set('variant', CONFIG.variant);
+        location.replace('/?' + params.toString());
+      }
+    }
+  }
+
+  // The Following feed shouldn't contain suggested posts at all. This is
+  // here in case Instagram starts seeding them in anyway.
+  // Note: matches English strings only.
+  function igStripSuggested() {
+    const needles = ['Suggested for you', 'Suggested Posts', 'Suggested posts'];
+    document.querySelectorAll('article').forEach((article) =&gt; {
+      if (article.dataset.feedDietChecked) return;
+      article.dataset.feedDietChecked = '1';
+      const text = article.textContent || '';
+      if (needles.some((n) =&gt; text.includes(n))) {
+        article.style.setProperty('display', 'none', 'important');
+      }
+    });
+  }
+
+  // ---------------------------------------------------------------------
+  // YOUTUBE
+  // ---------------------------------------------------------------------
+  const YT_CSS = `
+    /* Desktop shelves and nav */
+    ytd-rich-shelf-renderer[is-shorts],
+    ytd-reel-shelf-renderer,
+    ytd-guide-entry-renderer:has(a[title="Shorts"]),
+    ytd-mini-guide-entry-renderer[aria-label="Shorts"],
+    ytd-rich-item-renderer:has(a[href^="/shorts/"]),
+    ytd-video-renderer:has(a[href^="/shorts/"]),
+
+    /* Mobile web */
+    ytm-pivot-bar-item-renderer:has(a[href^="/shorts"]),
+    ytm-reel-shelf-renderer,
+    ytm-rich-section-renderer:has(a[href^="/shorts/"]),
+    ytm-rich-item-renderer:has(a[href^="/shorts/"]),
+    ytm-item-section-renderer:has(a[href^="/shorts/"]) { display: none !important; }
+  `;
+
+  function ytRoute() {
+    const path = location.pathname;
+
+    if (CONFIG.redirectShorts) {
+      const match = path.match(/^\/shorts\/([A-Za-z0-9_-]{5,})/);
+      if (match &amp;&amp; mayRedirect()) {
+        // Same video, ordinary player, no infinite scroll.
+        location.replace('/watch?v=' + match[1]);
+        return;
+      }
+    }
+
+    // The homepage is pure recommendation. Subscriptions is the
+    // reverse-chronological feed of channels you actually chose.
+    if (CONFIG.forceSubsFeed &amp;&amp; (path === '/' || path === '')) {
+      if (mayRedirect()) location.replace('/feed/subscriptions');
+    }
+  }
+
+  // ---------------------------------------------------------------------
+  // BOOT
+  // ---------------------------------------------------------------------
+  if (onInstagram) {
+    if (CONFIG.hideReelChrome) injectCSS(IG_CSS);
+    onRouteChange(igRoute);
+
+    if (CONFIG.hideSuggested) {
+      const start = () =&gt; {
+        igStripSuggested();
+        new MutationObserver(igStripSuggested).observe(document.body, {
+          childList: true,
+          subtree: true,
+        });
+      };
+      if (document.body) start();
+      else document.addEventListener('DOMContentLoaded', start, { once: true });
+    }
+  }
+
+  if (onYouTube) {
+    if (CONFIG.hideShortsChrome) injectCSS(YT_CSS);
+    onRouteChange(ytRoute);
+  }
+})();</code></pre>
+      <p><a class="go" href="https://fawleyandfawley.com/" target="_blank" rel="noopener">first published by Fawley &amp; Fawley ↗</a></p>
+    </div>
   </article>
 
-  <article class="view" data-view="essay2">
-    <span class="cap eyebrow">Disegno <span class="sep" aria-hidden="true">*</span> 2025</span>
-    <h1 class="glitch">a chair from the steppe</h1>
-    <p>A profile written for Disegno on designer Daniyar Uderbekov and the 10 Nodes Chair, made from Kazakh felt and a frame of reclaimed plastic waste gathered from the steppe.</p>
-    <a class="go" href="https://disegnojournal.com/newsfeed/daniyar-uderbekov-10-nodes-chair" target="_blank" rel="noopener">read on Disegno ↗</a>
+  <article class="view view--work project" data-view="essay1">
+    <header class="project-head">
+      <h1>the rhythm of the meal</h1>
+      <p class="project-summary">A profile written for Disegno on ceramicist Jun Rhee and the handmade Jollof rice bowl he created for London-based Michelin-starred restaurant Akoko.</p>
+      <p class="project-tags">Profile, 2025, for Disegno. 538 words.</p>
+    </header>
+    <div class="project-text">
+      <div class="work-body"><a class="go" href="https://disegnojournal.com/newsfeed/jun-rhee-jollof-rice-bowl" target="_blank" rel="noopener">read on Disegno ↗</a></div>
+    </div>
   </article>
 
-  <article class="view view--read" data-view="essay3">
-    <span class="cap eyebrow">Self-published <span class="sep" aria-hidden="true">*</span> 2026</span>
-    <h1 class="glitch">sam and the technologically driven epistemic hyper-fragmentation</h1>
-    <p class="standfirst">A self-published essay tracing the dissolving of shared cultural narratives, from postmodern theory through to AI. Around 8,000 words.</p>
+  <article class="view view--work project" data-view="essay2">
+    <header class="project-head">
+      <h1>a chair from the steppe</h1>
+      <p class="project-summary">A profile written for Disegno on designer Daniyar Uderbekov and the 10 Nodes Chair, made from Kazakh felt and a frame of reclaimed plastic waste gathered from the steppe.</p>
+      <p class="project-tags">Profile, 2025, for Disegno. 690 words.</p>
+    </header>
+    <div class="project-text">
+      <div class="work-body"><a class="go" href="https://disegnojournal.com/newsfeed/daniyar-uderbekov-10-nodes-chair" target="_blank" rel="noopener">read on Disegno ↗</a></div>
+    </div>
+  </article>
+
+  <article class="view view--read project" data-view="essay3">
+    <header class="project-head">
+      <h1>sam and the technologically driven epistemic hyper-fragmentation</h1>
+      <p class="project-summary">A self-published essay tracing the dissolving of shared cultural narratives, from postmodern theory through to AI.</p>
+      <p class="project-tags">Essay, self-published, 2026. 7,672 words.</p>
+    </header>
       <nav class="toc" aria-label="contents"><a href="#" data-scroll="sec-intro">intro</a><a href="#" data-scroll="sec-metanarratives">metanarratives</a><a href="#" data-scroll="sec-local-narratives">local narratives</a><a href="#" data-scroll="sec-the-medium-is-the-message">the medium is the message</a><a href="#" data-scroll="sec-the-narrative-mudcrack">the narrative mudcrack</a><a href="#" data-scroll="sec-the-internet">the internet</a><a href="#" data-scroll="sec-zombies">zombies</a><a href="#" data-scroll="sec-post-truth-algorithms">post-truth algorithms</a><a href="#" data-scroll="sec-sam-turns-to-ai">sam turns to ai</a><a href="#" data-scroll="sec-mr-bucket-becomes-a-horse">mr bucket becomes a horse</a><a href="#" data-scroll="sec-references">references</a></nav>
       <div class="reading">
       <h2 id="sec-intro">intro</h2>
@@ -1102,47 +1572,6 @@
     }, {passive:true});
   })();
 
-  /* ---- datamosh transition (scoped to the panel that's reloading) ---- */
-  const runMosh = (function(){
-    const panel = document.getElementById('panel');
-    const disp = document.getElementById('moshDisp');
-    const blur = document.getElementById('moshBlur');
-    const noise = document.getElementById('moshNoise');
-    const rnd = (a,b)=> a + Math.random()*(b-a);
-    const reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let moshing = false;
-    return function(mid){
-      if(reduceMotion || !panel || !disp){ if(mid) mid(); return; }
-      if(moshing){ if(mid) mid(); return; }
-      moshing = true; panel.classList.add('moshing');
-      // re-seed the noise so the displacement pattern differs every time
-      if(noise){
-        noise.setAttribute('seed', Math.floor(Math.random()*1000));
-        noise.setAttribute('baseFrequency', rnd(0.004,0.010).toFixed(4) + ' ' + rnd(0.012,0.030).toFixed(4));
-      }
-      // fast smear up, swap at the peak, slow melt back down (the "bleed")
-      const peak = rnd(24,40), smear = rnd(6,14),
-            up = rnd(140,200), hold = rnd(70,120), down = rnd(300,440), total = up+hold+down;
-      const t0 = performance.now(); let did = false;
-      function step(now){
-        const t = now - t0; let k;          // 0..1 intensity envelope
-        if(t < up){ k = t/up; }
-        else if(t < up+hold){ k = 1; if(!did && mid){ mid(); did = true; } }
-        else if(t < total){ k = 1-(t-up-hold)/down; }
-        else { k = 0; }
-        disp.setAttribute('scale', (peak*k).toFixed(2));
-        if(blur) blur.setAttribute('stdDeviation', (smear*k).toFixed(2) + ' 0');   // horizontal smear
-        if(t < total){ requestAnimationFrame(step); }
-        else {
-          disp.setAttribute('scale','0');
-          if(blur) blur.setAttribute('stdDeviation','0 0');
-          panel.classList.remove('moshing'); moshing = false; if(mid && !did) mid();
-        }
-      }
-      requestAnimationFrame(step);
-    };
-  })();
-
   /* ---- index → panel router ---- */
   (function(){
     const panel  = document.getElementById('panel');
@@ -1183,7 +1612,17 @@
       const i = g.indexOf(id);
       const prev = g[(i - 1 + g.length) % g.length];
       const next = g[(i + 1) % g.length];
-      const link = (wid, cls, dir) =>
+      // works end like a FOMA project page: the next project in large type behind a
+      // magenta rule, then a quiet previous / index / next row
+      if(g === workIds){
+        const a = (wid, rel, txt) => '<a data-target="'+wid+'" href="#'+wid+'" rel="'+rel+'">'+txt+'</a>';
+        return '<a class="project-next" data-target="'+next+'" href="#'+next+'">'
+          + '<span class="project-next-label"><span class="rule" aria-hidden="true"></span>next project</span>'
+          + esc(titleOf[next] || next) + '</a>'
+          + '<nav class="project-foot" aria-label="Projects">' + a(prev,'prev','← previous')
+          + '<button type="button" class="to-index">index</button>' + a(next,'next','next →') + '</nav>';
+      }
+      const link =(wid, cls, dir) =>
         '<a class="'+cls+'" data-target="'+wid+'" href="#'+wid+'"><span class="dir">'+dir
         +'</span><span class="ttl">'+esc(titleOf[wid] || wid)+'</span></a>';
       const mid = '<span class="proj-mid">'+idx+'<span class="pos">'+(i+1)+' / '+g.length+'</span></span>';
@@ -1205,34 +1644,6 @@
       const t = h ? h.textContent.trim() : '';
       document.title = (t && t !== baseTitle) ? t + ' — ' + baseTitle : baseTitle;
     }
-    const reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    // clone the currently-shown image into an overlay that melts away as the
-    // new view loads — the "previous frame bleeding through" datamosh look
-    function spawnGhost(){
-      if(reduceMotion) return;
-      const hero = panel.querySelector('.work-hero .detail-visual, .work-hero img, .detail-visual');
-      if(!hero) return;
-      const pr = panel.getBoundingClientRect();
-      const hr = hero.getBoundingClientRect();
-      if(hr.width < 2 || hr.height < 2) return;
-      const ghost = document.createElement('div');
-      ghost.className = 'mosh-ghost';
-      ghost.style.left   = (hr.left - pr.left) + 'px';
-      ghost.style.top    = (hr.top  - pr.top)  + 'px';
-      ghost.style.width  = hr.width  + 'px';
-      ghost.style.height = hr.height + 'px';
-      ghost.appendChild(hero.cloneNode(true));
-      // randomize the drag so the bleed pulls a different way each time
-      const dir = Math.random() < 0.5 ? -1 : 1;
-      ghost.style.setProperty('--gx', (dir * (4 + Math.random()*3)).toFixed(1) + '%');
-      ghost.style.setProperty('--gy', ((Math.random()*3 - 1.5)).toFixed(1) + '%');
-      ghost.style.animationDuration = (480 + Math.random()*200).toFixed(0) + 'ms';
-      panel.appendChild(ghost);
-      ghost.addEventListener('animationend', ()=> ghost.remove());
-      setTimeout(()=>{ if(ghost.parentNode) ghost.remove(); }, 1200);
-    }
-
     function clearPanel(){
       currentId = null; panel.innerHTML = ''; setActive(null); document.title = baseTitle;
     }
@@ -1272,20 +1683,27 @@
       const view = viewEl(id);
       if(!view){ clearPanel(); return; }
       currentId = id;
-      if(animate) spawnGhost();          // capture the outgoing image before it's replaced
+      // the view's own CSS fade is the only transition (none with reduced motion)
       const swap = ()=>{
-        // replace the view but keep any active ghost so it bleeds over the new content
-        Array.from(panel.children).forEach(c => { if(!c.classList.contains('mosh-ghost')) c.remove(); });
+        panel.innerHTML = '';
         panel.insertAdjacentHTML('afterbegin', view.outerHTML);
         setActive(id); setTitle(view);
         const v = panel.querySelector('.view');
         if(v){
           v.insertAdjacentHTML('beforeend', navFor(id));
+          // works: ← and → either side of the title, as on Magpie's project pages
+          const head = v.querySelector('.project-head');
+          const g = groupOf(id);
+          if(head && g){
+            const i = g.indexOf(id), prev = g[(i - 1 + g.length) % g.length], next = g[(i + 1) % g.length];
+            const arrow = (wid, cls, ch, label) => '<a class="head-arrow '+cls+'" data-target="'+wid+'" href="#'+wid+'" aria-label="'+label+': '+esc(titleOf[wid] || wid)+'">'+ch+'</a>';
+            head.insertAdjacentHTML('afterbegin', arrow(prev,'prev','←','previous project') + arrow(next,'next','→','next project'));
+          }
           if(focusIt){ v.setAttribute('tabindex','-1'); v.focus({preventScroll:true}); }   // land keyboard/SR users in the new content
         }
         initTriptychs(panel);
       };
-      if(animate){ runMosh(swap); } else { swap(); }
+      swap();
     }
 
     function maybeScroll(){
@@ -1522,5 +1940,6 @@
     });
   })();
 </script>
+<script src="cursor.js" defer></script>
 </body>
 </html>
