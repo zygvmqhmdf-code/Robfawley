@@ -20,7 +20,7 @@ https://robfawley.com/ is sufficient to read everything referenced here.
 - [Deep Fried Cinema](https://robfawley.com/#film): A vertical film, extending Essays for the Gooniverse, made for large-scale display. Shown at Shoreditch Design Week and the Goldsmiths BA Design degree show. 2026.
 - [Essays for the Gooniverse](https://robfawley.com/#gooniverse): A process for translating a written essay into a corpus of short-form video, built around a character (the Goon Guide), a two-object filming rig, and a TikTok data scraper. 2026.
 - [Microsoft: 73% Beef Roast](https://robfawley.com/#horse): A short film made as part of a Microsoft research project on how training-data scarcity shapes the output of language models and image generators. 2025.
-- [Thankyou, Mrs Thatcher, for your Slopitecture?](https://robfawley.com/#thatcher): A speculative architectural proposal for Peckham's Aylesham Centre, examining how deregulation and austerity shape contemporary development. 2025.
+- [Thank you, Mrs Thatcher, for your Slopitecture?](https://robfawley.com/#thatcher): A speculative architectural proposal for Peckham's Aylesham Centre, examining how deregulation and austerity shape contemporary development. 2025.
 
 ## Texts
 
