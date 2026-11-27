@@ -18,12 +18,17 @@ https://robfawley.com/ is sufficient to read everything referenced here.
 ## Works
 
 - [Learning software](https://robfawley.com/#learning): Work in progress. A study app built on the research behind Make It Stick (retrieval, spacing, interleaving), for AQA A-level Philosophy and English Language and Literature. 2026.
+- [Bony meat sticks swiping on my 9:16](https://robfawley.com/#bony): A vertical video on how the 9:16 feed reshapes what we watch, asking how the tools we shaped are reshaping us. 2026.
 - [Deep Fried Cinema](https://robfawley.com/#film): A vertical film, extending Essays for the Gooniverse, made for large-scale display. Shown at Shoreditch Design Week, House of Icon. 2026.
 - [Essays for the Gooniverse](https://robfawley.com/#gooniverse): A process for translating a written essay into a corpus of short-form video, built around a character (the Goon Guide), a two-object filming rig, and a TikTok data scraper. 2026.
 - [Intelligence Vault](https://robfawley.com/#vault): A TikTok scraper and dashboard built for Essays for the Gooniverse; 19,607 videos logged. Findings: faster speech and shorter descriptions correlate with higher median views. Not available to try, as automated collection breaches TikTok's Terms of Service. 2026.
 - [Conway's Multiverse](https://robfawley.com/#conway): Digital colonies stacked upon each other, obeying Conway's Game of Life, imaged with custom software made with FOMA. 2026.
+- [Audiograph](https://robfawley.com/#audiograph): Custom software that turns images into sound, readable again as a spectrogram, with a generative mode and an oscilloscope mode that draws figures with stereo audio. 2026.
 - [FOMA: identity](https://robfawley.com/#foma-identity): The brand for FOMA, the design studio and research lab Rob Fawley founded with Toby Pollard in 2026: logo, Poppins and Instrument Serif type, a grey, ink and pink palette and a 3D bird. 2026.
 - [FOMA: website](https://robfawley.com/#foma-website): The hand-built FOMA website. Work in progress. 2026.
+- [Agent World](https://robfawley.com/#agentworld): Work in progress. A pre-registered experiment on whether an AI agent treats a collaborator differently after that collaborator has failed it, measured by a frozen counting script rather than an AI judge. Pilot complete. 2026.
+- [SafeSteps](https://robfawley.com/#safesteps): Fall-prevention software for NHS hospitals, designed through design sprints, as lead UX and software designer reporting to the CEO. Clinical features specified against NICE, BGS and RCP guidance. 2025.
+- [Celtek](https://robfawley.com/#celtek): A hardcore Celtic folk night Rob Fawley organised and designed at Avalon Cafe, Bermondsey, on 9 May 2025: save the date, line-up, a poster for each act, set times and fly-posting around London. 2025.
 - [73% Beef Roast](https://robfawley.com/#horse): A short film made for Microsoft, as part of The Value of Artificial Ignorance, on how training-data scarcity shapes the output of language models and image generators. 2025.
 - [The Value of Artificial Ignorance](https://robfawley.com/#ignorance): A research project with Microsoft on giving nonhuman knowledge a voice in AI, through limited datasets, a booklet of provocations and a proposal for Epping Forest. 2025.
 - [Material Trials](https://robfawley.com/#trials): Household objects taken apart, photographed without context, and rebuilt to an AI's instructions. Part of The Value of Artificial Ignorance. 2025.
