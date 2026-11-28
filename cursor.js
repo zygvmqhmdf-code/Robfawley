@@ -19,6 +19,10 @@
     '.rf-cursor-dot.over { scale: 1; background: #FF1FA0; }',
     '.rf-cursor-dot.down { scale: 0.14; }',
     '.rf-cursor-dot.over.down { scale: 0.85; }',
+    // Over a film shown full screen (on black) the ink dot would vanish, so it turns white, drawn plainly rather than multiplied.
+    '.rf-cursor-dot.on-dark { background: #fff; mix-blend-mode: normal; }',
+    // and the magenta circle stays see-through, as it is on the white page, so the film shows through it
+    '.rf-cursor-dot.on-dark.over { background: rgba(255, 31, 160, 0.55); }',
   ].join('\n');
   document.head.append(style);
 
@@ -29,14 +33,52 @@
   document.documentElement.classList.add('rf-cursor');
 
   const CLICKABLE = 'a, button, [role="button"], [data-target], label, input, select, textarea, summary, video';
-  addEventListener('pointermove', e => {
-    dot.style.translate = `${e.clientX}px ${e.clientY}px`;
+  let x = -1, y = -1;
+  // Whenever the dot steps aside, the real pointer comes back, so there is never a moment with no cursor at all.
+  const root = document.documentElement;
+  const hide = () => { dot.classList.remove('shown', 'over', 'down'); root.classList.remove('rf-cursor'); };
+  // An embedded player (YouTube) is a separate page: inside it this page hears no movement, so the dot would freeze
+  // at its edge. Over an iframe the dot steps aside and the player's own pointer takes over.
+  const inFrame = el => !!el && el.tagName === 'IFRAME';
+  // a film full screen, or filling the window, sits on black
+  const fsEl = () => document.fullscreenElement || document.webkitFullscreenElement;
+  const onDark = () => !!fsEl() || root.classList.contains('film-theatre');
+  const update = el => {
+    dot.classList.toggle('on-dark', onDark());
+    if (inFrame(el)) { hide(); return; }
+    root.classList.add('rf-cursor');
     dot.classList.add('shown');
-    dot.classList.toggle('over', !!e.target.closest?.(CLICKABLE));
+    dot.classList.toggle('over', !!el?.closest?.(CLICKABLE));
+  };
+  // Belt and braces: if the pointer goes quiet right at a player's edge, assume it went in, even if the browser said nothing.
+  let idle;
+  const nearFrame = () => [...document.querySelectorAll('iframe')].some(f => {
+    const r = f.getBoundingClientRect();
+    return r.width && x > r.left - 6 && x < r.right + 6 && y > r.top - 6 && y < r.bottom + 6;
+  });
+  addEventListener('pointermove', e => {
+    x = e.clientX; y = e.clientY;
+    dot.style.translate = `${x}px ${y}px`;
+    update(e.target);
+    clearTimeout(idle);
+    idle = setTimeout(() => { if (nearFrame()) hide(); }, 140);
   }, { passive: true });
+  addEventListener('pointerover', e => { if (inFrame(e.target)) hide(); }, { passive: true });
+  // Into a player: hide. (Not on every pointerout with no target, which also fires when the page swaps content under a
+  // still pointer and would flash the system cursor.)
+  addEventListener('pointerout', e => { if (inFrame(e.relatedTarget)) hide(); }, { passive: true });
   addEventListener('pointerdown', () => dot.classList.add('down'));
   addEventListener('pointerup', () => dot.classList.remove('down'));
-  // Off the page (the pointer left the window), the dot goes too, instead of sticking at the edge.
-  document.addEventListener('pointerleave', () => dot.classList.remove('shown'));
-  document.documentElement.addEventListener('mouseleave', () => dot.classList.remove('shown'));
+  // The page can move under a still pointer (scrolling, or a project opening at the top), so re-read what's beneath it.
+  const recheck = () => { if (x < 0 || !dot.classList.contains('shown')) return; update(document.elementFromPoint(x, y)); };
+  addEventListener('scroll', () => requestAnimationFrame(recheck), { passive: true });
+  addEventListener('click', () => setTimeout(recheck, 50));
+  addEventListener('hashchange', () => setTimeout(recheck, 50));
+  // Off the page (the pointer left the window, or focus went into a player or another app), the dot goes too.
+  document.documentElement.addEventListener('mouseleave', e => { if (!e.relatedTarget) hide(); });
+  addEventListener('blur', hide);
+  // In true full screen the browser shows only the full-screen element, so the dot moves inside it, and back after.
+  const reparent = () => { (fsEl() || document.body).append(dot); dot.classList.toggle('on-dark', onDark()); };
+  document.addEventListener('fullscreenchange', reparent);
+  document.addEventListener('webkitfullscreenchange', reparent);
 })();

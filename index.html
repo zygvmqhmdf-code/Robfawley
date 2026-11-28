@@ -180,9 +180,7 @@
     background:var(--bg);
   }
 
-  /* clean custom cursors: ink arrow default, ink hand on clickables */
-  html, body{ cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2227%22%20height%3D%2227%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20d%3D%22M5%202%20L5%2023%20L11%2017%20L14.5%2025%20L17.5%2023.7%20L14%2016%20L21%2016%20Z%22%20fill%3D%22%2316150F%22%20stroke%3D%22%23FCFCFA%22%20stroke-width%3D%221.4%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") 4 2, auto; }
-  a, button, summary, label, [role="button"], [data-target], .index a, .go, .mail, .name, .proj-nav a{ cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2227%22%20height%3D%2227%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20d%3D%22M11.5%203.2%20a2%202%200%200%201%204%200%20v8.8%20a1.5%201.5%200%200%201%203%200%20a1.5%201.5%200%200%201%203%200%20a1.4%201.4%200%200%201%202.8%200%20c1.1%200%202%20.9%202%202%20v4.5%20a6%206%200%200%201%20-6%206%20h-6%20c-1.3%200-2.5-.5-3.4-1.4%20l-3.4-3.4%20a2%202%200%200%201%202.8-2.8%20l1.2%201.2%20Z%22%20fill%3D%22%2316150F%22%20stroke%3D%22%23FCFCFA%22%20stroke-width%3D%221.4%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") 11 1, pointer; }
+  /* the pointer is the magenta dot drawn by cursor.js; no second, CSS-drawn cursor competes with it */
   /* selected text: a neutral ink highlight, not the brand magenta */
   ::selection{ background:var(--ink); color:#fff; }
   a{ color:inherit; text-decoration:none; }
@@ -192,7 +190,7 @@
   .cap, .status, .colophon-mini, .sheet > header nav a, .sheet > header nav button, .dancer-cap,
   .index .y, .view--read .toc a, .reading h2.part, .reading h3, .reading blockquote cite, .reading .refs,
   .view .meta, .view .go, .trip-count, .proj-nav .dir, .pos, .to-index, .view .sociallinks,
-  #preview .pv .fmt, .film-time, .work-body h2, .work-body .steps li::before, .view figcaption,
+  .film-time, .work-body h2, .work-body .steps li::before, .view figcaption,
   .work-links, .trip-caption, .project-tags, .project-next-label, .project-foot, .head-arrow{ font-family:var(--mono); }
   .cap{ font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--dim); font-weight:400; }
 
@@ -228,7 +226,13 @@
   }
 
   /* LEFT — the persistent index. sticks while the right side scrolls. */
-  .index-col{ position:sticky; top:clamp(1.5rem,5vw,3rem); align-self:start; }
+  /* the list stays put beside a long project, but it is taller than most windows, so it scrolls on its own
+     rather than hiding the last projects below the bottom edge */
+  .index-col{ position:sticky; top:clamp(1.5rem,5vw,3rem); align-self:start;
+    max-height:calc(100vh - clamp(1.5rem,5vw,3rem)); overflow-y:auto; scrollbar-width:none; padding-bottom:1.5rem;
+    /* a scrolling box clips whatever sticks out of it, so it reaches out to the left to keep the open project's pink marker in view */
+    padding-left:1.4rem; margin-left:-1.4rem; }
+  .index-col::-webkit-scrollbar{ display:none; }
   .status{ margin-bottom:clamp(2.4rem,5vw,3.4rem); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); font-weight:400; }
   .sep{ color:var(--r-mag); margin:0 .5em; display:inline-block; transform:translateY(.06em); }
   .index-group{ margin-bottom:clamp(2.4rem,5vw,3.4rem); }
@@ -459,37 +463,57 @@
   .s5{ background:linear-gradient(150deg,#f0a6d6,#a23ca0) }
   .s6{ background:repeating-linear-gradient(45deg,#222 0 10px,#0e0e10 10px 20px) }
 
-  /* hover-reveal fried preview (kept) */
-  #preview{ position:fixed; top:0; left:0; width:210px; height:158px; pointer-events:none; z-index:60; opacity:0; transform:translate(-50%,-118%) scale(.95); transition:opacity .16s ease, transform .16s ease; }
-  #preview.show{ opacity:1; transform:translate(-50%,-118%) scale(1); }
-  #preview .pv{ position:relative; width:100%; height:100%; overflow:hidden; filter:contrast(1.6) saturate(2.5) brightness(1.04); box-shadow:0 10px 30px rgba(0,0,0,.22); }
-  #preview .pv::after{ content:""; position:absolute; inset:0; background:var(--dither); background-size:120px; mix-blend-mode:multiply; opacity:.3; }
-  #preview .pv .fmt{ position:absolute; left:.5rem; bottom:.45rem; font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.92); text-shadow:0 1px 2px rgba(0,0,0,.5); }
-  #preview .pv.has-img{ background-size:cover; background-position:center; }
 
 
     /* film work — vertical, click-to-load youtube with our own controls */
     .filmbox{ width:min(calc(78vh * 9 / 16), 100%); margin:0 auto; }
     .film-stage{ position:relative; aspect-ratio:9/16; width:100%; background:#16150F; overflow:hidden; }
     .film-poster{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+    /* the play button, shown only before the film starts: no circle, just a large white triangle with a soft shadow */
     .film-play{
-      position:absolute; inset:0; margin:auto; width:4.2rem; height:4.2rem;
-      display:flex; align-items:center; justify-content:center;
-      background:rgba(22,21,15,.55); border:1px solid rgba(252,252,250,.9);
-      color:#FCFCFA; font-family:inherit; font-size:1rem; padding-left:.18rem;
-      transition:background .2s, border-color .2s;
+      position:absolute; inset:0; margin:auto; width:88px; height:88px; z-index:3;
+      display:flex; align-items:center; justify-content:center; border:0; padding:0; border-radius:50%;
+      background:none; color:#fff; transition:transform .25s cubic-bezier(.2,.7,.2,1);
     }
-    .film-play:hover{ background:var(--r-mag); border-color:var(--r-mag); }
+    .film-play:hover, .film-play:focus-visible{ transform:scale(1.08); }
+    .film-play .ico{ width:64px; height:64px; display:block; filter:drop-shadow(0 3px 10px rgba(0,0,0,.45)); }
     .film-mount{ position:absolute; inset:0; display:none; }
-    .film-mount iframe{ width:100%; height:100%; border:0; display:block; }
+    /* YouTube's own hover chrome (its title bar and grey play circle) never appears: the player takes no pointer
+       events, and a click anywhere on the film plays or pauses it through these controls instead */
+    .film-mount iframe{ width:100%; height:100%; border:0; display:block; pointer-events:none; }
     .filmbox.is-live .film-mount{ display:block; }
+    .filmbox.is-live .film-stage{ cursor:pointer; }
     .filmbox.is-live .film-poster, .filmbox.is-live .film-play{ display:none; }
     .film-bar{ display:flex; align-items:center; gap:1rem; margin-top:1rem; }
-    .film-toggle{ background:none; border:0; font-family:inherit; font-size:.95rem; color:var(--ink); padding:.1rem .4rem; }
-    .film-track{ flex:1; position:relative; height:14px; display:flex; align-items:center; }
-    .film-track::before{ content:""; position:absolute; left:0; right:0; height:2px; background:var(--line-2); }
-    .film-fill{ position:relative; height:2px; width:0; background:var(--r-mag); }
-    .film-time{ font-size:.66rem; letter-spacing:.1em; color:var(--dim); min-width:9ch; text-align:right; }
+    .film-toggle{ display:flex; align-items:center; justify-content:center; min-width:2.2rem; min-height:2.2rem; cursor:pointer;
+      background:none; border:0; color:var(--ink); padding:0; }
+    .film-toggle .ico{ width:1rem; height:1rem; display:block; }
+    /* the timeline: a thin line with a handle, on a tall strip that is easy to grab and drag */
+    .film-track{ flex:1; position:relative; height:28px; display:flex; align-items:center; cursor:pointer; touch-action:none; }
+    .film-track::before{ content:""; position:absolute; left:0; right:0; height:3px; border-radius:2px; background:var(--line-2); }
+    .film-fill{ position:relative; height:3px; width:0; border-radius:2px; background:var(--r-mag); }
+    .film-fill::after{ content:""; position:absolute; right:-6px; top:50%; width:12px; height:12px; margin-top:-6px; border-radius:50%;
+      background:var(--r-mag); transform:scale(.75); transition:transform .15s; }
+    .film-track:hover .film-fill::after, .film-track.dragging .film-fill::after, .film-track:focus-visible .film-fill::after{ transform:scale(1.15); }
+    .film-track:focus-visible{ outline:2px solid var(--r-mag); outline-offset:4px; }
+    .film-time{ font-size:.66rem; letter-spacing:.1em; color:var(--dim); min-width:9ch; text-align:right; font-variant-numeric:tabular-nums; }
+    .film-full{ display:flex; align-items:center; justify-content:center; min-width:2.2rem; min-height:2.2rem; background:none; border:0; padding:0; color:var(--ink); cursor:pointer; }
+    .film-full .ico{ width:1rem; height:1rem; display:block; }
+    /* full screen: the film as large as fits, on black, with the controls underneath in white */
+    /* where a browser refuses real full screen (embedded browsers, iPhone), the player fills the window instead */
+    .filmbox.is-theatre{ position:fixed; inset:0; z-index:2147483000; }
+    .filmbox:fullscreen, .filmbox.is-theatre{ width:100vw; height:100vh; max-width:none; margin:0; background:#000; display:flex; flex-direction:column;
+      align-items:center; justify-content:center; padding:2vh 3vw; box-sizing:border-box; }
+    .filmbox:fullscreen .film-stage, .filmbox.is-theatre .film-stage{ width:auto; height:min(calc(100vh - 7rem), calc(94vw * 16 / 9)); max-width:94vw; }
+    .filmbox--wide:fullscreen .film-stage, .filmbox--wide.is-theatre .film-stage{ height:min(calc(100vh - 7rem), calc(94vw * 9 / 16)); }
+    .filmbox:fullscreen .film-bar, .filmbox.is-theatre .film-bar{ align-self:stretch; max-width:94vw; margin:1rem auto 0; width:100%; }
+    .filmbox:fullscreen .film-toggle, .filmbox:fullscreen .film-full, .filmbox.is-theatre .film-toggle, .filmbox.is-theatre .film-full{ color:#fff; }
+    .filmbox:fullscreen .film-time, .filmbox.is-theatre .film-time{ color:#BDBDBD; }
+    .filmbox:fullscreen .film-track::before, .filmbox.is-theatre .film-track::before{ background:rgba(255,255,255,.3); }
+    html.film-theatre{ overflow:hidden; }
+    /* landscape films (73% Beef Roast) use the same player at 16:9, the panel's full width */
+    .filmbox--wide{ width:100%; }
+    .filmbox--wide .film-stage{ aspect-ratio:16/9; }
     @media(max-width:720px){ .filmbox{ width:100%; } }
 
 
@@ -530,9 +554,10 @@
   .project-head{ display:grid; grid-template-columns:2.5rem minmax(0,1fr) 2.5rem; column-gap:1rem;
     align-items:start; text-align:center; margin:clamp(.5rem,2vw,1.5rem) 0 clamp(2.8rem,5.5vw,4.5rem); }
   .project-head > *{ grid-column:2; }
-  .view.project h1{ grid-row:1; font-weight:200; font-size:clamp(2rem,3.8vw,2.9rem); line-height:1.1;
+  .project-head{ --h1fs:clamp(2rem,3.8vw,2.9rem); }
+  .view.project h1{ grid-row:1; font-weight:200; font-size:var(--h1fs); line-height:1.1;
     letter-spacing:-.015em; text-wrap:balance; }
-  .head-arrow{ grid-row:1; align-self:center; font-size:1.3rem; line-height:1; color:var(--ink); padding:.4rem 0; transition:color .2s, transform .2s; }
+  .head-arrow{ grid-row:1; align-self:start; margin-top:calc((var(--h1fs) * 1.1 - 2.1rem) / 2); font-size:1.3rem; line-height:1; color:var(--ink); padding:.4rem 0; transition:color .2s, transform .2s; }
   .head-arrow.prev{ grid-column:1; justify-self:start; }
   .head-arrow.next{ grid-column:3; justify-self:end; }
   .head-arrow.prev:hover{ transform:translateX(-3px); }
@@ -616,7 +641,7 @@
   @media(max-width:720px){
     .layout{ grid-template-columns:1fr; gap:clamp(2.5rem,9vw,3.5rem); }
     .panel-col{ order:1; }
-    .index-col{ order:2; position:static;
+    .index-col{ order:2; position:static; max-height:none; overflow:visible; padding-bottom:0; padding-left:0; margin-left:0;
       /* stop chrome's scroll anchoring pinning the tapped row in place while the
          panel above it grows: without this, opening a long work lands you at the
          bottom of the new page instead of the top */
@@ -643,8 +668,6 @@
 </head>
 <body>
 
-<!-- floating fried preview -->
-<div id="preview" aria-hidden="true"><div class="pv s1"><span class="fmt"></span></div></div>
 
 <div class="sheet">
 
@@ -665,32 +688,31 @@
       <!--
         EDIT each row: title (.t), year (.y), and the data-* attributes.
         data-target  = id of the matching view in #store below
-        data-swatch  = s1..s6 for the hover preview + detail visual
-        data-fmt     = label shown on the fried preview
+        data-swatch  = s1..s6 for the detail visual
       -->
       <div class="index-group" id="works">
-        <span class="cap">selected works</span>
+        <span class="cap">selected work</span>
         <div class="index">
-          <a href="#learning" data-target="learning" data-swatch="s1" data-thumb="learning-thumb.jpg" data-fmt="software"><span class="t glitch">learning software</span><span class="y">wip</span></a>
-          <a href="#foma-website" data-target="foma-website" data-swatch="s3" data-thumb="foma-web-thumb.jpg" data-fmt="website"><span class="t glitch">foma: website</span><span class="y">wip</span></a>
-          <a href="#agentworld" data-target="agentworld" data-swatch="s5" data-thumb="agentworld-thumb.jpg" data-fmt="research"><span class="t glitch">agent world</span><span class="y">wip</span></a>
-          <a href="#bony" data-target="bony" data-swatch="s1" data-thumb="bony-thumb.jpg" data-fmt="film"><span class="t glitch">bony meat sticks swiping on my 9:16</span><span class="y">2026</span></a>
-          <a href="#foma-identity" data-target="foma-identity" data-swatch="s3" data-thumb="foma-id-thumb.jpg" data-fmt="identity"><span class="t glitch">foma: identity</span><span class="y">2026</span></a>
-          <a href="#conway" data-target="conway" data-swatch="s5" data-thumb="conway-thumb.jpg" data-fmt="software"><span class="t glitch">conway&rsquo;s multiverse</span><span class="y">2026</span></a>
-          <a href="#audiograph" data-target="audiograph" data-swatch="s2" data-thumb="audiograph-thumb.jpg" data-fmt="software"><span class="t glitch">audiograph</span><span class="y">2026</span></a>
-          <a href="#essay4" data-target="essay4" data-swatch="s2" data-thumb="terraforming-thumb.jpg" data-fmt="writing"><span class="t glitch">digital terraforming</span><span class="y">2026</span></a>
-          <a href="#film" data-target="film" data-swatch="s6" data-thumb="film-thumb.jpg" data-fmt="film"><span class="t glitch">deep fried cinema</span><span class="y">2026</span></a>
-          <a href="#gooniverse" data-target="gooniverse" data-swatch="s2" data-thumb="goon-thumb-new.jpg" data-fmt="process"><span class="t glitch">essays for the gooniverse</span><span class="y">2026</span></a>
-          <a href="#vault" data-target="vault" data-swatch="s4" data-thumb="vault-thumb.jpg" data-fmt="software"><span class="t glitch">intelligence vault</span><span class="y">2026</span></a>
-          <a href="#essay3" data-target="essay3" data-swatch="s3" data-thumb="sam-thumb.jpg" data-fmt="writing"><span class="t glitch">sam and the technologically driven epistemic hyper-fragmentation</span><span class="y">2026</span></a>
-          <a href="#safesteps" data-target="safesteps" data-swatch="s4" data-thumb="safesteps-thumb.jpg" data-fmt="software"><span class="t glitch">safesteps</span><span class="y">2025</span></a>
-          <a href="#celtek" data-target="celtek" data-swatch="s6" data-thumb="celtek-thumb.jpg" data-fmt="event"><span class="t glitch">celtek</span><span class="y">2025</span></a>
-          <a href="#horse"   data-target="horse"   data-swatch="s1" data-thumb="beef-roast-thumb.jpg" data-fmt="film"><span class="t glitch">microsoft: 73% beef roast</span><span class="y">2025</span></a>
-          <a href="#ignorance" data-target="ignorance" data-swatch="s5" data-thumb="ignorance-thumb.jpg" data-fmt="research"><span class="t glitch">microsoft: the value of artificial ignorance</span><span class="y">2025</span></a>
-          <a href="#trials" data-target="trials" data-swatch="s4" data-thumb="ignorance-trials-1.jpg" data-fmt="objects"><span class="t glitch">microsoft: material trials</span><span class="y">2025</span></a>
-          <a href="#thatcher" data-target="thatcher" data-swatch="s3" data-thumb="thatcher-thumb.jpg" data-fmt="proposal"><span class="t glitch">thank you, mrs thatcher, for your slopitecture?</span><span class="y">2025</span></a>
-          <a href="#essay1" data-target="essay1" data-swatch="s4" data-thumb="meal-thumb.jpg" data-fmt="writing"><span class="t glitch">the rhythm of the meal</span><span class="y">2025</span></a>
-          <a href="#essay2" data-target="essay2" data-swatch="s5" data-thumb="chair-thumb.jpg" data-fmt="writing"><span class="t glitch">a chair from the steppe</span><span class="y">2025</span></a>
+          <a href="#learning" data-target="learning" data-swatch="s1"><span class="t glitch">learning software</span><span class="y">wip</span></a>
+          <a href="#agentworld" data-target="agentworld" data-swatch="s5"><span class="t glitch">agent world</span><span class="y">wip</span></a>
+          <a href="#foma-website" data-target="foma-website" data-swatch="s3"><span class="t glitch">foma: website</span><span class="y">wip</span></a>
+          <a href="#foma-identity" data-target="foma-identity" data-swatch="s3"><span class="t glitch">foma: identity</span><span class="y">2026</span></a>
+          <a href="#conway" data-target="conway" data-swatch="s5"><span class="t glitch">conway&rsquo;s multiverse</span><span class="y">2026</span></a>
+          <a href="#audiograph" data-target="audiograph" data-swatch="s2"><span class="t glitch">audiograph</span><span class="y">2026</span></a>
+          <a href="#essay4" data-target="essay4" data-swatch="s2"><span class="t glitch">digital terraforming</span><span class="y">2026</span></a>
+          <a href="#film" data-target="film" data-swatch="s6"><span class="t glitch">deep fried cinema</span><span class="y">2026</span></a>
+          <a href="#gooniverse" data-target="gooniverse" data-swatch="s2"><span class="t glitch">essays for the gooniverse</span><span class="y">2026</span></a>
+          <a href="#vault" data-target="vault" data-swatch="s4"><span class="t glitch">intelligence vault</span><span class="y">2026</span></a>
+          <a href="#essay3" data-target="essay3" data-swatch="s3"><span class="t glitch">sam and the technologically driven epistemic hyper-fragmentation</span><span class="y">2026</span></a>
+          <a href="#bony" data-target="bony" data-swatch="s1"><span class="t glitch">bony meat sticks swiping on my 9:16</span><span class="y">2026</span></a>
+          <a href="#safesteps" data-target="safesteps" data-swatch="s4"><span class="t glitch">safesteps</span><span class="y">2025</span></a>
+          <a href="#celtek" data-target="celtek" data-swatch="s6"><span class="t glitch">celtek</span><span class="y">2025</span></a>
+          <a href="#horse"   data-target="horse"   data-swatch="s1"><span class="t glitch">microsoft: 73% beef roast</span><span class="y">2025</span></a>
+          <a href="#ignorance" data-target="ignorance" data-swatch="s5"><span class="t glitch">microsoft: the value of artificial ignorance</span><span class="y">2025</span></a>
+          <a href="#trials" data-target="trials" data-swatch="s4"><span class="t glitch">microsoft: material trials</span><span class="y">2025</span></a>
+          <a href="#thatcher" data-target="thatcher" data-swatch="s3"><span class="t glitch">thank you, mrs thatcher, for your slopitecture?</span><span class="y">2025</span></a>
+          <a href="#essay1" data-target="essay1" data-swatch="s4"><span class="t glitch">the rhythm of the meal</span><span class="y">2025</span></a>
+          <a href="#essay2" data-target="essay2" data-swatch="s5"><span class="t glitch">a chair from the steppe</span><span class="y">2025</span></a>
         </div>
       </div>
 
@@ -737,13 +759,14 @@
           <div class="filmbox" data-yt="Zq-tiFJuyPw">
             <div class="film-stage">
               <img class="film-poster" loading="lazy" src="film-poster.jpg" alt="A man in a polo shirt and chinos walks toward a terraced house, seen through an augmented-reality overlay: a target reticle, a rising damage counter, a badge icon, and a translucent horse rearing beside the doorway." />
-              <button class="film-play" type="button" aria-label="play film">▶</button>
+              <button class="film-play" type="button" aria-label="play film"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 2.6v10.8L13 8z" fill="currentColor"/></svg></button>
               <div class="film-mount"></div>
             </div>
             <div class="film-bar" hidden>
-              <button class="film-toggle" type="button" aria-label="play or pause">▶</button>
+              <button class="film-toggle" type="button" aria-label="play"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 2.6v10.8L13 8z" fill="currentColor"/></svg></button>
               <div class="film-track"><span class="film-fill"></span></div>
               <span class="film-time">0:00 / 0:00</span>
+              <button class="film-full" type="button" aria-label="full screen"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
             </div>
             <noscript><a class="go" href="https://www.youtube.com/watch?v=Zq-tiFJuyPw" target="_blank" rel="noopener">watch on youtube ↗</a></noscript>
           </div>
@@ -989,13 +1012,14 @@
           <div class="filmbox" data-yt="_Pc-Z2Szk5k">
             <div class="film-stage">
               <img class="film-poster" loading="lazy" src="bony-poster.jpg" alt="A still from the video: an AI-generated image of a laughing man in a hospital bed, holding a bundle of babies that all share his face." />
-              <button class="film-play" type="button" aria-label="play film">▶</button>
+              <button class="film-play" type="button" aria-label="play film"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 2.6v10.8L13 8z" fill="currentColor"/></svg></button>
               <div class="film-mount"></div>
             </div>
             <div class="film-bar" hidden>
-              <button class="film-toggle" type="button" aria-label="play or pause">▶</button>
+              <button class="film-toggle" type="button" aria-label="play"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 2.6v10.8L13 8z" fill="currentColor"/></svg></button>
               <div class="film-track"><span class="film-fill"></span></div>
               <span class="film-time">0:00 / 0:00</span>
+              <button class="film-full" type="button" aria-label="full screen"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
             </div>
             <noscript><a class="go" href="https://www.youtube.com/watch?v=_Pc-Z2Szk5k" target="_blank" rel="noopener">watch on youtube ↗</a></noscript>
           </div>
@@ -1290,10 +1314,20 @@
       <p class="project-tags">Film, 2025, for Microsoft.</p>
     </header>
     <figure class="work-hero project-hero">
-      <video class="work-video" controls preload="none" playsinline poster="beef-roast-poster.jpg">
-        <source src="beef-roast.mp4" type="video/mp4">
-        your browser doesn't support embedded video. <a href="beef-roast.mp4">download the film ↗</a>
-      </video>
+          <div class="filmbox filmbox--wide" data-yt="xrVNnsBl5R4">
+            <div class="film-stage">
+              <img class="film-poster" loading="lazy" src="beef-roast-poster.jpg" alt="A still from 73% Beef Roast." />
+              <button class="film-play" type="button" aria-label="play film"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 2.6v10.8L13 8z" fill="currentColor"/></svg></button>
+              <div class="film-mount"></div>
+            </div>
+            <div class="film-bar" hidden>
+              <button class="film-toggle" type="button" aria-label="play"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 2.6v10.8L13 8z" fill="currentColor"/></svg></button>
+              <div class="film-track"><span class="film-fill"></span></div>
+              <span class="film-time">0:00 / 0:00</span>
+              <button class="film-full" type="button" aria-label="full screen"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+            </div>
+            <noscript><a class="go" href="https://www.youtube.com/watch?v=xrVNnsBl5R4" target="_blank" rel="noopener">watch on youtube ↗</a></noscript>
+          </div>
           <figcaption>The film, made for Microsoft.</figcaption>
         </figure>
     <div class="project-text">
@@ -1831,31 +1865,6 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* ---- hover-reveal fried preview on work rows ---- */
-  (function(){
-    const pv = document.getElementById('preview');
-    if(!pv || (window.matchMedia && matchMedia('(hover: none)').matches)) return;
-    const inner = pv.querySelector('.pv'), fmt = pv.querySelector('.fmt');
-    document.querySelectorAll('#works .index a[data-swatch]').forEach(row=>{
-      row.addEventListener('mouseenter', ()=>{
-        if(row.dataset.thumb){
-          inner.className = 'pv has-img';
-          inner.style.backgroundImage = 'url("' + row.dataset.thumb + '")';
-        } else {
-          inner.className = 'pv ' + (row.dataset.swatch || 's1');
-          inner.style.backgroundImage = '';
-        }
-        fmt.textContent = row.dataset.fmt || '';
-        pv.classList.add('show');
-      });
-      row.addEventListener('mouseleave', ()=> pv.classList.remove('show'));
-    });
-    window.addEventListener('mousemove', e=>{
-      if(!pv.classList.contains('show')) return;
-      pv.style.left = e.clientX + 'px';
-      pv.style.top = Math.max(120, e.clientY) + 'px';
-    }, {passive:true});
-  })();
 
   /* ---- index → panel router ---- */
   (function(){
@@ -1930,6 +1939,7 @@
       document.title = (t && t !== baseTitle) ? t + ' — ' + baseTitle : baseTitle;
     }
     function clearPanel(){
+      document.documentElement.classList.remove('film-theatre');
       currentId = null; panel.innerHTML = ''; setActive(null); document.title = baseTitle;
     }
     function initTriptychs(root){
@@ -1970,6 +1980,7 @@
       currentId = id;
       // the view's own CSS fade is the only transition (none with reduced motion)
       const swap = ()=>{
+        document.documentElement.classList.remove('film-theatre');
         panel.innerHTML = '';
         panel.insertAdjacentHTML('afterbegin', view.outerHTML);
         setActive(id); setTitle(view);
@@ -1995,10 +2006,11 @@
       swap();
     }
 
+    // every project opens at the very top of the page: on desktop the index stays pinned beside it,
+    // and on phones the project comes first with the index below, so the top is right on both
+    if('scrollRestoration' in history) history.scrollRestoration = 'manual';
     function maybeScroll(){
-      if((window.matchMedia && matchMedia('(max-width:720px)').matches) || panel.getBoundingClientRect().top < 0){
-        panel.scrollIntoView({behavior:'smooth', block:'start'});
-      }
+      window.scrollTo({top:0, left:0, behavior:'instant'});
     }
     function navigate(id){
       if(!viewEl(id) || id === currentId) return;
@@ -2051,7 +2063,7 @@
     function route(animate){
       if(location.hash === '#coredump') history.replaceState(null, '', '#audiograph');   // the project was called Core Dump
       const id = topLevel ? location.hash.slice(1) : '';
-      if(viewEl(id)){ show(id, animate, false); } else { clearPanel(); }
+      if(viewEl(id)){ show(id, animate, false); if(animate) maybeScroll(); } else { clearPanel(); }
     }
     window.addEventListener('popstate', ()=> route(true));
     route(false);
@@ -2180,6 +2192,8 @@
       return api;
     }
     const fmt = s => { s = Math.max(0, Math.floor(s||0)); return Math.floor(s/60) + ':' + String(s%60).padStart(2,'0'); };
+    const PLAY_ICON = '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 2.6v10.8L13 8z" fill="currentColor"/></svg>';
+    const PAUSE_ICON = '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 2.5h3v11H4zM9 2.5h3v11H9z" fill="currentColor"/></svg>';
 
     function start(box){
       if(box.__on) return; box.__on = true;
@@ -2188,48 +2202,106 @@
             track = box.querySelector('.film-track'),
             fill = box.querySelector('.film-fill'),
             time = box.querySelector('.film-time'),
+            stage = box.querySelector('.film-stage'),
             host = document.createElement('div');
       box.querySelector('.film-mount').appendChild(host);
       box.classList.add('is-live');
+      // the timeline is a slider for keyboards and screen readers too
+      track.setAttribute('role', 'slider'); track.setAttribute('tabindex', '0'); track.setAttribute('aria-label', 'seek');
+      track.setAttribute('aria-valuemin', '0');
 
       loadAPI().then(()=>{
+        let dragging = false, dragT = 0;
         const p = new YT.Player(host, {
           host: 'https://www.youtube-nocookie.com',
           videoId: box.dataset.yt,
-          playerVars: { controls:0, rel:0, playsinline:1 },
+          playerVars: { controls:0, rel:0, playsinline:1, modestbranding:1, iv_load_policy:3, disablekb:1, fs:0 },
           events: {
             onReady(){ bar.hidden = false; p.playVideo(); tick(); },
-            onStateChange(e){ toggle.textContent = (e.data === YT.PlayerState.PLAYING) ? '❚❚' : '▶'; }
+            onStateChange(e){
+              const on = e.data === YT.PlayerState.PLAYING;
+              toggle.innerHTML = on ? PAUSE_ICON : PLAY_ICON; toggle.setAttribute('aria-label', on ? 'pause' : 'play');
+              box.classList.toggle('is-paused', e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED);
+            }
           }
         });
+        const dur = () => (p.getDuration && p.getDuration()) || 0;
+        const show = t => {
+          const d = dur();
+          fill.style.width = d ? Math.min(100, t / d * 100) + '%' : '0%';
+          time.textContent = fmt(t) + ' / ' + fmt(d);
+          track.setAttribute('aria-valuemax', String(Math.round(d)));
+          track.setAttribute('aria-valuenow', String(Math.round(t)));
+          track.setAttribute('aria-valuetext', fmt(t) + ' of ' + fmt(d));
+        };
         function tick(){
           if(!document.contains(box)){ try{ p.destroy(); }catch(err){} return; }
-          if(p.getDuration){
-            const d = p.getDuration() || 0, t = p.getCurrentTime() || 0;
-            fill.style.width = d ? (t/d*100) + '%' : '0%';
-            time.textContent = fmt(t) + ' / ' + fmt(d);
-          }
+          if(!dragging && p.getCurrentTime) show(p.getCurrentTime() || 0);
           setTimeout(tick, 250);
         }
-        toggle.addEventListener('click', ()=>{
-          if(p.getPlayerState() === YT.PlayerState.PLAYING) p.pauseVideo(); else p.playVideo();
+        // still loading counts as playing, so pause works from the first second
+        const playPause = () => { if(typeof p.getPlayerState !== 'function') return;   // still loading: YouTube hasn't attached its methods yet
+          const st = p.getPlayerState(); if(st === YT.PlayerState.PLAYING || st === YT.PlayerState.BUFFERING) p.pauseVideo(); else p.playVideo(); };
+        toggle.addEventListener('click', playPause);
+        // click anywhere on the film (or the white button when paused) to play or pause
+        stage.addEventListener('click', e => { if(box.classList.contains('is-live')){ e.preventDefault(); playPause(); } });
+        // drag the timeline: the handle follows the pointer and the film jumps when you let go
+        const at = e => { const r = track.getBoundingClientRect(); return Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)) * dur(); };
+        track.addEventListener('pointerdown', e => {
+          if(!dur()) return;
+          dragging = true; track.classList.add('dragging'); track.setPointerCapture(e.pointerId);
+          dragT = at(e); show(dragT); e.preventDefault();
         });
-        track.addEventListener('click', e=>{
-          const r = track.getBoundingClientRect(), d = p.getDuration() || 0;
-          if(d) p.seekTo(d * ((e.clientX - r.left) / r.width), true);
+        track.addEventListener('pointermove', e => { if(dragging){ dragT = at(e); show(dragT); } });
+        const drop = () => { if(!dragging) return; dragging = false; track.classList.remove('dragging'); p.seekTo(dragT, true); };
+        track.addEventListener('pointerup', drop);
+        track.addEventListener('pointercancel', drop);
+        track.addEventListener('keydown', e => {
+          const d = dur(); if(!d) return;
+          const t = p.getCurrentTime() || 0, step = { ArrowLeft:-5, ArrowRight:5, PageDown:-30, PageUp:30 }[e.key];
+          let to = null;
+          if(step !== undefined) to = t + step; else if(e.key === 'Home') to = 0; else if(e.key === 'End') to = d - 1;
+          if(to === null) return;
+          e.preventDefault(); to = Math.min(d, Math.max(0, to)); p.seekTo(to, true); show(to);
         });
       });
     }
 
+    // full screen: the whole player (film and controls) fills the screen. If the browser refuses (embedded browsers,
+    // iPhone), it fills the window instead; the same button or Esc closes either.
+    const FS_IN = '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>', FS_OUT = '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M6 2v4H2M14 6h-4V2M10 14v-4h4M2 10h4v4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+    const fsEl = () => document.fullscreenElement || document.webkitFullscreenElement;
+    const theatre = (box, on) => { box.classList.toggle('is-theatre', on); document.documentElement.classList.toggle('film-theatre', on); fsSync(); };
     panel.addEventListener('click', e=>{
-      const btn = e.target.closest('.film-play');
+      const fb = e.target.closest('.film-full'); if(!fb) return;
+      const box = fb.closest('.filmbox'); e.preventDefault();
+      if(!box.__on && box.dataset.yt) start(box);
+      if(fsEl() === box){ (document.exitFullscreen || document.webkitExitFullscreen).call(document); return; }
+      if(box.classList.contains('is-theatre')){ theatre(box, false); return; }
+      const req = box.requestFullscreen || box.webkitRequestFullscreen;
+      if(!req){ theatre(box, true); return; }
+      try{ const r = req.call(box); if(r && r.catch) r.catch(()=>{}); }catch(err){}
+      // some browsers accept the request and then never go full screen, so check, and fill the window if not
+      setTimeout(()=>{ if(fsEl() !== box && !box.classList.contains('is-theatre')) theatre(box, true); }, 450);
+    });
+    // Esc closes the full-window film first, and stops there (the site's own Esc would otherwise go to the homepage)
+    window.addEventListener('keydown', e=>{ if(e.key !== 'Escape') return; const t = document.querySelector('.filmbox.is-theatre'); if(t){ theatre(t, false); e.preventDefault(); e.stopImmediatePropagation(); } }, true);
+    const fsSync = () => document.querySelectorAll('.film-full').forEach(b => {
+      const box = b.closest('.filmbox'), on = fsEl() === box || box.classList.contains('is-theatre');
+      b.innerHTML = on ? FS_OUT : FS_IN; b.setAttribute('aria-label', on ? 'exit full screen' : 'full screen');
+    });
+    document.addEventListener('fullscreenchange', fsSync); document.addEventListener('webkitfullscreenchange', fsSync);
+
+    panel.addEventListener('click', e=>{
+      const btn = e.target.closest('.film-play, .film-toggle, .film-track');
       if(!btn) return;
-      e.preventDefault();
       const box = btn.closest('.filmbox');
-      if(box && box.dataset.yt) start(box);
+      if(!box || !box.dataset.yt || box.__on) return;   // once running, the film's own controls take over
+      e.preventDefault();
+      start(box);
     });
   })();
 </script>
-<script src="cursor.js" defer></script>
+<script src="cursor.js?v=7" defer></script>
 </body>
 </html>
